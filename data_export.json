@@ -1,0 +1,1767 @@
+{
+  "meta": {
+    "title": "聂氏族谱",
+    "updated": "2026-07-09",
+    "total_generations": 14,
+    "total_people": 388
+  },
+  "beifen": [
+    {
+      "gen": "始祖",
+      "char": ""
+    },
+    {
+      "gen": "二世",
+      "char": "单字"
+    },
+    {
+      "gen": "三世",
+      "char": "进"
+    },
+    {
+      "gen": "四世",
+      "char": "登"
+    },
+    {
+      "gen": "五世",
+      "char": "国"
+    },
+    {
+      "gen": "六世",
+      "char": "从"
+    },
+    {
+      "gen": "七世",
+      "char": "单字"
+    },
+    {
+      "gen": "八世",
+      "char": "文"
+    },
+    {
+      "gen": "九世",
+      "char": "清"
+    },
+    {
+      "gen": "十世",
+      "char": "长"
+    },
+    {
+      "gen": "十一世",
+      "char": "德"
+    },
+    {
+      "gen": "十二世",
+      "char": "广"
+    },
+    {
+      "gen": "十三世",
+      "char": "成"
+    },
+    {
+      "gen": "十四世",
+      "char": "先"
+    },
+    {
+      "gen": "十五世",
+      "char": "印"
+    },
+    {
+      "gen": "十六世",
+      "char": "家"
+    },
+    {
+      "gen": "十七世",
+      "char": "吉"
+    },
+    {
+      "gen": "十八世",
+      "char": "永"
+    },
+    {
+      "gen": "十九世",
+      "char": "庆"
+    },
+    {
+      "gen": "二十世",
+      "char": "昌"
+    }
+  ],
+  "people": [
+    {
+      "generation": "始祖",
+      "members": [
+        {
+          "name": "聶天榮",
+          "spouse": "曹氏"
+        }
+      ]
+    },
+    {
+      "generation": "二世",
+      "members": [
+        {
+          "name": "聶成",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶德",
+          "spouse": "杜氏"
+        },
+        {
+          "name": "聶有",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶福",
+          "spouse": "賀氏"
+        },
+        {
+          "name": "聶財",
+          "spouse": "潘氏"
+        },
+        {
+          "name": "聶牛",
+          "spouse": "未知"
+        }
+      ]
+    },
+    {
+      "generation": "三世",
+      "members": [
+        {
+          "name": "聶進孝",
+          "spouse": "何、呂氏"
+        },
+        {
+          "name": "聶進悌",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶進學",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶進龍",
+          "spouse": "程氏"
+        },
+        {
+          "name": "聶進鳳",
+          "spouse": "王氏"
+        }
+      ]
+    },
+    {
+      "generation": "四世",
+      "members": [
+        {
+          "name": "聶登賢",
+          "spouse": "呂氏"
+        },
+        {
+          "name": "聶登秀",
+          "spouse": "海氏"
+        },
+        {
+          "name": "聶登科",
+          "spouse": "程氏"
+        },
+        {
+          "name": "聶登金",
+          "spouse": "楊氏"
+        },
+        {
+          "name": "聶登銀",
+          "spouse": "柳氏"
+        },
+        {
+          "name": "聶登舉",
+          "spouse": "譚氏"
+        },
+        {
+          "name": "聶登魁",
+          "spouse": "白、王氏"
+        },
+        {
+          "name": "聶登雲",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶登明",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶登亮",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶登英",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶登仕",
+          "spouse": "吳氏"
+        }
+      ]
+    },
+    {
+      "generation": "五世",
+      "members": [
+        {
+          "name": "聶國利",
+          "spouse": "瀋氏"
+        },
+        {
+          "name": "聶國用",
+          "spouse": "吳氏"
+        },
+        {
+          "name": "聶國太",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶國昌",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶國安",
+          "spouse": "程氏"
+        },
+        {
+          "name": "聶國祥",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶國祿",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶國惠",
+          "spouse": "何氏"
+        },
+        {
+          "name": "聶國平",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶國恆",
+          "spouse": "閻氏"
+        },
+        {
+          "name": "聶國喜",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶國寧",
+          "spouse": "劉氏"
+        },
+        {
+          "name": "聶國相",
+          "spouse": "劉氏"
+        },
+        {
+          "name": "聶國棟",
+          "spouse": "閆氏"
+        },
+        {
+          "name": "聶國治",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶國卿",
+          "spouse": "呂氏"
+        },
+        {
+          "name": "聶國陸",
+          "spouse": "趙氏"
+        },
+        {
+          "name": "聶國梁",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶國寬",
+          "spouse": "關氏"
+        },
+        {
+          "name": "聶國恒",
+          "spouse": "冷氏"
+        },
+        {
+          "name": "聶國興",
+          "spouse": "於氏"
+        },
+        {
+          "name": "聶國順",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶國臣",
+          "spouse": "冉氏"
+        }
+      ]
+    },
+    {
+      "generation": "六世",
+      "members": [
+        {
+          "name": "聶從弻",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶從傑",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶從發",
+          "spouse": "孟氏"
+        },
+        {
+          "name": "聶從富",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶從相",
+          "spouse": "陳氏"
+        },
+        {
+          "name": "聶從寶",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶從惠",
+          "spouse": "吳氏"
+        },
+        {
+          "name": "聶從儒",
+          "spouse": "於氏"
+        },
+        {
+          "name": "聶從柏",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶從宮",
+          "spouse": "呂氏"
+        },
+        {
+          "name": "聶從和",
+          "spouse": "嶽氏"
+        },
+        {
+          "name": "聶從江",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶從財",
+          "spouse": "李、劉、王、崔氏"
+        },
+        {
+          "name": "聶從德",
+          "spouse": "閆氏"
+        },
+        {
+          "name": "聶從美",
+          "spouse": "顧氏"
+        },
+        {
+          "name": "聶從福",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶從祿",
+          "spouse": "徐氏"
+        },
+        {
+          "name": "聶從壽",
+          "spouse": "吳氏"
+        },
+        {
+          "name": "聶從周",
+          "spouse": "鄒氏"
+        },
+        {
+          "name": "聶從銀",
+          "spouse": "柳氏"
+        },
+        {
+          "name": "聶從明",
+          "spouse": "嶽氏"
+        },
+        {
+          "name": "聶從金",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶從河",
+          "spouse": "陳氏"
+        },
+        {
+          "name": "聶從亮",
+          "spouse": "任氏"
+        },
+        {
+          "name": "聶從模",
+          "spouse": "胡氏"
+        },
+        {
+          "name": "聶從俊",
+          "spouse": "郭氏"
+        },
+        {
+          "name": "聶從義",
+          "spouse": "唐氏"
+        },
+        {
+          "name": "聶從任",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶從銀",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶從有",
+          "spouse": "閆、於、董氏"
+        }
+      ]
+    },
+    {
+      "generation": "七世",
+      "members": [
+        {
+          "name": "聶貴",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶柱",
+          "spouse": "魏氏"
+        },
+        {
+          "name": "聶豹",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶棟",
+          "spouse": "白氏"
+        },
+        {
+          "name": "聶會",
+          "spouse": "陶氏"
+        },
+        {
+          "name": "聶秀",
+          "spouse": "之氏"
+        },
+        {
+          "name": "聶滿",
+          "spouse": "之氏"
+        },
+        {
+          "name": "聶雲",
+          "spouse": "池氏"
+        },
+        {
+          "name": "聶春",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶功",
+          "spouse": "之氏"
+        },
+        {
+          "name": "聶勤",
+          "spouse": "朱氏"
+        },
+        {
+          "name": "聶喜",
+          "spouse": "之氏"
+        },
+        {
+          "name": "聶增",
+          "spouse": "邊氏"
+        },
+        {
+          "name": "聶祥",
+          "spouse": "夏氏"
+        },
+        {
+          "name": "聶文",
+          "spouse": "範氏"
+        },
+        {
+          "name": "聶德",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶森",
+          "spouse": "閆氏"
+        },
+        {
+          "name": "聶慶",
+          "spouse": "之氏"
+        },
+        {
+          "name": "聶全",
+          "spouse": "郭氏"
+        },
+        {
+          "name": "聶剛",
+          "spouse": "之氏"
+        },
+        {
+          "name": "聶玉",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶君",
+          "spouse": "宋氏"
+        },
+        {
+          "name": "聶棟",
+          "spouse": "苑氏"
+        },
+        {
+          "name": "聶楊",
+          "spouse": "孫氏"
+        },
+        {
+          "name": "聶永",
+          "spouse": "田氏"
+        },
+        {
+          "name": "聶進",
+          "spouse": "郭氏"
+        },
+        {
+          "name": "聶財",
+          "spouse": "宋氏"
+        },
+        {
+          "name": "聶寶",
+          "spouse": "閆氏"
+        },
+        {
+          "name": "聶升",
+          "spouse": "宋、王氏"
+        },
+        {
+          "name": "聶成",
+          "spouse": "楊氏"
+        },
+        {
+          "name": "聶美",
+          "spouse": "會氏"
+        },
+        {
+          "name": "聶義",
+          "spouse": "薑氏"
+        },
+        {
+          "name": "聶利",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶升",
+          "spouse": "白氏"
+        },
+        {
+          "name": "聶癸",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶仲",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶郭",
+          "spouse": "白氏"
+        },
+        {
+          "name": "聶魁",
+          "spouse": "劉氏"
+        },
+        {
+          "name": "聶喜",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶珍",
+          "spouse": "趙氏"
+        },
+        {
+          "name": "聶謨",
+          "spouse": "孫氏"
+        },
+        {
+          "name": "聶林",
+          "spouse": "海氏"
+        },
+        {
+          "name": "聶盛",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶張",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶和",
+          "spouse": "吳氏"
+        },
+        {
+          "name": "聶太",
+          "spouse": "楊、高氏"
+        },
+        {
+          "name": "聶平",
+          "spouse": "王氏"
+        }
+      ]
+    },
+    {
+      "generation": "八世",
+      "members": [
+        {
+          "name": "聶文馬",
+          "spouse": "趙氏"
+        },
+        {
+          "name": "聶文芳",
+          "spouse": "郭氏"
+        },
+        {
+          "name": "聶文印",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶文質",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶文迨",
+          "spouse": "鄒、崔氏"
+        },
+        {
+          "name": "聶文增",
+          "spouse": "鄒氏"
+        },
+        {
+          "name": "聶文信",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文升",
+          "spouse": "鄒氏"
+        },
+        {
+          "name": "聶文惠",
+          "spouse": "鄒氏"
+        },
+        {
+          "name": "聶文照",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文平",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶文占",
+          "spouse": "鄒氏"
+        },
+        {
+          "name": "聶文林",
+          "spouse": "閆氏"
+        },
+        {
+          "name": "聶文明",
+          "spouse": "陳氏"
+        },
+        {
+          "name": "聶文德",
+          "spouse": "吳氏"
+        },
+        {
+          "name": "聶文安",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶文義",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文有",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文連",
+          "spouse": "楊氏"
+        },
+        {
+          "name": "聶文福",
+          "spouse": "敖氏"
+        },
+        {
+          "name": "聶文利",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文同",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文祿",
+          "spouse": "趙氏"
+        },
+        {
+          "name": "聶文全",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶文儒",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶文廷",
+          "spouse": "鄒氏"
+        },
+        {
+          "name": "聶文玉",
+          "spouse": "趙氏"
+        },
+        {
+          "name": "聶文秀",
+          "spouse": "孟氏"
+        },
+        {
+          "name": "聶文炳",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶文瑞",
+          "spouse": "謝氏"
+        },
+        {
+          "name": "聶文賢",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶文和",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶文明",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶文新",
+          "spouse": "傳氏"
+        },
+        {
+          "name": "聶文森",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶文煥",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文恒",
+          "spouse": "吳氏"
+        },
+        {
+          "name": "聶文美",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文山",
+          "spouse": "嶽氏"
+        },
+        {
+          "name": "聶文盛",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶文太",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶文魁",
+          "spouse": "門氏"
+        },
+        {
+          "name": "聶文成",
+          "spouse": "範氏"
+        },
+        {
+          "name": "聶文湖",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文清",
+          "spouse": "馬氏"
+        },
+        {
+          "name": "聶文癸",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶文榮",
+          "spouse": "趙氏"
+        },
+        {
+          "name": "聶文璽",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶文淩",
+          "spouse": "閆氏"
+        },
+        {
+          "name": "聶文明",
+          "spouse": "高、孟氏"
+        },
+        {
+          "name": "聶文亮",
+          "spouse": "於氏"
+        },
+        {
+          "name": "聶文廣",
+          "spouse": "範氏"
+        },
+        {
+          "name": "聶文祥",
+          "spouse": "楊氏"
+        },
+        {
+          "name": "聶文財",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶文學",
+          "spouse": "敖氏"
+        },
+        {
+          "name": "聶文彬",
+          "spouse": "劉氏"
+        },
+        {
+          "name": "聶文仲",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶文鳳",
+          "spouse": "趙氏"
+        }
+      ]
+    },
+    {
+      "generation": "九世",
+      "members": [
+        {
+          "name": "聶清玉",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清田",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清占",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清璽",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶清陽",
+          "spouse": "楊氏"
+        },
+        {
+          "name": "聶清有",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清滿",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶清克",
+          "spouse": "趙氏"
+        },
+        {
+          "name": "聶清癸",
+          "spouse": "梁氏"
+        },
+        {
+          "name": "聶門薑氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶門高氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶門陳氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶門李氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶門王氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶門金氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶清香",
+          "spouse": "許、蔡氏"
+        },
+        {
+          "name": "聶清全",
+          "spouse": "藍氏"
+        },
+        {
+          "name": "聶清福",
+          "spouse": "顧氏"
+        },
+        {
+          "name": "聶清奎",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清聚",
+          "spouse": "門氏"
+        },
+        {
+          "name": "聶清君",
+          "spouse": "吳氏"
+        },
+        {
+          "name": "聶清盈",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶清恩",
+          "spouse": "張、宋氏"
+        },
+        {
+          "name": "聶清昌",
+          "spouse": "劉氏"
+        },
+        {
+          "name": "聶清貴",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶清恒",
+          "spouse": "範氏"
+        },
+        {
+          "name": "聶清芝",
+          "spouse": "劉、高氏"
+        },
+        {
+          "name": "聶清山",
+          "spouse": "吳氏"
+        },
+        {
+          "name": "聶清平",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶清廉",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清武",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶清祥",
+          "spouse": "傳氏"
+        },
+        {
+          "name": "聶清廣",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清合",
+          "spouse": "顧氏"
+        },
+        {
+          "name": "聶清和",
+          "spouse": "柳氏"
+        },
+        {
+          "name": "聶清榮",
+          "spouse": "魏、郭氏"
+        },
+        {
+          "name": "聶清國",
+          "spouse": "張、楊、趙氏"
+        },
+        {
+          "name": "聶清元",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶清順",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清利",
+          "spouse": "許、陳氏"
+        },
+        {
+          "name": "聶清玉",
+          "spouse": "苗氏"
+        },
+        {
+          "name": "聶清瑞",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清吉",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶清安",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清太",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶清林",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶清雲",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清柏",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清振",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶清庫",
+          "spouse": "柳氏"
+        },
+        {
+          "name": "聶清惠",
+          "spouse": "桑氏"
+        },
+        {
+          "name": "聶清珍",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶清周",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶清浦",
+          "spouse": "未知"
+        }
+      ]
+    },
+    {
+      "generation": "十世",
+      "members": [
+        {
+          "name": "聶長文",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長坤",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長義",
+          "spouse": "柳氏"
+        },
+        {
+          "name": "聶長勤",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長純",
+          "spouse": "許氏"
+        },
+        {
+          "name": "聶長鳳",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶長久",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶長如",
+          "spouse": "常氏"
+        },
+        {
+          "name": "聶長有",
+          "spouse": "宋氏"
+        },
+        {
+          "name": "聶長安",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長舉",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶長英",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長來",
+          "spouse": "宋氏"
+        },
+        {
+          "name": "聶長雲",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長俊",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶長清",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶長玉",
+          "spouse": "童氏"
+        },
+        {
+          "name": "聶長和",
+          "spouse": "顧氏"
+        },
+        {
+          "name": "聶長順",
+          "spouse": "顧氏"
+        },
+        {
+          "name": "聶長廷",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶長於",
+          "spouse": "桑氏"
+        },
+        {
+          "name": "聶長占",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶長升",
+          "spouse": "金氏"
+        },
+        {
+          "name": "聶長忠",
+          "spouse": "關氏"
+        },
+        {
+          "name": "聶長庫",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長選",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長貴",
+          "spouse": "宋、田氏"
+        },
+        {
+          "name": "聶長春",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶長明",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶長富",
+          "spouse": "閆氏"
+        },
+        {
+          "name": "聶長盈",
+          "spouse": "嶽氏"
+        },
+        {
+          "name": "聶長勝",
+          "spouse": "陳氏"
+        },
+        {
+          "name": "聶世榮",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶世祿",
+          "spouse": "寇氏"
+        },
+        {
+          "name": "聶世恩",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶長瑞",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶長德",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶長孫",
+          "spouse": "何氏"
+        },
+        {
+          "name": "聶長太",
+          "spouse": "柳氏"
+        },
+        {
+          "name": "聶長榮",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶長恩",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶長廣",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長寶",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長魁",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長癸",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長文",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長武",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長仲",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長維",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長儒",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長武",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長魁",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶長金",
+          "spouse": "未知"
+        },
+        {
+          "name": "聶門傳氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶門閆氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶門李氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶門高、李氏",
+          "spouse": ""
+        },
+        {
+          "name": "聶長清",
+          "spouse": "高氏"
+        }
+      ]
+    },
+    {
+      "generation": "十一世",
+      "members": [
+        {
+          "name": "聶德一",
+          "spouse": ""
+        },
+        {
+          "name": "聶德紅",
+          "spouse": ""
+        },
+        {
+          "name": "聶德張",
+          "spouse": ""
+        },
+        {
+          "name": "聶德勤",
+          "spouse": "魏氏"
+        },
+        {
+          "name": "聶德春",
+          "spouse": "孫氏"
+        },
+        {
+          "name": "聶德清",
+          "spouse": "鄭氏"
+        },
+        {
+          "name": "聶德政",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶德惠",
+          "spouse": ""
+        },
+        {
+          "name": "聶德恩",
+          "spouse": "範氏"
+        },
+        {
+          "name": "聶德俊",
+          "spouse": ""
+        },
+        {
+          "name": "聶德彬",
+          "spouse": ""
+        },
+        {
+          "name": "聶德申",
+          "spouse": "何氏"
+        },
+        {
+          "name": "聶德賢",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶德周",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶德金",
+          "spouse": ""
+        },
+        {
+          "name": "聶德珍",
+          "spouse": ""
+        },
+        {
+          "name": "聶德興",
+          "spouse": ""
+        },
+        {
+          "name": "聶德貞",
+          "spouse": ""
+        },
+        {
+          "name": "聶德寶",
+          "spouse": ""
+        },
+        {
+          "name": "聶德久",
+          "spouse": ""
+        },
+        {
+          "name": "聶德祿",
+          "spouse": "寇氏"
+        },
+        {
+          "name": "聶德廣",
+          "spouse": ""
+        },
+        {
+          "name": "聶德久",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶德祿",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶德岩",
+          "spouse": ""
+        },
+        {
+          "name": "聶德春",
+          "spouse": ""
+        },
+        {
+          "name": "聶德榮",
+          "spouse": ""
+        },
+        {
+          "name": "聶德忠",
+          "spouse": ""
+        },
+        {
+          "name": "聶德令",
+          "spouse": ""
+        },
+        {
+          "name": "聶德文",
+          "spouse": ""
+        },
+        {
+          "name": "聶德元",
+          "spouse": ""
+        },
+        {
+          "name": "聶德祥",
+          "spouse": "王氏"
+        },
+        {
+          "name": "聶德義",
+          "spouse": ""
+        },
+        {
+          "name": "聶德厚",
+          "spouse": ""
+        },
+        {
+          "name": "聶德印",
+          "spouse": "顧氏"
+        },
+        {
+          "name": "聶德魁",
+          "spouse": "謝氏"
+        },
+        {
+          "name": "聶德昌",
+          "spouse": "支氏"
+        },
+        {
+          "name": "聶德金",
+          "spouse": "李氏"
+        },
+        {
+          "name": "聶德富",
+          "spouse": "郭氏"
+        },
+        {
+          "name": "聶德庫",
+          "spouse": ""
+        },
+        {
+          "name": "聶德潤",
+          "spouse": ""
+        },
+        {
+          "name": "聶德存",
+          "spouse": ""
+        },
+        {
+          "name": "聶德為",
+          "spouse": ""
+        },
+        {
+          "name": "聶德本",
+          "spouse": ""
+        },
+        {
+          "name": "聶德玉",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶德山",
+          "spouse": ""
+        },
+        {
+          "name": "聶德林",
+          "spouse": "宋氏"
+        },
+        {
+          "name": "聶德升",
+          "spouse": ""
+        },
+        {
+          "name": "聶德新",
+          "spouse": "顧氏"
+        },
+        {
+          "name": "聶德民",
+          "spouse": ""
+        },
+        {
+          "name": "聶德滿",
+          "spouse": "宋氏｜春蘭"
+        }
+      ]
+    },
+    {
+      "generation": "十二世",
+      "members": [
+        {
+          "name": "聶廣州",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣春",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣傑",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣付",
+          "spouse": "顧氏"
+        },
+        {
+          "name": "聶廣海",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣慶",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣慧",
+          "spouse": "寇氏"
+        },
+        {
+          "name": "聶廣武",
+          "spouse": "陳氏"
+        },
+        {
+          "name": "聶廣文",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣彬",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣鳳",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣達",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣仁",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣記",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣紅",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣田",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣玉",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶廣順",
+          "spouse": "溫氏"
+        },
+        {
+          "name": "聶廣俊",
+          "spouse": "張氏"
+        },
+        {
+          "name": "聶廣於",
+          "spouse": "吳氏"
+        },
+        {
+          "name": "聶廣成",
+          "spouse": "高氏"
+        },
+        {
+          "name": "聶廣吉",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣有",
+          "spouse": ""
+        },
+        {
+          "name": "聶愛軍",
+          "spouse": ""
+        },
+        {
+          "name": "聶愛民",
+          "spouse": ""
+        },
+        {
+          "name": "聶愛國",
+          "spouse": ""
+        },
+        {
+          "name": "聶廣闊",
+          "spouse": ""
+        },
+        {
+          "name": "聶愛文",
+          "spouse": ""
+        }
+      ]
+    },
+    {
+      "generation": "十三世",
+      "members": [
+        {
+          "name": "聶成凡",
+          "spouse": ""
+        },
+        {
+          "name": "聶成祥",
+          "spouse": ""
+        },
+        {
+          "name": "聶成勤",
+          "spouse": ""
+        },
+        {
+          "name": "聶成儉",
+          "spouse": ""
+        },
+        {
+          "name": "聶成海",
+          "spouse": ""
+        },
+        {
+          "name": "聶成和",
+          "spouse": ""
+        },
+        {
+          "name": "聶成全",
+          "spouse": ""
+        },
+        {
+          "name": "聶成玉",
+          "spouse": ""
+        },
+        {
+          "name": "聶 日",
+          "spouse": ""
+        },
+        {
+          "name": "聶 強",
+          "spouse": ""
+        },
+        {
+          "name": "聶承財",
+          "spouse": ""
+        },
+        {
+          "name": "聶成龍",
+          "spouse": ""
+        }
+      ]
+    },
+    {
+      "generation": "十四世",
+      "members": [
+        {
+          "name": "聶先明",
+          "spouse": ""
+        },
+        {
+          "name": "聶先財",
+          "spouse": ""
+        },
+        {
+          "name": "聶先福",
+          "spouse": ""
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "parent": "聶清庫",
+      "child": "聶長久"
+    },
+    {
+      "parent": "聶長久",
+      "child": "聶德滿"
+    },
+    {
+      "parent": "聶德滿",
+      "child": "聶愛軍"
+    },
+    {
+      "parent": "聶德滿",
+      "child": "聶愛國"
+    },
+    {
+      "parent": "聶德滿",
+      "child": "聶愛民"
+    },
+    {
+      "parent": "聶愛軍",
+      "child": "聶 強"
+    },
+    {
+      "parent": "聶愛國",
+      "child": "聶成龍"
+    },
+    {
+      "parent": "聶愛民",
+      "child": "聶承財"
+    }
+  ],
+  "history_records": [
+    {
+      "title": "義縣志",
+      "volume": "第十四册 人物志",
+      "url": "http://read.nlc.cn/OutOpenBook/OpenTwoObjectBook?aid=403&bid=67566.0&cid=87509",
+      "images": [
+        "義縣志 · 第十四册 人物志_01.png",
+        "義縣志 · 第十四册 人物志_02.png"
+      ]
+    },
+    {
+      "title": "欽定盛京通志",
+      "volume": "卷九十四 三十一",
+      "url": "http://read.nlc.cn/OutOpenBook/OpenObjectBook?aid=403&bid=10623.0",
+      "images": [
+        "欽定盛京通志 · 卷九十四 三十一.png"
+      ]
+    }
+  ]
+}
