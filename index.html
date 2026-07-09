@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聂氏族谱</title>
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">聂</a>
+    <div class="nav-links">
+      <a href="#tree">世系图</a>
+      <a href="#beifen">辈分表</a>
+      <a href="#history">历史</a>
+      <a href="#materials">资料</a>
+    </div>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-insignia">聂</div>
+    <h1>聂氏族谱</h1>
+    <p class="hero-sub">义县砖城子·聂氏家族世系传承</p>
+    <p class="hero-desc">始祖聂天荣，自明末至今，传承十四世，家族繁衍，根脉绵延</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" id="genCount">0</span><span class="stat-label">世代</span></div>
+      <div class="stat"><span class="stat-num" id="totalCount">0</span><span class="stat-label">族人</span></div>
+      <div class="stat"><span class="stat-num" id="startYear">0</span><span class="stat-label">起始</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="beifen-section" id="beifen">
+  <div class="section-label">GENERATIONAL NAMES</div>
+  <h2>辈分字派</h2>
+  <p class="section-desc">聂氏家族二十世字辈，代代相传</p>
+  <div class="beifen-scroll" id="beifenScroll">
+    <div class="beifen-track" id="beifenTrack"></div>
+  </div>
+</section>
+
+<section class="tree-section" id="tree">
+  <div class="section-label" style="text-align:center;">FAMILY TREE</div>
+  <h2 style="text-align:center;">家族世系</h2>
+  <p class="section-desc" style="text-align:center;">点击族人查看详情 · 滚动浏览世代</p>
+  <div class="tree-controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="搜索族人姓名…">
+    </div>
+    <div class="gen-jump" id="genJump"></div>
+  </div>
+  <div class="tree-container" id="treeContainer"></div>
+</section>
+
+<section class="history-section" id="history">
+  <div class="section-label">HISTORICAL CONTEXT</div>
+  <h2>历史背景</h2>
+  <div class="history-grid">
+    <div class="history-card">
+      <div class="history-icon">📖</div>
+      <h3>义县志</h3>
+      <p>上卷（一）图谱 二十一</p>
+      <p class="history-detail">义县区村制 第六区图 — 砖城子</p>
+    </div>
+    <div class="history-card">
+      <div class="history-icon">🎎</div>
+      <h3>旧式婚礼记载</h3>
+      <p>中卷（十一卷）</p>
+      <p class="history-detail">民事志 六 — 旧式婚礼</p>
+    </div>
+  </div>
+</section>
+
+<section class="materials-section" id="materials">
+  <div class="section-label">REFERENCES</div>
+  <h2>参考资料</h2>
+  <p class="section-desc">族谱研究引用的历史文献</p>
+  <div class="materials-list" id="materialsList"></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-mono">聂</div>
+    <p>聂氏族谱 · 义县砖城子</p>
+    <p class="footer-small">数据来源：聂氏族谱档案 · 义县地方志</p>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
