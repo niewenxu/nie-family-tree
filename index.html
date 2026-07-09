@@ -276,8 +276,8 @@ function aC(){
   var cg=0,ct=0,st=50,du=1500,si=du/st,gs=tg/st,ts=tt/st;
   var ti=setInterval(function(){
     cg+=gs;ct+=ts;
-    if(cg>=tg){cg=tg;ct=tt;clearInterval(ti);ge.textContent=Math.floor(cg)+'+';te.textContent=Math.floor(ct)+'+';}
-    ge.textContent=Math.floor(cg);te.textContent=Math.floor(ct);
+    if(cg>=tg){cg=tg;ct=tt;clearInterval(ti);ge.textContent=Math.floor(cg)+'+';te.textContent=Math.floor(ct)+'+';}else{
+    ge.textContent=Math.floor(cg);te.textContent=Math.floor(ct);}
   },si);
 }
 
