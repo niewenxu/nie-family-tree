@@ -122,9 +122,9 @@ body{background:#FAF8F5;color:#1A1A1A;font-family:"Source Han Serif SC","Noto Se
 }
 
 
-.cl{text-align:center;margin-top:4px;width:56px;line-height:1}
-.ca{font-size:16px;cursor:pointer;display:inline-block;animation:cf 1.8s ease-in-out infinite}
-@keyframes cf{0%,100%{opacity:1;transform:scale(1)}20%{opacity:0.5;transform:scale(0.95)}40%{opacity:0.9;transform:scale(1.02)}60%{opacity:0.4;transform:scale(0.97)}80%{opacity:0.8;transform:scale(1)}}
+
+
+
 
 /* ===== Mobile Responsive Enhancements ===== */
 
@@ -155,7 +155,7 @@ body{background:#FAF8F5;color:#1A1A1A;font-family:"Source Han Serif SC","Noto Se
   .pc{width:44px!important;min-height:56px!important;padding:8px 2px!important;border-radius:6px!important}
   .pn{font-size:14px!important;line-height:1.2!important}
   .cl{width:44px!important}
-  .ca{font-size:12px!important}
+  
   
   .g-btn{padding:6px 10px!important;font-size:13px!important;border-radius:6px!important}
   .tc{gap:6px!important;margin-bottom:20px!important}
@@ -206,7 +206,7 @@ body{background:#FAF8F5;color:#1A1A1A;font-family:"Source Han Serif SC","Noto Se
 
 /* Touch optimization for all mobile */
 @media(hover:none) and (pointer:coarse){
-  .g-btn,#pB,#toggleSC,.pc,.bf-item,.fb,#mX,.cl .ca{min-height:44px}
+  .g-btn,#pB,#toggleSC,.pc,.bf-item,.fb,#mX,
   .pc{min-height:56px!important}
   .g-btn,#pB{padding-top:10px!important;padding-bottom:10px!important}
 }
@@ -340,7 +340,7 @@ function rT(f){
       c.innerHTML='<span class=pn>'+fn.split('').join('<br>')+'</span>';
       c.onclick=function(){if(!window.UL&&nm(x.n,gi)!==x.n){cP();}else{oM(x.n,gi,ch,x.s);}};
       w.appendChild(c);
-      if(gi<10){var cl=document.createElement('div');cl.className='cl';cl.innerHTML='<span class=ca>🛯</span>';cl.onclick=function(e){e.stopPropagation();alert('🙏');};w.appendChild(cl);}
+      
       el.appendChild(w);
     });
     // Gen jump btn
