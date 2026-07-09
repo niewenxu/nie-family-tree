@@ -125,6 +125,106 @@ body{background:#FAF8F5;color:#1A1A1A;font-family:"Source Han Serif SC","Noto Se
 .cl{text-align:center;margin-top:4px;width:56px;line-height:1}
 .ca{font-size:16px;cursor:pointer;display:inline-block;animation:cf 1.8s ease-in-out infinite}
 @keyframes cf{0%,100%{opacity:1;transform:scale(1)}20%{opacity:0.5;transform:scale(0.95)}40%{opacity:0.9;transform:scale(1.02)}60%{opacity:0.4;transform:scale(0.97)}80%{opacity:0.8;transform:scale(1)}}
+
+/* ===== Mobile Responsive Enhancements ===== */
+
+/* Small phones */
+@media(max-width:480px){
+  .hero{padding:80px 12px 40px;min-height:50vh}
+  .hero h1{font-size:clamp(28px,8vw,36px)!important;letter-spacing:4px}
+  .hs{font-size:12px!important}
+  .hd{font-size:13px!important;margin-bottom:24px}
+  .hst{gap:16px}
+  .st .sn{font-size:20px}
+  .st .sl{font-size:11px}
+  .fc{display:none!important}
+  
+  .sec{padding:30px 12px!important}
+  .sec h2{font-size:clamp(20px,5vw,24px)!important}
+  .sd{font-size:13px!important;margin-bottom:20px!important}
+  
+  .bf-item{padding:0 8px}
+  .bf-g{font-size:10px}
+  .bf-c{font-size:20px!important}
+  
+  .g-h h3{font-size:20px!important}
+  .g-i{font-size:14px!important}
+  .g-row{margin-bottom:20px!important}
+  .g-m{gap:6px!important}
+  
+  .pc{width:44px!important;min-height:56px!important;padding:8px 2px!important;border-radius:6px!important}
+  .pn{font-size:14px!important;line-height:1.2!important}
+  .cl{width:44px!important}
+  .ca{font-size:12px!important}
+  
+  .g-btn{padding:6px 10px!important;font-size:13px!important;border-radius:6px!important}
+  .tc{gap:6px!important;margin-bottom:20px!important}
+  #pB{padding:8px 14px!important;font-size:13px!important}
+  
+  .sl{font-size:10px!important}
+  
+  .hc2{padding:16px!important}
+  .hc2 h3{font-size:15px!important}
+  .hc2 p{font-size:12px!important}
+  
+  .modal{padding:20px!important;width:95%!important;border-radius:12px!important}
+  .ml{font-size:13px!important;min-width:70px!important}
+  .mv{font-size:13px!important}
+  .mf{padding:6px 0!important}
+  
+  .ft{padding:30px 16px!important}
+  .ft p{font-size:12px!important}
+  
+  .intro-section p{font-size:14px!important}
+  
+  #toggleSC{font-size:11px!important;padding:2px 6px!important}
+  
+  /* History images 2x2 -> 1 column */
+  .hg{grid-template-columns:1fr!important}
+  
+  .intro-section{font-size:clamp(14px,3vw,18px)!important}
+}
+
+/* Tablets */
+@media(min-width:481px) and (max-width:768px){
+  .hero{padding:90px 16px 50px;min-height:55vh}
+  .hero h1{font-size:clamp(32px,6vw,40px)!important}
+  
+  .g-h h3{font-size:24px!important}
+  .pc{width:50px!important;min-height:60px!important}
+  .pn{font-size:14px!important}
+  .cl{width:50px!important}
+  
+  .g-btn{padding:8px 12px!important;font-size:14px!important}
+  #pB{padding:8px 16px!important;font-size:14px!important}
+  
+  .sec{padding:40px 16px!important}
+  
+  /* History images 2x2 */
+  .hg{grid-template-columns:repeat(2,1fr)!important}
+}
+
+/* Touch optimization for all mobile */
+@media(hover:none) and (pointer:coarse){
+  .g-btn,#pB,#toggleSC,.pc,.bf-item,.fb,#mX,.cl .ca{min-height:44px}
+  .pc{min-height:56px!important}
+  .g-btn,#pB{padding-top:10px!important;padding-bottom:10px!important}
+}
+
+/* Landscape phones */
+@media(max-height:500px) and (orientation:landscape){
+  .hero{padding:70px 12px 30px!important;min-height:80vh!important}
+  .hero h1{font-size:28px!important}
+  .hd{font-size:12px!important;margin-bottom:16px!important}
+  .hst{gap:12px!important}
+  .st .sn{font-size:18px!important}
+  
+  .sec{padding:20px 12px!important}
+  .g-row{margin-bottom:12px!important}
+  
+  .fc{display:none!important}
+}
+
 </style>
 </head>
 <body>
