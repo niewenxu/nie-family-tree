@@ -217,6 +217,7 @@ section{padding:70px 24px}
 .modal-field:last-child{border-bottom:none}
 .modal-label{font-size:14px;color:#888;min-width:80px;flex-shrink:0}
 .modal-value{font-size:14px;color:#1A1A1A;flex:1}
+.modal-biography .modal-value{line-height:1.8;white-space:pre-wrap;word-break:break-word}
 
 /* New page additions: reuse the existing visual system without changing its tokens. */
 .intro-heading{text-align:center;margin-bottom:42px}

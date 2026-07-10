@@ -41,11 +41,13 @@ function closeModal() {
 function personModal(person, generation, generationIndex) {
   const char = familyData.beifen[generationIndex]?.char || '无固定字辈';
   const spouse = person.s && person.s !== '未知' ? person.s : '暂无记录';
+  const biography = person.bio || person.i || '暂无简介';
   openModal(`
     <div class="modal-field"><span class="modal-label">姓名：</span><span class="modal-value" id="modalTitle">${formatName(person.n)}</span></div>
     <div class="modal-field"><span class="modal-label">世系：</span><span class="modal-value">${generation}</span></div>
     <div class="modal-field"><span class="modal-label">字辈：</span><span class="modal-value">${char}</span></div>
     <div class="modal-field"><span class="modal-label">配偶：</span><span class="modal-value">${spouse}</span></div>
+    <div class="modal-field modal-biography"><span class="modal-label">简介：</span><span class="modal-value">${biography}</span></div>
   `);
 }
 
@@ -172,9 +174,9 @@ function renderFloatingCharacters() {
 async function init() {
   try {
     const sources = [
-      'data.json?v=20260711-2',
-      './data.json?v=20260711-2',
-      'https://raw.githubusercontent.com/niewenxu/nie-family-tree/main/data.json?v=20260711-2'
+      'data.json?v=20260711-3',
+      './data.json?v=20260711-3',
+      'https://raw.githubusercontent.com/niewenxu/nie-family-tree/main/data.json?v=20260711-3'
     ];
     let lastError = null;
     for (const source of sources) {
