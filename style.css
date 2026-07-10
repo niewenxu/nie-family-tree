@@ -38,11 +38,11 @@ section h2{font-family:serif;font-size:clamp(28px,4vw,40px);font-weight:700;marg
 
 /* === 辈分 === */
 .beifen-section{background:#fff;padding:80px 24px}
-.beifen-scroll{overflow-x:auto;padding-bottom:12px;-webkit-overflow-scrolling:touch;text-align:center}.beifen-track{display:inline-flex}
+.beifen-scroll{width:100%;padding-bottom:12px;text-align:center}
 .beifen-scroll::-webkit-scrollbar{height:4px}
 .beifen-scroll::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px}
-.beifen-track{display:flex;gap:0;min-width:fit-content}
-.beifen-item{flex-shrink:0;padding:0 20px;text-align:center;position:relative}
+.beifen-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(55px,1fr));gap:18px 0;width:min(100%,1200px);margin:0 auto}
+.beifen-item{min-width:0;padding:0 12px;text-align:center;position:relative}
 .beifen-item::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:#E0D8CC}
 .beifen-item:last-child::after{display:none}
 .beifen-gen{font-size:12px;color:#aaa;margin-bottom:4px;letter-spacing:1px}
@@ -243,7 +243,7 @@ section{padding:70px 24px}
 .document-meta{display:flex;flex-direction:column;padding:14px;background:linear-gradient(135deg,#FAF8F5,#F0E8D8)}
 .document-meta strong{font-size:14px;color:#8B6914}.document-meta span{font-size:12px;color:#888;margin-top:2px}
 .beifen-section{text-align:center}
-.beifen-scroll{display:flex;justify-content:flex-start;width:100%}
+.beifen-scroll{display:block;width:100%}
 .beifen-track{margin:0 auto}
 .beifen-item{border:0;background:transparent;font-family:inherit}
 .search-status{text-align:center;color:#8B6914;font-size:13px;margin:-30px 0 24px}
@@ -258,9 +258,20 @@ section{padding:70px 24px}
 
 /* Center and enlarge genealogy names while preserving the existing cards. */
 .gen-members{align-items:stretch}
-.person-card{width:78px;min-height:112px;margin-right:0;padding:12px 8px;text-align:center}
+.person-card{width:52px;min-width:52px;min-height:112px;margin-right:0;padding:10px 4px;text-align:center}
 .person-card .p-name,.p-name{width:100%;font-size:21px;line-height:1.28;text-align:center;letter-spacing:0}
-@media(max-width:480px){.person-card{width:62px;min-width:62px;min-height:96px;padding:10px 5px}.person-card .p-name,.p-name{font-size:19px}}
+@media(max-width:480px){.beifen-track{grid-template-columns:repeat(auto-fit,minmax(58px,1fr));row-gap:16px}.beifen-item{padding:0 8px}.person-card{width:44px;min-width:44px;min-height:96px;padding:9px 3px}.person-card .p-name,.p-name{font-size:18px}}
+
+/* External reference cards */
+.references-section{background:#F4EFE5;text-align:center}
+.reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1000px;margin:0 auto}
+.reference-card{display:flex;min-width:0;overflow:hidden;flex-direction:column;background:#fff;border:1px solid #E2D7C2;border-radius:12px;color:#28231C;text-align:left;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+.reference-card:hover{transform:translateY(-3px);border-color:#BDAA80;box-shadow:0 12px 30px rgba(70,55,28,.08)}
+.reference-card img{display:block;width:100%;height:220px;object-fit:cover;object-position:top;background:#F8F5EF}
+.reference-body{display:flex;padding:18px 20px 20px;flex-direction:column;gap:5px}
+.reference-body strong{font-family:"STKaiti","KaiTi","楷体",serif;font-size:18px;font-weight:600}
+.reference-body small{overflow:hidden;color:#918777;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:768px){.beifen-track{grid-template-columns:repeat(auto-fit,minmax(60px,1fr))}.reference-grid{grid-template-columns:1fr;max-width:520px}.reference-card{display:grid;grid-template-columns:120px minmax(0,1fr)}.reference-card img{height:128px}.reference-body{justify-content:center}}
 
 /* Larger generation navigation below the family-tree heading. */
 .tree-controls .gen-jump{gap:4px}

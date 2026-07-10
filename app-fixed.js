@@ -174,9 +174,9 @@ function renderFloatingCharacters() {
 async function init() {
   try {
     const sources = [
-      'data.json?v=20260711-5',
-      './data.json?v=20260711-5',
-      'https://raw.githubusercontent.com/niewenxu/nie-family-tree/main/data.json?v=20260711-5'
+      'data.json?v=20260711-6',
+      './data.json?v=20260711-6',
+      'https://raw.githubusercontent.com/niewenxu/nie-family-tree/main/data.json?v=20260711-6'
     ];
     let lastError = null;
     for (const source of sources) {
