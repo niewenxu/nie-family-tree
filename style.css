@@ -24,7 +24,9 @@ body{font-family:'Source Han Serif SC','Source Han Serif SC',sans-serif;backgrou
 .hero-stats{display:flex;justify-content:center;gap:48px}
 .stat{text-align:center}
 .stat-num{display:block;font-family:serif;font-size:36px;font-weight:700;color:#1A1A1A}
-.stat-num.stat-place{font-size:24px;white-space:nowrap}
+.stat-origin{min-width:132px}
+.stat-num.stat-place{font-size:28px;line-height:1.15;white-space:nowrap}
+.stat-place-note{display:block;margin-top:3px;color:#766D61;font-family:"FangSong","STFangsong","仿宋",serif;font-size:13px;line-height:1.2;letter-spacing:.08em}
 .stat-label{font-size:13px;color:#999;letter-spacing:2px;text-transform:uppercase;margin-top:4px;display:block}
 
 /* === Section Shared === */
@@ -260,9 +262,9 @@ section{padding:70px 24px}
 @media(max-width:480px){.person-card{width:62px;min-width:62px;min-height:96px;padding:10px 5px}.person-card .p-name,.p-name{font-size:19px}}
 
 /* Larger generation navigation below the family-tree heading. */
-.tree-controls .gen-jump{gap:8px}
-.tree-controls .gen-jump .gen-btn{padding:12px 20px;font-size:24px;border-radius:10px}
+.tree-controls .gen-jump{gap:4px}
+.tree-controls .gen-jump .gen-btn{padding:6px 10px;font-size:12px;border-radius:6px}
 .tree-controls .password-trigger{padding:10px 18px;font-size:16px}
 .history-documents{text-align:center}
 .history-documents .document-meta{text-align:left}
-@media(max-width:768px){.tree-controls .gen-jump .gen-btn{padding:9px 13px;font-size:18px}.stat-num.stat-place{font-size:18px}}
+@media(max-width:768px){.tree-controls .gen-jump .gen-btn{padding:6px 9px;font-size:12px}.stat-origin{min-width:108px}.stat-num.stat-place{font-size:22px}.stat-place-note{font-size:11px}}
