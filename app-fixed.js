@@ -9,11 +9,16 @@ function normalizeChinese(value) {
   const pairs = {
     聂: '聶', 榮: '荣', 進: '进', 鳳: '凤', 龍: '龙', 國: '国', 從: '从',
     廣: '广', 長: '长', 滿: '满', 財: '财', 寶: '宝', 慶: '庆', 愛: '爱',
+    璽: '玺', 潤: '润',
     傑: '杰', 賢: '贤', 雲: '云', 興: '兴', 順: '顺', 義: '义', 學: '学',
     門: '门', 閆: '闫', 張: '张', 劉: '刘', 楊: '杨', 陳: '陈', 趙: '赵',
     吳: '吴', 顧: '顾', 鄒: '邹', 謝: '谢', 範: '范', 於: '于', 傳: '传'
   };
   return [...String(value).trim().toLowerCase()].map((char) => pairs[char] || char).join('');
+}
+
+function formatName(name) {
+  return String(name).replace(/璽/g, '玺').replace(/廣/g, '广').replace(/潤/g, '润');
 }
 
 function displayName(name, generationIndex) {
@@ -37,7 +42,7 @@ function personModal(person, generation, generationIndex) {
   const char = familyData.beifen[generationIndex]?.char || '无固定字辈';
   const spouse = person.s && person.s !== '未知' ? person.s : '暂无记录';
   openModal(`
-    <div class="modal-field"><span class="modal-label">姓名：</span><span class="modal-value" id="modalTitle">${person.n}</span></div>
+    <div class="modal-field"><span class="modal-label">姓名：</span><span class="modal-value" id="modalTitle">${formatName(person.n)}</span></div>
     <div class="modal-field"><span class="modal-label">世系：</span><span class="modal-value">${generation}</span></div>
     <div class="modal-field"><span class="modal-label">字辈：</span><span class="modal-value">${char}</span></div>
     <div class="modal-field"><span class="modal-label">配偶：</span><span class="modal-value">${spouse}</span></div>
@@ -115,7 +120,7 @@ function renderTree(query = '') {
       const card = document.createElement('button');
       card.className = 'person-card';
       card.type = 'button';
-      card.innerHTML = `<span class="p-name">${displayName(person.n, generationIndex).split('').join('<br>')}</span>`;
+      card.innerHTML = `<span class="p-name">${formatName(displayName(person.n, generationIndex)).split('').join('<br>')}</span>`;
       card.addEventListener('click', () => {
         if (!namesUnlocked && generationIndex >= 11) passwordModal();
         else personModal(person, generation.g, generationIndex);
@@ -137,23 +142,30 @@ function renderTree(query = '') {
 }
 
 function renderStats() {
-  const generations = familyData.zupu.length;
-  const people = familyData.zupu.reduce((sum, generation) => sum + generation.m.length, 0);
-  $('#genCount').textContent = generations;
-  $('#totalCount').textContent = people;
+  $('#genCount').textContent = '15+';
+  $('#totalCount').textContent = '390+';
 }
 
 function renderFloatingCharacters() {
-  const chars = '天榮進登國從文清長德廣成先印家吉永慶昌';
+  const pools = familyData.beifen.map((generation, index) => {
+    const names = familyData.zupu[index]?.m || [];
+    const givenNameChars = names.flatMap((person) => [...formatName(person.n).replace(/^[聂聶]/, '').replace(/\s/g, '')]);
+    const generationChars = generation.char && generation.char !== '單字' ? [...formatName(generation.char)] : [];
+    return [...new Set([...generationChars, ...givenNameChars])];
+  });
   const fragment = document.createDocumentFragment();
-  [...chars].slice(0, 16).forEach((char, index) => {
+  for (let index = 0; index < 20; index += 1) {
+    const pool = pools[index] || [];
+    const fallback = formatName(familyData.beifen[index]?.char || '聶');
+    const char = pool.length ? pool[Math.floor(Math.random() * pool.length)] : fallback;
     const span = document.createElement('span');
     span.className = 'float-char';
     span.textContent = char;
-    span.style.left = `${3 + ((index * 17) % 92)}%`;
-    span.style.animationDelay = `${(index % 6) * 0.8}s`;
+    span.style.left = `${2 + ((index * 19) % 94)}%`;
+    span.style.animationDelay = `${-((index % 8) * 0.65)}s`;
+    span.style.animationDuration = `${6.7 + (index % 4) * 0.55}s`;
     fragment.appendChild(span);
-  });
+  }
   $('#heroFloating').appendChild(fragment);
 }
 
