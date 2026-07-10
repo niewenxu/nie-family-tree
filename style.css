@@ -244,6 +244,8 @@ section{padding:70px 24px}
 .beifen-item{border:0;background:transparent;font-family:inherit}
 .search-status{text-align:center;color:#8B6914;font-size:13px;margin:-30px 0 24px}
 .empty-state{text-align:center;padding:48px 16px;color:#888}
+.data-loading,.data-error{display:block;width:100%;padding:28px;text-align:center;color:#8B7A59;font-size:14px;white-space:nowrap}
+.data-error{color:#9A4A3A}
 .modal-input{width:100%;margin:10px 0 4px;padding:11px;border:1px solid #D4C5A9;border-radius:8px;font:inherit;text-align:center;outline:none}
 .modal-input:focus{border-color:#8B6914;box-shadow:0 0 0 3px rgba(139,105,20,.1)}
 .modal-submit{display:block;margin:16px auto 0;padding:9px 28px;border:0;border-radius:8px;background:#8B6914;color:#fff;font:inherit;cursor:pointer}

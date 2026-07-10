@@ -171,14 +171,35 @@ function renderFloatingCharacters() {
 
 async function init() {
   try {
-    const response = await fetch('data.json');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    familyData = await response.json();
+    const sources = [
+      'data.json?v=20260711-2',
+      './data.json?v=20260711-2',
+      'https://raw.githubusercontent.com/niewenxu/nie-family-tree/main/data.json?v=20260711-2'
+    ];
+    let lastError = null;
+    for (const source of sources) {
+      try {
+        const response = await fetch(source, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const candidate = await response.json();
+        if (!Array.isArray(candidate?.beifen) || !Array.isArray(candidate?.zupu)) throw new Error('族谱数据结构不完整');
+        familyData = candidate;
+        break;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    if (!familyData) throw lastError || new Error('族谱数据无法载入');
     renderGenerationalNames();
     renderTree();
     renderStats();
-    renderFloatingCharacters();
+    try {
+      renderFloatingCharacters();
+    } catch (animationError) {
+      console.warn('Background animation skipped:', animationError);
+    }
   } catch (error) {
+    $('#beifenTrack').innerHTML = '<span class="data-error">辈分数据加载失败，请刷新页面重试。</span>';
     $('#treeContainer').innerHTML = '<p class="empty-state">族谱数据加载失败，请通过本地服务器打开页面。</p>';
     console.error('Failed to load family data:', error);
   }
