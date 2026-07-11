@@ -28,6 +28,12 @@ function displayName(name, generationIndex) {
   return `${name.slice(0, -1)}＿`;
 }
 
+function renderVerticalName(name) {
+  const characters = [...formatName(name).replace(/\s/g, '')];
+  if (characters.length === 2) characters.splice(1, 0, '<span class="name-spacer" aria-hidden="true">　</span>');
+  return characters.map((character) => character.startsWith('<span') ? character : `<span>${character}</span>`).join('');
+}
+
 function openModal(html) {
   $('#modalContent').innerHTML = html;
   $('#modalOverlay').classList.add('open');
@@ -139,8 +145,9 @@ function renderTree(query = '') {
       const card = document.createElement('button');
       card.className = 'person-card';
       if (/^聶门/.test(person.n.replace(/\s/g, ''))) card.classList.add('in-law-name');
+      if (!person.birth) card.classList.add('unknown-birth');
       card.type = 'button';
-      card.innerHTML = `<span class="p-name">${formatName(displayName(person.n, generationIndex)).split('').join('<br>')}</span>`;
+      card.innerHTML = `<span class="p-name">${renderVerticalName(displayName(person.n, generationIndex))}</span>`;
       card.addEventListener('click', () => {
         if (!namesUnlocked && generationIndex >= 11) passwordModal();
         else personModal(person, generation.g, generationIndex);

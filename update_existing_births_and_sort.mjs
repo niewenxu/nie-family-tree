@@ -138,12 +138,13 @@ for (let [rawName, birth] of rows) {
   updated += 1;
 }
 
-// From the 广 generation onward: known dates oldest-to-youngest; unknown records retain relative order.
+// From the 广 generation onward: unknown records first in their original order,
+// followed by known dates oldest-to-youngest.
 for (let generationIndex = 11; generationIndex < data.zupu.length; generationIndex += 1) {
   const people = data.zupu[generationIndex].m;
   const dated = people.filter((person) => person.birth).sort((a, b) => a.birth.localeCompare(b.birth));
   const unknown = people.filter((person) => !person.birth);
-  data.zupu[generationIndex].m = [...dated, ...unknown];
+  data.zupu[generationIndex].m = [...unknown, ...dated];
 }
 
 fs.writeFileSync('data.json', `${JSON.stringify(data, null, 2)}\n`);
