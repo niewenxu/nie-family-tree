@@ -360,3 +360,10 @@ section{padding:82px 24px}section h2{font:500 clamp(30px,3.6vw,42px)/1.3 "STKait
 .p-name{display:flex!important;flex-direction:column;align-items:center;justify-content:center}
 .p-name>span{display:block;min-height:1.28em}
 .p-name .name-spacer{height:1.28em;color:transparent;user-select:none}
+
+/* Pending-generation module */
+.pending-generation{margin-top:54px;padding-top:34px;border-top:1px solid var(--rule)}
+.pending-header{display:block;width:100%}
+.pending-content{display:flex;justify-content:center;width:100%;padding:18px 0 8px}
+.pending-unlock{padding:11px 22px;color:var(--ochre)}
+.pending-person{border-style:dashed}

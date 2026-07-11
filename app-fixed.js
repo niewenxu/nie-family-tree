@@ -2,6 +2,7 @@
 
 let familyData = null;
 let namesUnlocked = false;
+let pendingUnlocked = false;
 let traditionalMode = false;
 let verticalMode = false;
 
@@ -95,6 +96,32 @@ function passwordModal() {
   input.focus();
 }
 
+function pendingPasswordModal() {
+  openModal(`
+    <div class="modal-name" id="modalTitle">查看待确认人员</div>
+    <div class="modal-divider"></div>
+    <label for="pendingPasswordInput" class="modal-label">请输入待确认模块密码</label>
+    <input id="pendingPasswordInput" type="password" class="modal-input" autocomplete="current-password">
+    <p id="pendingPasswordError" class="form-error" role="alert"></p>
+    <button id="pendingPasswordSubmit" class="modal-submit">确认</button>
+  `);
+  const input = $('#pendingPasswordInput');
+  const submit = $('#pendingPasswordSubmit');
+  const verify = () => {
+    if (input.value !== '122754aA#') {
+      $('#pendingPasswordError').textContent = '密码错误，请重新输入。';
+      input.focus();
+      return;
+    }
+    pendingUnlocked = true;
+    renderTree($('#searchInput').value);
+    closeModal();
+  };
+  submit.addEventListener('click', verify);
+  input.addEventListener('keydown', (event) => event.key === 'Enter' && verify());
+  input.focus();
+}
+
 function renderGenerationalNames() {
   const track = $('#beifenTrack');
   track.innerHTML = '';
@@ -150,7 +177,7 @@ function renderTree(query = '') {
       card.type = 'button';
       card.innerHTML = `<span class="p-name">${renderVerticalName(displayName(person.n, generationIndex))}</span>`;
       card.addEventListener('click', () => {
-        if (!namesUnlocked && generationIndex >= 11) passwordModal();
+        if (!namesUnlocked && (generationIndex >= 11 || Boolean(person.birth))) passwordModal();
         else personModal(person, generation.g, generationIndex);
       });
       members.appendChild(card);
@@ -165,8 +192,52 @@ function renderTree(query = '') {
     jump.appendChild(jumpButton);
   });
 
+  matches += renderPending(container, term);
+
   $('#searchStatus').textContent = term ? `找到 ${matches} 位族人` : '';
   if (!matches) container.innerHTML = '<p class="empty-state">未找到匹配的族人，请尝试其他姓名。</p>';
+}
+
+function renderPending(container, term = '') {
+  const pending = Array.isArray(familyData.pending) ? familyData.pending : [];
+  if (!pending.length) return 0;
+  const section = document.createElement('div');
+  section.className = 'gen-row pending-generation visible';
+  section.innerHTML = `
+    <div class="gen-header pending-header">
+      <h3>待确认</h3>
+      <div class="gen-info">世系待考 · ${pending.length}人</div>
+      <div class="gen-line"></div>
+    </div>
+    <div class="pending-content"></div>
+  `;
+  const content = section.querySelector('.pending-content');
+  if (!pendingUnlocked) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'gen-btn pending-unlock';
+    button.textContent = '输入密码查看待确认人员';
+    button.addEventListener('click', pendingPasswordModal);
+    content.appendChild(button);
+    container.appendChild(section);
+    return 0;
+  } else {
+    const members = document.createElement('div');
+    members.className = 'gen-members';
+    const people = term ? pending.filter((person) => normalizeChinese(person.n).includes(term)) : pending;
+    people.forEach((person) => {
+      const card = document.createElement('button');
+      card.className = 'person-card pending-person';
+      if (!person.birth) card.classList.add('unknown-birth');
+      card.type = 'button';
+      card.innerHTML = `<span class="p-name">${renderVerticalName(person.n)}</span>`;
+      card.addEventListener('click', () => personModal(person, '待确认', -1));
+      members.appendChild(card);
+    });
+    content.appendChild(members);
+    container.appendChild(section);
+    return people.length;
+  }
 }
 
 function renderStats() {
