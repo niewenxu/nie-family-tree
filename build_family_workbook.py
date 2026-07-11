@@ -1,4 +1,5 @@
 import json
+import sys
 from pathlib import Path
 
 from openpyxl import Workbook, load_workbook
@@ -8,14 +9,14 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 
 ROOT = Path(__file__).parent
 DATA = json.loads((ROOT / "data.json").read_text(encoding="utf-8"))
-OUT = ROOT / "聂氏宗谱维护数据库_2026版.xlsx"
+OUT = Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else ROOT / "聂氏宗谱维护数据库_2026版.xlsx"
 
 wb = Workbook()
 ws = wb.active
 ws.title = "族人数据库"
 
 headers = [
-    "序号", "世系数字", "世系", "字辈", "姓", "名", "字", "号",
+    "序号", "世系数字", "世系", "字辈", "姓", "名", "姓名完整", "字", "号",
     "出生年月日", "卒年月日", "配偶", "子女", "迁徙地", "功名事迹", "墓葬",
     "简介", "资料来源", "备注"
 ]
@@ -34,7 +35,7 @@ for generation_index, generation in enumerate(DATA["zupu"], start=1):
         death = person.get("d") or "待考证"
         bio = person.get("bio") or person.get("i") or "待考证"
         ws.append([
-            serial, generation_index, generation_name, generation_char, "聂", given_name,
+            serial, generation_index, generation_name, generation_char, "聂", given_name, full_name,
             person.get("zi") or "待考证", person.get("hao") or "待考证",
             person.get("birth") or "待考证", death, spouse,
             person.get("children") or "待考证", person.get("migration") or "待考证",
@@ -50,7 +51,7 @@ for person in DATA.get("pending", []):
     if not spouse or spouse == "未知":
         spouse = "待考证"
     ws.append([
-        serial, "", "世系待考", "待考证", "聂", given_name,
+        serial, "", "世系待考", "待考证", "聂", given_name, full_name,
         person.get("zi") or "待考证", person.get("hao") or "待考证",
         person.get("birth") or "待考证", person.get("d") or "待考证", spouse,
         person.get("children") or "待考证", person.get("migration") or "待考证",
@@ -65,8 +66,9 @@ for row in range(ws.max_row + 1, ws.max_row + 101):
     ws.cell(row, 1, f'=IF(F{row}="","",ROW()-1)')
     for col in range(2, len(headers) + 1):
         ws.cell(row, col, "")
+    ws.cell(row, 7, f'=IF(F{row}="","",E{row}&F{row})')
 
-table = Table(displayName="FamilyDatabase", ref=f"A1:R{ws.max_row}")
+table = Table(displayName="FamilyDatabase", ref=f"A1:S{ws.max_row}")
 table.tableStyleInfo = TableStyleInfo(name="TableStyleMedium2", showRowStripes=True, showFirstColumn=False, showLastColumn=False)
 ws.add_table(table)
 
@@ -84,11 +86,11 @@ for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=1, max_col=len(he
         cell.font = Font(name="Songti SC", size=10, color="25251F")
         cell.alignment = Alignment(vertical="top", wrap_text=True)
 
-widths = {"A": 9, "B": 10, "C": 10, "D": 10, "E": 7, "F": 14, "G": 12, "H": 12, "I": 15, "J": 15, "K": 18, "L": 22, "M": 20, "N": 34, "O": 24, "P": 38, "Q": 24, "R": 24}
+widths = {"A": 9, "B": 10, "C": 10, "D": 10, "E": 7, "F": 14, "G": 16, "H": 12, "I": 12, "J": 15, "K": 15, "L": 18, "M": 22, "N": 20, "O": 34, "P": 24, "Q": 38, "R": 24, "S": 24}
 for col, width in widths.items():
     ws.column_dimensions[col].width = width
 ws.freeze_panes = "A2"
-ws.auto_filter.ref = f"A1:R{ws.max_row}"
+ws.auto_filter.ref = f"A1:S{ws.max_row}"
 ws.row_dimensions[1].height = 28
 
 gen_validation = DataValidation(type="list", formula1='"始祖,二世,三世,四世,五世,六世,七世,八世,九世,十世,十一世,十二世,十三世,十四世,十五世,十六世,十七世,十八世,十九世,二十世"', allow_blank=True)
