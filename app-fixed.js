@@ -59,8 +59,9 @@ function personModal(person, generation, generationIndex) {
     ['配偶', spouse && spouse !== '未知' ? spouse : unknown],
     ['子女', person.children],
     ['迁徙地', person.migration],
-    ['功名事迹', person.achievements || person.bio || person.i],
-    ['墓葬', person.burial]
+    ['功名事迹', person.achievements],
+    ['墓葬', person.burial],
+    ['简介', person.bio || person.i]
   ];
   openModal(`
     <div class="person-sheet-heading"><span>${generation}</span><strong id="modalTitle">${formatName(person.n)}</strong></div>
