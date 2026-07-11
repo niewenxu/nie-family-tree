@@ -51,6 +51,11 @@ function personModal(person, generation, generationIndex) {
   const unknown = '待考证';
   const char = familyData.beifen[generationIndex]?.char || unknown;
   const spouse = person.spouse || person.s;
+  const normalizedName = String(person.n || '').replace(/\s/g, '').replace(/^聂/, '聶');
+  const rawContact = String(person.contact || '');
+  const contact = rawContact
+    ? (normalizedName === '聶强' && namesUnlocked ? rawContact : `${rawContact.slice(0, -4)}****`)
+    : unknown;
   const fields = [
     ['字辈', char === '單字' ? '单名，无固定字辈' : char],
     ['名', formatName(person.name || person.n || unknown)],
@@ -59,6 +64,7 @@ function personModal(person, generation, generationIndex) {
     ['生卒年月日', person.life || [person.birth, person.d].filter(Boolean).join('—')],
     ['配偶', spouse && spouse !== '未知' ? spouse : unknown],
     ['子女', person.children],
+    ['联系方式', contact],
     ['迁徙地', person.migration],
     ['功名事迹', person.achievements],
     ['墓葬', person.burial],

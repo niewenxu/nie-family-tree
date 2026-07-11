@@ -17,7 +17,7 @@ ws.title = "族人数据库"
 
 headers = [
     "序号", "世系数字", "世系", "字辈", "姓", "名", "姓名完整", "字", "号",
-    "出生年月日", "卒年月日", "配偶", "子女", "迁徙地", "功名事迹", "墓葬",
+    "出生年月日", "卒年月日", "配偶", "子女", "联系方式", "迁徙地", "功名事迹", "墓葬",
     "简介", "资料来源", "备注"
 ]
 ws.append(headers)
@@ -38,7 +38,7 @@ for generation_index, generation in enumerate(DATA["zupu"], start=1):
             serial, generation_index, generation_name, generation_char, "聂", given_name, full_name,
             person.get("zi") or "待考证", person.get("hao") or "待考证",
             person.get("birth") or "待考证", death, spouse,
-            person.get("children") or "待考证", person.get("migration") or "待考证",
+            person.get("children") or "待考证", person.get("contact") or "待考证", person.get("migration") or "待考证",
             person.get("achievements") or bio, person.get("burial") or "待考证",
             bio, person.get("source") or "待考证", person.get("note") or "待考证"
         ])
@@ -54,7 +54,7 @@ for person in DATA.get("pending", []):
         serial, "", "世系待考", "待考证", "聂", given_name, full_name,
         person.get("zi") or "待考证", person.get("hao") or "待考证",
         person.get("birth") or "待考证", person.get("d") or "待考证", spouse,
-        person.get("children") or "待考证", person.get("migration") or "待考证",
+        person.get("children") or "待考证", person.get("contact") or "待考证", person.get("migration") or "待考证",
         person.get("achievements") or "待考证", person.get("burial") or "待考证",
         person.get("bio") or person.get("i") or "待考证",
         person.get("source") or "待考证", person.get("note") or "待考证"
@@ -68,7 +68,7 @@ for row in range(ws.max_row + 1, ws.max_row + 101):
         ws.cell(row, col, "")
     ws.cell(row, 7, f'=IF(F{row}="","",E{row}&F{row})')
 
-table = Table(displayName="FamilyDatabase", ref=f"A1:S{ws.max_row}")
+table = Table(displayName="FamilyDatabase", ref=f"A1:T{ws.max_row}")
 table.tableStyleInfo = TableStyleInfo(name="TableStyleMedium2", showRowStripes=True, showFirstColumn=False, showLastColumn=False)
 ws.add_table(table)
 
@@ -86,11 +86,11 @@ for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=1, max_col=len(he
         cell.font = Font(name="Songti SC", size=10, color="25251F")
         cell.alignment = Alignment(vertical="top", wrap_text=True)
 
-widths = {"A": 9, "B": 10, "C": 10, "D": 10, "E": 7, "F": 14, "G": 16, "H": 12, "I": 12, "J": 15, "K": 15, "L": 18, "M": 22, "N": 20, "O": 34, "P": 24, "Q": 38, "R": 24, "S": 24}
+widths = {"A": 9, "B": 10, "C": 10, "D": 10, "E": 7, "F": 14, "G": 16, "H": 12, "I": 12, "J": 15, "K": 15, "L": 18, "M": 22, "N": 18, "O": 20, "P": 34, "Q": 24, "R": 38, "S": 24, "T": 24}
 for col, width in widths.items():
     ws.column_dimensions[col].width = width
 ws.freeze_panes = "A2"
-ws.auto_filter.ref = f"A1:S{ws.max_row}"
+ws.auto_filter.ref = f"A1:T{ws.max_row}"
 ws.row_dimensions[1].height = 28
 
 gen_validation = DataValidation(type="list", formula1='"始祖,二世,三世,四世,五世,六世,七世,八世,九世,十世,十一世,十二世,十三世,十四世,十五世,十六世,十七世,十八世,十九世,二十世"', allow_blank=True)
@@ -103,6 +103,7 @@ guide_rows = [
     ("新增族人", "在“族人数据库”表格末行继续输入；序号会随表格扩展自动填充。"),
     ("世系数字", "填写阿拉伯数字 1—20；页面按此字段自动归入对应世系。"),
     ("缺失信息", "统一填写“待考证”，不要留空或使用“未知”“暂无”。"),
+    ("联系方式", "仅供族人详情使用；普通号码前端始终隐藏后4位，聂强在族谱密码解锁后可完整查看。"),
     ("姓名规则", "姓、名分列填写；名中无需重复填写“聂”。"),
     ("日期规则", "能确认具体日期时使用 YYYY-MM-DD；仅知年份可填写年份并在备注说明。"),
     ("人物字段", "字辈、名、字、号、生卒年月日、配偶、子女、迁徙地、功名事迹、墓葬、简介均可直接维护。"),
