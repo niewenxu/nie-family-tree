@@ -110,8 +110,6 @@ const gen13 = data.zupu[12].m;
 const formerChengGuo = gen13.findIndex((person) => normalize(person.n) === normalize('聂成国'));
 const currentLiGuo = gen13.findIndex((person) => normalize(person.n) === normalize('聂立国'));
 if (formerChengGuo >= 0 && currentLiGuo >= 0) gen13.splice(formerChengGuo, 1);
-const strong = gen13.find((person) => normalize(person.n) === normalize('聂强'));
-if (strong) strong.n = '聶文旭';
 
 const index = new Map();
 for (const generation of data.zupu) {
@@ -127,7 +125,7 @@ const unmatched = [];
 let updated = 0;
 for (let [rawName, birth] of rows) {
   if (rawName === '聂成国（聂立国）') rawName = '聂立国';
-  if (rawName === '聂强（聂文旭）') rawName = '聂文旭';
+  if (rawName === '聂强（聂文旭）') rawName = '聂强';
   const key = normalize(rawName);
   const occurrence = occurrences.get(key) || 0;
   occurrences.set(key, occurrence + 1);
