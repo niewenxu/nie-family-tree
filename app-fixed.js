@@ -138,6 +138,7 @@ function renderTree(query = '') {
     people.forEach((person) => {
       const card = document.createElement('button');
       card.className = 'person-card';
+      if (/^聶门/.test(person.n.replace(/\s/g, ''))) card.classList.add('in-law-name');
       card.type = 'button';
       card.innerHTML = `<span class="p-name">${formatName(displayName(person.n, generationIndex)).split('').join('<br>')}</span>`;
       card.addEventListener('click', () => {
