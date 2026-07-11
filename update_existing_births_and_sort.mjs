@@ -107,9 +107,10 @@ const data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 
 // Merge former names into the current display names before updating dates.
 const gen13 = data.zupu[12].m;
-const formerChengGuo = gen13.findIndex((person) => normalize(person.n) === normalize('聂成国'));
-const currentLiGuo = gen13.findIndex((person) => normalize(person.n) === normalize('聂立国'));
-if (formerChengGuo >= 0 && currentLiGuo >= 0) gen13.splice(formerChengGuo, 1);
+const chengGuoIndex = gen13.findIndex((person) => normalize(person.n) === normalize('聂成国'));
+const liGuoIndex = gen13.findIndex((person) => normalize(person.n) === normalize('聂立国'));
+if (chengGuoIndex >= 0 && liGuoIndex >= 0) gen13.splice(liGuoIndex, 1);
+else if (liGuoIndex >= 0) gen13[liGuoIndex].n = '聶成国';
 
 const index = new Map();
 for (const generation of data.zupu) {
@@ -124,7 +125,7 @@ const occurrences = new Map();
 const unmatched = [];
 let updated = 0;
 for (let [rawName, birth] of rows) {
-  if (rawName === '聂成国（聂立国）') rawName = '聂立国';
+  if (rawName === '聂成国（聂立国）') rawName = '聂成国';
   if (rawName === '聂强（聂文旭）') rawName = '聂强';
   const key = normalize(rawName);
   const occurrence = occurrences.get(key) || 0;
