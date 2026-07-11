@@ -1,161 +1,918 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="义县砖城子聂氏家族世系与历史资料">
-  <title>聂氏族谱 · 义县砖城子</title>
-  <link rel="stylesheet" href="style.css?v=20260711-10">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="refresh" content="0; url=new-page.html">
+<title>聂氏族谱</title>
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:#FAF8F5;color:#1A1A1A;font-family:"Source Han Serif SC","Noto Serif CJK SC","PingFang SC",serif;line-height:1.6}
+
+/* Nav */
+#nv{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nl{font-family:"PingFang SC",sans-serif;display:flex;gap:32px}
+.nl a{color:#5A5A5A;text-decoration:none;font-size:14px;transition:color .2s}
+.nl a:hover{color:#8B6914}
+#nT{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:#333}
+
+/* Hero */
+.hero{position:relative;min-height:66vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 60px;overflow:hidden;text-align:center}
+.hb{position:absolute;inset:0;background:linear-gradient(135deg,#FAF8F5 0%,#F0E8D8 50%,#E8DCC8 100%);z-index:0}
+#hF{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fc{position:absolute;color:#8B6914;opacity:0.12;animation:fUp 12s ease-in-out infinite;user-select:none;pointer-events:none;font-family:"KaiTi","楷体","STKaiti",serif}
+@keyframes fUp{0%{transform:translateY(80vh);opacity:0}10%{opacity:0.08}50%{opacity:0.06}90%{opacity:0.08}100%{transform:translateY(-20vh);opacity:0}}
+.hc{position:relative;z-index:1;max-width:700px}
+.hc h1{font-size:clamp(36px,6vw,60px);font-weight:900;letter-spacing:8px;margin-bottom:16px}
+.hs{font-size:clamp(14px,2.5vw,18px);color:#8B6914;letter-spacing:4px;margin-bottom:8px}
+.hd{font-size:15px;color:#888;max-width:480px;margin:0 auto 40px}
+.hst{display:flex;justify-content:center;gap:40px}
+.st .sn{font-size:32px;font-weight:700;display:block}
+.st .sl{font-size:12px;color:#999;letter-spacing:2px;display:block;margin-top:4px}
+
+/* Sections */
+.sec{padding:70px 24px}
+.sec h2{font-size:clamp(24px,3.5vw,36px);font-weight:700;margin-bottom:12px}
+.sl{font-size:11px;letter-spacing:3px;color:#aaa;margin-bottom:8px}
+.sd{font-size:15px;color:#888;margin-bottom:40px}
+
+/* Beifen */
+#bf{background:#fff;text-align:center}
+#bf h2,#bf .sd{text-align:center}
+.bf-sc{overflow-x:auto;padding-bottom:12px;text-align:center}
+.bf-tr{display:inline-flex}
+.bf-item{flex-shrink:0;padding:0 20px;text-align:center;cursor:pointer;transition:transform .2s;position:relative}
+.bf-item:hover{transform:scale(1.2)}
+.bf-item:hover .bf-c{color:#8B6914}
+.bf-item::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:#E0D8CC}
+.bf-item:last-child::after{display:none}
+.bf-g{font-size:12px;color:#aaa;margin-bottom:4px;letter-spacing:1px}
+.bf-c{font-size:32px;font-weight:700;display:block;transition:color .2s}
+
+/* Tree */
+#tr{background:#FAF8F5}
+.tc{display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.tc input{padding:14px 20px;border:2px solid #E0D8CC;border-radius:10px;font-size:28px;width:360px;background:#fff;outline:none;font-family:inherit}
+.tc input:focus{border-color:#8B6914}
+.g-j{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.g-btn{padding:12px 20px;border:1px solid #E0D8CC;border-radius:10px;background:#fff;font-size:24px;color:#666;cursor:pointer;font-family:inherit}
+.g-btn:hover{border-color:#8B6914;color:#8B6914}
+.g-btn.on{background:#8B6914;color:#fff;border-color:#8B6914}
+
+#trC{max-width:1200px;margin:0 auto}
+.g-row{opacity:1;transform:translateY(0);transition:opacity .6s,transform .6s;margin-bottom:32px;display:flex;flex-direction:column;align-items:center}
+.g-h{text-align:center;margin-bottom:16px}
+.g-h h3{font-size:28px}.g-row:nth-child(odd) .g-h h3{font-weight:700}.g-row:nth-child(even) .g-h h3{font-weight:400}
+.g-i{font-size:26px;color:#999;margin-top:8px}
+.g-l{width:40px;height:2px;background:#D4C5A9;margin:10px auto 0;border-radius:1px}
+.g-m{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;width:100%}
+.g-c{width:2px;height:20px;background:linear-gradient(to bottom,#D4C5A9,transparent);margin:0 auto}
+
+.cg{display:flex;flex-direction:column;align-items:center}
+.pc{background:#fff;border:1px solid #EDE8E0;border-radius:10px;padding:12px 4px;cursor:pointer;transition:all .25s;width:56px;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.pc:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.06);border-color:#D4C5A9}
+.pn{font-size:28px;font-weight:600;line-height:1.3;display:block}
+
+/* History */
+#hi{background:#fff}
+.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:800px;margin:0 auto}
+.hc2{background:#FAF8F5;border:1px solid #EDE8E0;border-radius:12px;padding:28px;transition:all .25s}
+.hc2:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.04)}
+.hc2 h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.hc2 p{font-size:14px;color:#666}
+.hd2{color:#8B6914!important;margin-top:6px;font-weight:500}
+
+/* Footer */
+.ft{background:#1A1A1A;color:#fff;padding:50px 24px;text-align:center}
+.ft p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:4px}
+.ft .fe{font-size:13px;color:rgba(255,255,255,0.5);margin-top:8px}
+
+/* Modal */
+#mO{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+#mO.on{display:flex}
+.modal{background:#fff;border-radius:16px;padding:32px;max-width:400px;width:90%;position:relative}
+#mX{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;color:#999;cursor:pointer;width:28px;height:28px;border-radius:50%}
+#mX:hover{background:#f0f0f0;color:#333}
+#mC{text-align:left}
+.mf{display:flex;padding:8px 0;border-bottom:1px solid #f0f0f0;align-items:flex-start}
+.mf:last-child{border-bottom:none}
+.ml{font-size:14px;color:#888;min-width:40px;flex-shrink:0}
+.mv{font-size:14px;color:#1A1A1A;flex:1}
+.fb{background:none;border:1px solid #D4C5A9;border-radius:6px;padding:6px 16px;font-size:13px;color:#8B6914;cursor:pointer;font-family:inherit}
+.fb:hover{background:#8B6914;color:#fff}
+
+/* #pwBtn */
+#pB{padding:12px 20px;border:2px solid #8B6914;border-radius:10px;background:#fff;font-size:24px;color:#8B6914;cursor:pointer;font-family:inherit}
+#pB:hover{background:#8B6914;color:#fff!important}
+
+/* Responsive */
+@media(max-width:768px){
+  .nl{display:none}
+  #nT{display:block}
+  .nl.on{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:rgba(250,248,245,0.98);backdrop-filter:blur(12px);padding:16px 24px;gap:16px;border-bottom:1px solid rgba(0,0,0,0.06)}
+  .hst{gap:20px}
+  .st .sn{font-size:24px}
+  .bf-item{padding:0 14px}
+  .bf-c{font-size:24px}
+  .pc{width:70px;min-height:70px}
+  .pn{font-size:13px}
+  .sec{padding:50px 16px}
+}
+
+
+
+
+
+
+/* ===== Mobile Responsive Enhancements ===== */
+
+/* Small phones */
+@media(max-width:480px){
+  .hero{padding:80px 12px 40px;min-height:50vh}
+  .hero h1{font-size:clamp(28px,8vw,36px)!important;letter-spacing:4px}
+  .hs{font-size:12px!important}
+  .hd{font-size:13px!important;margin-bottom:24px}
+  .hst{gap:16px}
+  .st .sn{font-size:20px}
+  .st .sl{font-size:11px}
+  .fc{display:none!important}
+  
+  .sec{padding:30px 12px!important}
+  .sec h2{font-size:clamp(20px,5vw,24px)!important}
+  .sd{font-size:13px!important;margin-bottom:20px!important}
+  
+  .bf-item{padding:0 8px}
+  .bf-g{font-size:10px}
+  .bf-c{font-size:20px!important}
+  
+  .g-h h3{font-size:20px!important}
+  .g-i{font-size:14px!important}
+  .g-row{margin-bottom:20px!important}
+  .g-m{gap:6px!important}
+  
+  .pc{width:44px!important;min-height:56px!important;padding:8px 2px!important;border-radius:6px!important}
+  .pn{font-size:14px!important;line-height:1.2!important}
+  .cl{width:44px!important}
+  
+  
+  .g-btn{padding:6px 10px!important;font-size:13px!important;border-radius:6px!important}
+  .tc{gap:6px!important;margin-bottom:20px!important}
+  #pB{padding:8px 14px!important;font-size:13px!important}
+  
+  .sl{font-size:10px!important}
+  
+  .hc2{padding:16px!important}
+  .hc2 h3{font-size:15px!important}
+  .hc2 p{font-size:12px!important}
+  
+  .modal{padding:20px!important;width:95%!important;border-radius:12px!important}
+  .ml{font-size:13px!important;min-width:70px!important}
+  .mv{font-size:13px!important}
+  .mf{padding:6px 0!important}
+  
+  .ft{padding:30px 16px!important}
+  .ft p{font-size:12px!important}
+  
+  .intro-section p{font-size:14px!important}
+  
+  #toggleSC{font-size:11px!important;padding:2px 6px!important}
+  
+  /* History images 2x2 -> 1 column */
+  .hg{grid-template-columns:1fr!important}
+  
+  .intro-section{font-size:clamp(14px,3vw,18px)!important}
+}
+
+/* Tablets */
+@media(min-width:481px) and (max-width:768px){
+  .hero{padding:90px 16px 50px;min-height:55vh}
+  .hero h1{font-size:clamp(32px,6vw,40px)!important}
+  
+  .g-h h3{font-size:24px!important}
+  .pc{width:50px!important;min-height:60px!important}
+  .pn{font-size:14px!important}
+  .cl{width:50px!important}
+  
+  .g-btn{padding:8px 12px!important;font-size:14px!important}
+  #pB{padding:8px 16px!important;font-size:14px!important}
+  
+  .sec{padding:40px 16px!important}
+  
+  /* History images 2x2 */
+  .hg{grid-template-columns:repeat(2,1fr)!important}
+}
+
+/* Touch optimization for all mobile */
+@media(hover:none) and (pointer:coarse){
+  .g-btn,#pB,#toggleSC,.pc,.bf-item,.fb,#mX,
+  .pc{min-height:56px!important}
+  .g-btn,#pB{padding-top:10px!important;padding-bottom:10px!important}
+}
+
+/* Landscape phones */
+@media(max-height:500px) and (orientation:landscape){
+  .hero{padding:70px 12px 30px!important;min-height:80vh!important}
+  .hero h1{font-size:28px!important}
+  .hd{font-size:12px!important;margin-bottom:16px!important}
+  .hst{gap:12px!important}
+  .st .sn{font-size:18px!important}
+  
+  .sec{padding:20px 12px!important}
+  .g-row{margin-bottom:12px!important}
+  
+  .fc{display:none!important}
+}
+
+</style>
 </head>
 <body>
-  <nav id="nav">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="返回首页">聶</a>
-      <div class="nav-links">
-        <a href="#intro">家族源流</a>
-        <a href="#beifen">辈分表</a>
-        <a href="#tree">世系图</a>
-        <a href="#references">参考链接</a>
+<nav id="nv"><div class="ni"><span style="width:34px;height:34px;background:#8B6914;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;font-family:serif;">聶</span><div class="nl"><a href="#tr">世系图</a><a href="#bf">辈分表</a><a href="#hi">歷史</a></div><button id="toggleSC" style="background:none;border:1px solid #ccc;border-radius:4px;padding:2px 8px;font-size:13px;cursor:pointer;font-family:inherit;color:#666;white-space:nowrap;">简｜繁</button><button id="nT">☰</button></div></nav>
+<section class="hero"><div class="hb"></div><div id="hF"></div><div class="hc"><h1>聂氏族谱</h1><p class="hs">义县砖城子 · 聶氏家族世系傳承</p><p class="hd">始祖聶天榮（兄：天龍），至今一脈傳承十四世，家族繁衍，根脈綿延，祖籍山西「傳說」</p><div class="hst"><div class="st"><span class="sn" id="gC">0</span><span class="sl">世代</span></div><div class="st"><span class="sn" id="tC">0</span><span class="sl">族人</span></div><div class="st"><span class="sn" id="sY">辽宁</span><span class="sl">籍贯</span></div></div></div></section>
+
+
+
+<section class="sec" id="intro" style="background:#fff;padding-top:40px;padding-bottom:40px;">
+  <div class="sl" style="text-align:center;margin-bottom:4px;">ABOUT</div>
+  <h2 style="text-align:center;margin-bottom:24px;">家族源流</h2>
+      <div style="max-width:1600px;margin:0 auto;font-size:clamp(16px,2.33vw,24px);line-height:1.9;color:#333;padding:0 20px;letter-spacing:0.05em;">
+    <p style="text-indent:2em;margin-bottom:16px;">吾义县西砖城子聂氏，尊聂天荣为本支开基始祖。据族中世代口传：始祖聂天荣与胞弟聂天龙，清初随公主出关，隶属「七十二匠人」之列，以铁匠技艺立身。兄弟二人出关拓荒，后分居立业，聂天龙定居东关，另立支脉。原系同胞三兄弟联袂闯关东，其中一支途中失联，其血脉据传尚存于关外异地。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">明末清初，辽西战乱频仍，民生凋敝。崇祯十七年（1644年）清军入关，大量中原汉人编入汉军旗籍。先祖于顺治至康熙初年（约1644–1680年）随清军驻防迁徙，编入汉军正白旗，落籍义州（今义县）。自此辟土扎根、耕读传家，世代繁衍至今。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">初迁关外时，居无定所，宗族规制未备，故前两代暂沿古制单名，未立固定辈分。至第六世「从」字辈，家族基业稳固；第七世仍用单名，为迁徙初创与定居兴盛之过渡。自第七世后，宗族规制完备，悉以双名配固定辈分，世代遵行。先祖预排二十代字辈，章法井然，寓意深远，实为北方宗族传世典范。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">字辈体系承袭山西明清宗族古训，融关外乡土之风，谨遵儒家正道，藏祖训家风于字里行间。三世递进，教化绵长：</p>
+    <p style="text-indent:2em;margin-bottom:16px;">一、立业安身——以「进、登、国、从」寄寓出关拓土、落地安家、奉公守礼之初心；</p>
+    <p style="text-indent:2em;margin-bottom:16px;">二、修身立德——以「文、清、长、德、广、成」训导崇文尚礼、品性清正、积德广业；</p>
+    <p style="text-indent:2em;margin-bottom:16px;">三、传世兴宗——以吉语收尾，祈愿族脉永续、门祚绵长、福禄恒存。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">五世先祖聂国恒（约生于1740年），隶属汉军正白旗行伍。其妻阎氏守节持家、淑德昭彰，于乾隆三十一年（1766年）获朝廷旌表节孝，事迹载入《义县志》《钦定盛京通志》。正史与世系相互印证，足证吾支聂氏于清初迁入义县，至乾隆中期已安居乐业，成为辽西聂氏重要宗支。另有稍户营子聂氏，系辽中转迁支脉，立「守、成、合、文、学」独立字辈，与吾西砖城子聂氏源流各异，不可混同。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">惜十年浩劫之际，祖祠损毁、旧谱几近失传。幸赖先辈暗中手抄誊录，保全谱系文脉，后经网络整理，方使后世得以溯源知根、明脉知祖。望后世子孙，永念先祖迁徙之艰、拓业之苦、立德之贤，修身立德、振业兴家，光耀聂氏门庭，不负先祖垂泽。</p>
+    <p style="text-indent:2em;margin-bottom:16px;"></p>
+  </div></div><h2 style="text-align:center;">辈分字派</h2><p class="sd" style="text-align:center;">聶氏家族二十世字辈，代代相传</p><div class="bf-sc"><div class="bf-tr" id="bfT"></div></div></section>
+<section class="sec" id="tr"><div class="sl" style="text-align:center;">FAMILY TREE</div><h2 style="text-align:center;">家族世系</h2><p class="sd" style="text-align:center;">点击姓名查看详情</p><div class="tc"><div class="g-j" id="gJ"></div><button id="pB">输入密码查看更多后人</button></div><div id="trC"></div></section>
+<section class="sec" id="hi">
+  <div class="sl" style="text-align:center;">HISTORICAL CONTEXT</div>
+  <h2 style="text-align:center;">历史背景</h2>
+  <p class="sd" style="text-align:center;">點擊圖片查看文獻原檔</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto;">
+    <a href="http://read.nlc.cn/OutOpenBook/OpenTwoObjectBook?aid=403&bid=67566.0&cid=87509" target="_blank" style="text-decoration:none;display:block;">
+      <div style="background:#fff;border:1px solid #EDE8E0;border-radius:12px;overflow:hidden;transition:all .3s;height:100%;">
+        <div style="padding:14px;background:linear-gradient(135deg,#FAF8F5,#F0E8D8);">
+          <div style="font-size:13px;font-weight:600;color:#8B6914;">義縣志</div>
+          <div style="font-size:12px;color:#888;margin-top:2px;">第十四册 · 人物志</div>
+        </div>
+        <img src="義縣志 · 第十四册 人物志_01.png" style="width:100%;display:block;">
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="打开导航" aria-expanded="false">☰</button>
-    </div>
-  </nav>
-
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-floating" id="heroFloating" aria-hidden="true"></div>
-    <div class="hero-content">
-      <h1>聂氏族谱</h1>
-      <p class="hero-sub">义县砖城子 · 聂氏家族世系传承</p>
-      <p class="hero-desc">尊聂天荣为本支开基始祖，家族根脉绵延，谱系传承至今。</p>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num" id="genCount">15+</span><span class="stat-label">世代</span></div>
-        <div class="stat"><span class="stat-num" id="totalCount">390+</span><span class="stat-label">族人</span></div>
-        <div class="stat stat-origin"><span class="stat-num stat-place">义州</span><span class="stat-place-note">（今义县）</span><span class="stat-label">籍贯</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="history-section" id="intro">
-    <div class="intro-heading">
-      <div class="section-label">ABOUT</div>
-      <h2>家族源流</h2>
-    </div>
-    <div class="source-copy" aria-label="聂氏家族源流正文">
-      <p>吾义县西砖城子聂氏，尊聂天荣为本支开基始祖。聂姓，中华姓氏之一，起源主要有4点：出自姬姓；出自姜姓；古有地名聂北，居者以地为氏；出自他族有聂姓或改聂姓。据族中世代口传：始祖聂天荣与胞弟聂天龙，清初随公主出关，隶属「七十二匠人」之列，以铁匠技艺立身。兄弟二人出关拓荒，后分居立业，聂天龙定居东关，另立支脉。原系同胞三兄弟联袂闯关东，其中一支途中失联，其血脉据传尚存于关外异地。</p>
-      <p>明末清初，辽西战乱频仍，民生凋敝。崇祯十七年（1644年）清军入关，大量中原汉人编入汉军旗籍。先祖于顺治至康熙初年（约1644–1680年）随清军驻防迁徙，编入汉军正白旗，落籍义州（今义县）。自此辟土扎根、耕读传家，世代繁衍至今。</p>
-      <p>初迁关外时，居无定所，宗族规制未备，故前两代暂沿古制单名，未立固定辈分。至第六世「从」字辈，家族基业稳固；第七世仍用单名，为迁徙初创与定居兴盛之过渡。自第七世后，宗族规制完备，悉以双名配固定辈分，世代遵行。先祖预排二十代字辈，章法井然，寓意深远。</p>
-      <div class="source-teaching">
-        <p>字辈体系（推测）承袭山西明清宗族古训，融关外乡土之风，谨遵儒家正道，藏祖训家风于字里行间。三世递进，教化绵长：</p>
-        <p class="source-principle">一、立业安身——以「进、登、国、从」寄寓出关拓土、落地安家、奉公守礼之初心；</p>
-        <p class="source-principle">二、修身立德——以「文、清、长、德、广、成」训导崇文尚礼、品性清正、积德广业；</p>
-        <p class="source-principle">三、传世兴宗——以吉语收尾，祈愿族脉永续、门祚绵长、福禄恒存。</p>
-      </div>
-      <p>据「义县志」记载内容推测，五世先祖聂国恒（约生于1740年），隶属汉军正白旗行伍，1766年（乾隆三十一年）已久居于此地；其妻阎氏守节持家、淑德昭彰，于乾隆三十一年（1766年）获朝廷旌表节孝，事迹载入《义县志》《钦定盛京通志》。正史与世系相互印证，足证吾支聂氏于清初迁入义县，至乾隆中期已安居乐业，成为辽西聂氏重要宗支。另有稍户营子聂氏，系辽中转迁支脉，立「守、成、合、文、学」独立字辈，与吾西砖城子聂氏源流各异，不可混同。</p>
-      <p>惜十年浩劫之际，祖祠损毁、旧谱几近失传。幸赖先辈暗中手抄誊录，保全谱系文脉，后经网络整理，方使后世得以溯源知根、明脉知祖。</p>
-      <p class="source-wish">望后世子孙，永念先祖迁徙之艰、拓业之苦、立德之贤，修身立德、振业兴家，光耀聂氏门庭，不负先祖垂泽。</p>
-    </div>
-  </section>
-
-  <section class="beifen-section" id="beifen">
-    <div class="section-label">GENERATIONAL NAMES</div>
-    <h2>辈分字派</h2>
-    <p class="section-desc">聂氏家族二十世字辈，代代相传</p>
-    <div class="beifen-scroll"><div class="beifen-track" id="beifenTrack"><span class="data-loading">族谱数据载入中…</span></div></div>
-  </section>
-
-  <section class="tree-section" id="tree">
-    <div class="section-label" style="text-align:center">FAMILY TREE</div>
-    <h2 style="text-align:center">家族世系</h2>
-    <p class="section-desc" style="text-align:center">搜索姓名或按世代浏览，点击族人查看详情</p>
-    <div class="tree-controls">
-      <div class="search-box"><input type="search" id="searchInput" placeholder="搜索族人姓名…" aria-label="搜索族人姓名"></div>
-      <div class="gen-jump" id="genJump"></div>
-      <button id="pwBtn" class="gen-btn password-trigger">输入密码查看十二世后族人</button>
-    </div>
-    <p id="searchStatus" class="search-status" role="status"></p>
-    <div class="tree-container" id="treeContainer"><p class="data-loading">族谱数据载入中…</p></div>
-  </section>
-
-  <section class="references-section combined-references" id="references">
-    <div class="section-label">REFERENCE LINKS</div>
-    <h2>参考链接</h2>
-    <p class="section-desc">县志、地方文献及网络整理资料</p>
-    <h3 class="reference-group-title">县志与地方文献</h3>
-    <div class="reference-index">
-      <a href="http://read.nlc.cn/allSearch/searchDetail?searchType=all&amp;showType=1&amp;indexName=data_511&amp;fid=023031404022170" target="_blank" rel="noopener"><span>国家图书馆藏</span><strong>义县志补遗</strong></a>
-      <a href="http://read.nlc.cn/allSearch/searchDetail?searchType=all&amp;showType=1&amp;indexName=data_471&amp;fid=001021111010006" target="_blank" rel="noopener"><span>国家图书馆藏</span><strong>义县志</strong></a>
-    </div>
-    <div class="document-grid merged-document-grid">
-      <a class="document-card" href="http://read.nlc.cn/OutOpenBook/OpenTwoObjectBook?aid=403&amp;bid=67566.0&amp;cid=87509" target="_blank" rel="noopener">
-        <div class="document-meta"><strong>义县志</strong><span>第十四册 · 人物志 · 01</span></div>
-        <img src="義縣志 · 第十四册 人物志_01.png" alt="义县志第十四册人物志原档之一">
-      </a>
-      <a class="document-card" href="http://read.nlc.cn/OutOpenBook/OpenTwoObjectBook?aid=403&amp;bid=67566.0&amp;cid=87509" target="_blank" rel="noopener">
-        <div class="document-meta"><strong>义县志</strong><span>第十四册 · 人物志 · 02</span></div>
-        <img src="義縣志 · 第十四册 人物志_02.png" alt="义县志第十四册人物志原档之二">
-      </a>
-      <a class="document-card" href="http://read.nlc.cn/OutOpenBook/OpenObjectBook?aid=403&amp;bid=10623.0" target="_blank" rel="noopener">
-        <div class="document-meta"><strong>钦定盛京通志</strong><span>卷九十四 · 三十一</span></div>
-        <img src="欽定盛京通志 · 卷九十四 三十一.png" alt="钦定盛京通志卷九十四原档">
-      </a>
-    </div>
-    <div class="document-annotation">
-      <div class="document-annotation-title"><span>文献考据</span><strong>《义县志》第十四册人物志 · 02</strong></div>
-      <p>谱牒所载 “国” 字辈考据推求，先祖聂国恒大概率归属始祖聂天荣本支，亦有可能出自聂天龙分立的东关支脉。两支同出一宗，故其隶属于本宗族的可能性极高。无论分属哪一支派，依托现有史料可得出两点确凿论断：</p>
-      <p><strong>其一，</strong>先祖虽编入汉军正白旗前来驻防定居，血脉本源实为中原汉族，世代承袭汉族传统宗族礼制与家风；</p>
-      <p><strong>其二，</strong>至乾隆三十一年（公元 1766 年），本宗族人已然久居义地，完成本土化定居，于此落地深耕、世代繁衍。</p>
-    </div>
-    <a class="reference-feature" href="http://read.nlc.cn/OutOpenBook/OpenTwoObjectBook?aid=403&amp;bid=103655.0&amp;cid=109610" target="_blank" rel="noopener">
-      <img src="yixian-gazetteer-geography-p51.png" alt="义县志中卷一地舆志第五区砖城子修乡道记载">
-      <span class="reference-feature-copy">
-        <span class="reference-feature-meta">义县志 · 中卷（一）地舆志 · P51</span>
-        <strong>砖城子修乡道记载</strong>
-        <span>旧时《义县志》地舆志此处标注人名，代表二人是<strong>牵头主办者</strong>，主要承担筹措钱款、召集乡民施工、统筹工程落地的工作，属于乡绅层面的主事，并非官府委派的公职官吏。二人大概率是砖城子本地声望较高的宗族代表，凭借乡土号召力推进修路事宜。</span>
-        <small>点击查看国家图书馆原档</small>
-      </span>
     </a>
-    <h3 class="reference-group-title network-group-title">网络资料</h3>
-    <div class="reference-grid">
-      <a class="reference-card" href="https://niezushizhi.kuaizhan.com/65/85/p34734839720695" target="_blank" rel="noopener">
-        <img src="reference-1.png" alt="锦州及辽西地区聂族资料页面截图">
-        <span class="reference-body"><strong>锦州及辽西地区聂族资料</strong><small>niezushizhi.kuaizhan.com</small></span>
-      </a>
-      <a class="reference-card" href="https://niezushizhi.kuaizhan.com/37/54/p3097651448cfd1" target="_blank" rel="noopener">
-        <img src="reference-2.png" alt="义县西砖城聂氏资料页面截图">
-        <span class="reference-body"><strong>义县西砖城聂氏资料</strong><small>niezushizhi.kuaizhan.com</small></span>
-      </a>
-      <a class="reference-card" href="https://www.jiapu.tv/bbs/iskl/155857.html" target="_blank" rel="noopener">
-        <img src="reference-3.png" alt="辽宁聂氏字辈资料页面截图">
-        <span class="reference-body"><strong>辽宁聂氏字辈资料</strong><small>jiapu.tv</small></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="editor-note-section" id="editor-note">
-    <div class="editor-note-inner">
-      <div class="section-label">EDITOR'S NOTE</div>
-      <h2>整理后记</h2>
-      <div class="editor-note-copy">
-        <p>本宗谱肇始辑纂于 2022 年，资料多撷取公开文史记载、网络可信史料，并参稽地方旧志考究整编。修谱初衷，意在使宗族后辈铭记先祖拓荒立业之艰，明晰本支聂氏的源流沿革、迁徙始末、发展背景与文脉积淀；后世为子嗣定名之时，亦可循谱知悉先祖讳号，恪守避讳礼制。</p>
-        <p>综考现存史料，吾族历代先辈并无地位煊赫之显贵，亦无劣迹昭著之人，世守淳朴乡风，先祖长久定居砖城子村及村西五里处之棺材沟（别称西沟），世代躬耕务农，家风敦厚。近代谱牒因故中断续修，现存在册名讳尚有缺漏，诚盼族中贤达广搜旧闻、提供史料，补全谱系阙失之处。</p>
-        <p>历经时代更迭、世事变迁，后世族人多外出谋求生计，迁徙四方、异地立业，于各处扎根繁衍、绵延宗脉。纵使居所分散、地域相隔，仍望全体族人常怀溯源之心，不忘故土根本，传承先辈良善家风。</p>
+    <a href="http://read.nlc.cn/OutOpenBook/OpenTwoObjectBook?aid=403&bid=67566.0&cid=87509" target="_blank" style="text-decoration:none;display:block;">
+      <div style="background:#fff;border:1px solid #EDE8E0;border-radius:12px;overflow:hidden;transition:all .3s;height:100%;">
+        <div style="padding:14px;background:linear-gradient(135deg,#FAF8F5,#F0E8D8);">
+          <div style="font-size:13px;font-weight:600;color:#8B6914;">義縣志</div>
+          <div style="font-size:12px;color:#888;margin-top:2px;">第十四册 · 人物志</div>
+        </div>
+        <img src="義縣志 · 第十四册 人物志_02.png" style="width:100%;display:block;">
       </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-mono" aria-hidden="true">聶</div>
-    <p>聂氏族谱 · 义县砖城子</p>
-    <p class="footer-email">nieqiang0504@gmail.com · 欢迎同族联络</p>
-  </footer>
-
-  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose" aria-label="关闭">✕</button>
-      <div class="modal-content" id="modalContent"></div>
-    </div>
+    </a>
+    <a href="http://read.nlc.cn/OutOpenBook/OpenObjectBook?aid=403&bid=10623.0" target="_blank" style="text-decoration:none;display:block;">
+      <div style="background:#fff;border:1px solid #EDE8E0;border-radius:12px;overflow:hidden;transition:all .3s;height:100%;">
+        <div style="padding:14px;background:linear-gradient(135deg,#FAF8F5,#F0E8D8);">
+          <div style="font-size:13px;font-weight:600;color:#8B6914;">钦定盛京通志</div>
+          <div style="font-size:12px;color:#888;margin-top:2px;">卷九十四 · 三十一</div>
+        </div>
+        <img src="欽定盛京通志 · 卷九十四 三十一.png" style="width:100%;display:block;">
+      </div>
+    </a>
   </div>
-  <script src="app-fixed.js?v=20260711-6"></script>
-</body>
-</html>
+</section>
+<div </section>
+<footer class="ft"><p>聂氏族谱 · 义县砖城子</p><p class="fe">📧 nieqiang0504@gmail.com · 微信：13386760401 · 欢迎同族联络</p></footer>
+<div id="mO"><div class="modal"><button id="mX">✕</button><div id="mC"></div></div></div>
+<script>
+var D={"beifen": [{"gen": "始祖", "char": ""}, {"gen": "二世", "char": "單字"}, {"gen": "三世", "char": "进"}, {"gen": "四世", "char": "登"}, {"gen": "五世", "char": "国"}, {"gen": "六世", "char": "从"}, {"gen": "七世", "char": "單字"}, {"gen": "八世", "char": "文"}, {"gen": "九世", "char": "清"}, {"gen": "十世", "char": "长"}, {"gen": "十一世", "char": "德"}, {"gen": "十二世", "char": "廣"}, {"gen": "十三世", "char": "成"}, {"gen": "十四世", "char": "先"}, {"gen": "十五世", "char": "印"}, {"gen": "十六世", "char": "家"}, {"gen": "十七世", "char": "吉"}, {"gen": "十八世", "char": "永"}, {"gen": "十九世", "char": "庆"}, {"gen": "二十世", "char": "昌"}], "zupu": [{"g": "始祖", "m": [{"n": "聶天荣", "s": "曹氏"}]}, {"g": "二世", "m": [{"n": "聶成", "s": "未知"}, {"n": "聶德", "s": "杜氏"}, {"n": "聶有", "s": "王氏"}, {"n": "聶福", "s": "賀氏"}, {"n": "聶财", "s": "潘氏"}, {"n": "聶牛", "s": "未知"}]}, {"g": "三世", "m": [{"n": "聶进孝", "s": "何、吕氏"}, {"n": "聶进悌", "s": "王氏"}, {"n": "聶进学", "s": "王氏"}, {"n": "聶进龙", "s": "程氏"}, {"n": "聶进凤", "s": "王氏"}]}, {"g": "四世", "m": [{"n": "聶登贤", "s": "吕氏"}, {"n": "聶登秀", "s": "海氏"}, {"n": "聶登科", "s": "程氏"}, {"n": "聶登金", "s": "杨氏"}, {"n": "聶登银", "s": "柳氏"}, {"n": "聶登举", "s": "谭氏"}, {"n": "聶登魁", "s": "白、王氏"}, {"n": "聶登云", "s": "王氏"}, {"n": "聶登明", "s": "张氏"}, {"n": "聶登亮", "s": "金氏"}, {"n": "聶登英", "s": "未知"}, {"n": "聶登仕", "s": "吴氏"}]}, {"g": "五世", "m": [{"n": "聶国利", "s": "沈氏"}, {"n": "聶国用", "s": "吴氏"}, {"n": "聶国太", "s": "未知"}, {"n": "聶国昌", "s": "未知"}, {"n": "聶国安", "s": "程氏"}, {"n": "聶国祥", "s": "金氏"}, {"n": "聶国禄", "s": "王氏"}, {"n": "聶国惠", "s": "何氏"}, {"n": "聶国平", "s": "未知"}, {"n": "聶国恒", "s": "阎氏"}, {"n": "聶国喜", "s": "张氏"}, {"n": "聶国宁", "s": "刘氏"}, {"n": "聶国相", "s": "刘氏"}, {"n": "聶国栋", "s": "闫氏"}, {"n": "聶国治", "s": "王氏"}, {"n": "聶国卿", "s": "吕氏"}, {"n": "聶国陆", "s": "赵氏"}, {"n": "聶国梁", "s": "王氏"}, {"n": "聶国宽", "s": "关氏"}, {"n": "聶国恒", "s": "冷氏"}, {"n": "聶国兴", "s": "于氏"}, {"n": "聶国顺", "s": "高氏"}, {"n": "聶国臣", "s": "冉氏"}]}, {"g": "六世", "m": [{"n": "聶从弻", "s": "未知"}, {"n": "聶从杰", "s": "张氏"}, {"n": "聶从发", "s": "孟氏"}, {"n": "聶从富", "s": "金氏"}, {"n": "聶从相", "s": "陈氏"}, {"n": "聶从宝", "s": "张氏"}, {"n": "聶从惠", "s": "吴氏"}, {"n": "聶从儒", "s": "于氏"}, {"n": "聶从柏", "s": "张氏"}, {"n": "聶从宫", "s": "吕氏"}, {"n": "聶从和", "s": "岳氏"}, {"n": "聶从江", "s": "金氏"}, {"n": "聶从财", "s": "李、刘、王、崔氏"}, {"n": "聶从德", "s": "闫氏"}, {"n": "聶从美", "s": "顾氏"}, {"n": "聶从福", "s": "李氏"}, {"n": "聶从禄", "s": "徐氏"}, {"n": "聶从寿", "s": "吴氏"}, {"n": "聶从周", "s": "邹氏"}, {"n": "聶从银", "s": "柳氏"}, {"n": "聶从明", "s": "岳氏"}, {"n": "聶从金", "s": "金氏"}, {"n": "聶从河", "s": "陈氏"}, {"n": "聶从亮", "s": "任氏"}, {"n": "聶从模", "s": "胡氏"}, {"n": "聶从俊", "s": "郭氏"}, {"n": "聶从义", "s": "唐氏"}, {"n": "聶从任", "s": "王氏"}, {"n": "聶从银", "s": "张氏"}, {"n": "聶从有", "s": "闫、于、董氏"}]}, {"g": "七世", "m": [{"n": "聶贵", "s": "未知"}, {"n": "聶柱", "s": "魏氏"}, {"n": "聶豹", "s": "李氏"}, {"n": "聶栋", "s": "白氏"}, {"n": "聶会", "s": "陶氏"}, {"n": "聶秀", "s": "之氏"}, {"n": "聶满", "s": "之氏"}, {"n": "聶云", "s": "池氏"}, {"n": "聶春", "s": "高氏"}, {"n": "聶功", "s": "之氏"}, {"n": "聶勤", "s": "朱氏"}, {"n": "聶喜", "s": "之氏"}, {"n": "聶增", "s": "边氏"}, {"n": "聶祥", "s": "夏氏"}, {"n": "聶文", "s": "范氏"}, {"n": "聶德", "s": "李氏"}, {"n": "聶森", "s": "闫氏"}, {"n": "聶庆", "s": "之氏"}, {"n": "聶全", "s": "郭氏"}, {"n": "聶刚", "s": "之氏"}, {"n": "聶玉", "s": "李氏"}, {"n": "聶君", "s": "宋氏"}, {"n": "聶栋", "s": "苑氏"}, {"n": "聶杨", "s": "孙氏"}, {"n": "聶永", "s": "田氏"}, {"n": "聶进", "s": "郭氏"}, {"n": "聶财", "s": "宋氏"}, {"n": "聶宝", "s": "闫氏"}, {"n": "聶升", "s": "宋、王氏"}, {"n": "聶成", "s": "杨氏"}, {"n": "聶美", "s": "会氏"}, {"n": "聶义", "s": "姜氏"}, {"n": "聶利", "s": "张氏"}, {"n": "聶升", "s": "白氏"}, {"n": "聶癸", "s": "金氏"}, {"n": "聶仲", "s": "李氏"}, {"n": "聶郭", "s": "白氏"}, {"n": "聶魁", "s": "刘氏"}, {"n": "聶喜", "s": "李氏"}, {"n": "聶珍", "s": "赵氏"}, {"n": "聶谟", "s": "孙氏"}, {"n": "聶林", "s": "海氏"}, {"n": "聶盛", "s": "李氏"}, {"n": "聶张", "s": "高氏"}, {"n": "聶和", "s": "吴氏"}, {"n": "聶太", "s": "杨、高氏"}, {"n": "聶平", "s": "王氏"}]}, {"g": "八世", "m": [{"n": "聶文马", "s": "赵氏"}, {"n": "聶文芳", "s": "郭氏"}, {"n": "聶文印", "s": "金氏"}, {"n": "聶文质", "s": "高氏"}, {"n": "聶文迨", "s": "邹、崔氏"}, {"n": "聶文增", "s": "邹氏"}, {"n": "聶文信", "s": "未知"}, {"n": "聶文升", "s": "邹氏"}, {"n": "聶文惠", "s": "邹氏"}, {"n": "聶文照", "s": "未知"}, {"n": "聶文平", "s": "张氏"}, {"n": "聶文占", "s": "邹氏"}, {"n": "聶文林", "s": "闫氏"}, {"n": "聶文明", "s": "陈氏"}, {"n": "聶文德", "s": "吴氏"}, {"n": "聶文安", "s": "张氏"}, {"n": "聶文义", "s": "未知"}, {"n": "聶文有", "s": "未知"}, {"n": "聶文连", "s": "杨氏"}, {"n": "聶文福", "s": "敖氏"}, {"n": "聶文利", "s": "未知"}, {"n": "聶文同", "s": "未知"}, {"n": "聶文禄", "s": "赵氏"}, {"n": "聶文全", "s": "张氏"}, {"n": "聶文儒", "s": "高氏"}, {"n": "聶文廷", "s": "邹氏"}, {"n": "聶文玉", "s": "赵氏"}, {"n": "聶文秀", "s": "孟氏"}, {"n": "聶文炳", "s": "金氏"}, {"n": "聶文瑞", "s": "谢氏"}, {"n": "聶文贤", "s": "高氏"}, {"n": "聶文和", "s": "王氏"}, {"n": "聶文明", "s": "张氏"}, {"n": "聶文新", "s": "传氏"}, {"n": "聶文森", "s": "张氏"}, {"n": "聶文煥", "s": "未知"}, {"n": "聶文恒", "s": "吴氏"}, {"n": "聶文美", "s": "未知"}, {"n": "聶文山", "s": "岳氏"}, {"n": "聶文盛", "s": "金氏"}, {"n": "聶文太", "s": "金氏"}, {"n": "聶文魁", "s": "门氏"}, {"n": "聶文成", "s": "范氏"}, {"n": "聶文湖", "s": "未知"}, {"n": "聶文清", "s": "马氏"}, {"n": "聶文癸", "s": "张氏"}, {"n": "聶文荣", "s": "赵氏"}, {"n": "聶文璽", "s": "张氏"}, {"n": "聶文淩", "s": "闫氏"}, {"n": "聶文明", "s": "高、孟氏"}, {"n": "聶文亮", "s": "于氏"}, {"n": "聶文廣", "s": "范氏"}, {"n": "聶文祥", "s": "杨氏"}, {"n": "聶文财", "s": "未知"}, {"n": "聶文学", "s": "敖氏"}, {"n": "聶文彬", "s": "刘氏"}, {"n": "聶文仲", "s": "金氏"}, {"n": "聶文凤", "s": "赵氏"}]}, {"g": "九世", "m": [{"n": "聶清玉", "s": "未知"}, {"n": "聶清田", "s": "未知"}, {"n": "聶清占", "s": "未知"}, {"n": "聶清璽", "s": "王氏"}, {"n": "聶清陽", "s": "杨氏"}, {"n": "聶清有", "s": "未知"}, {"n": "聶清满", "s": "张氏"}, {"n": "聶清克", "s": "赵氏"}, {"n": "聶清癸", "s": "梁氏"}, {"n": "聶门姜氏", "s": ""}, {"n": "聶门高氏", "s": ""}, {"n": "聶门陈氏", "s": ""}, {"n": "聶门李氏", "s": ""}, {"n": "聶门王氏", "s": ""}, {"n": "聶门金氏", "s": ""}, {"n": "聶清香", "s": "许、蔡氏"}, {"n": "聶清全", "s": "蓝氏"}, {"n": "聶清福", "s": "顾氏"}, {"n": "聶清奎", "s": "未知"}, {"n": "聶清聚", "s": "门氏"}, {"n": "聶清君", "s": "吴氏"}, {"n": "聶清盈", "s": "高氏"}, {"n": "聶清恩", "s": "张、宋氏"}, {"n": "聶清昌", "s": "刘氏"}, {"n": "聶清贵", "s": "高氏"}, {"n": "聶清恒", "s": "范氏"}, {"n": "聶清芝", "s": "刘、高氏"}, {"n": "聶清山", "s": "吴氏"}, {"n": "聶清平", "s": "张氏"}, {"n": "聶清廉", "s": "未知"}, {"n": "聶清武", "s": "张氏"}, {"n": "聶清祥", "s": "传氏"}, {"n": "聶清廣", "s": "未知"}, {"n": "聶清合", "s": "顾氏"}, {"n": "聶清和", "s": "柳氏"}, {"n": "聶清荣", "s": "魏、郭氏"}, {"n": "聶清国", "s": "张、杨、赵氏"}, {"n": "聶清元", "s": "王氏"}, {"n": "聶清顺", "s": "未知"}, {"n": "聶清利", "s": "许、陈氏"}, {"n": "聶清玉", "s": "苗氏"}, {"n": "聶清瑞", "s": "未知"}, {"n": "聶清吉", "s": "张氏"}, {"n": "聶清安", "s": "未知"}, {"n": "聶清太", "s": "李氏"}, {"n": "聶清林", "s": "王氏"}, {"n": "聶清云", "s": "未知"}, {"n": "聶清柏", "s": "未知"}, {"n": "聶清振", "s": "未知"}, {"n": "聶清库", "s": "柳氏"}, {"n": "聶清惠", "s": "桑氏"}, {"n": "聶清珍", "s": "李氏"}, {"n": "聶清周", "s": "李氏"}, {"n": "聶清浦", "s": "未知"}]}, {"g": "十世", "m": [{"n": "聶长文", "s": "未知"}, {"n": "聶长坤", "s": "未知"}, {"n": "聶长义", "s": "柳氏"}, {"n": "聶长勤", "s": "未知"}, {"n": "聶长纯", "s": "许氏"}, {"n": "聶长凤", "s": "张氏"}, {"n": "聶长久", "s": "张氏"}, {"n": "聶长如", "s": "常氏"}, {"n": "聶长有", "s": "宋氏"}, {"n": "聶长安", "s": "未知"}, {"n": "聶长举", "s": "张氏"}, {"n": "聶长英", "s": "未知"}, {"n": "聶长來", "s": "宋氏"}, {"n": "聶长云", "s": "未知"}, {"n": "聶长俊", "s": "高氏"}, {"n": "聶长清", "s": "高氏"}, {"n": "聶长玉", "s": "童氏"}, {"n": "聶长和", "s": "顾氏"}, {"n": "聶长顺", "s": "顾氏"}, {"n": "聶长廷", "s": "王氏"}, {"n": "聶长于", "s": "桑氏"}, {"n": "聶长占", "s": "王氏"}, {"n": "聶长升", "s": "金氏"}, {"n": "聶长忠", "s": "关氏"}, {"n": "聶长库", "s": "未知"}, {"n": "聶长选", "s": "未知"}, {"n": "聶长贵", "s": "宋、田氏"}, {"n": "聶长春", "s": "高氏"}, {"n": "聶长明", "s": "高氏"}, {"n": "聶长富", "s": "闫氏"}, {"n": "聶长盈", "s": "岳氏"}, {"n": "聶长胜", "s": "陈氏"}, {"n": "聶世荣", "s": "张氏"}, {"n": "聶世禄", "s": "寇氏"}, {"n": "聶世恩", "s": "张氏"}, {"n": "聶长瑞", "s": "王氏"}, {"n": "聶长德", "s": "王氏"}, {"n": "聶长孙", "s": "何氏"}, {"n": "聶长太", "s": "柳氏"}, {"n": "聶长荣", "s": "高氏"}, {"n": "聶长恩", "s": "李氏"}, {"n": "聶长廣", "s": "未知"}, {"n": "聶长宝", "s": "未知"}, {"n": "聶长魁", "s": "未知"}, {"n": "聶长癸", "s": "未知"}, {"n": "聶长文", "s": "未知"}, {"n": "聶长武", "s": "未知"}, {"n": "聶长仲", "s": "未知"}, {"n": "聶长维", "s": "未知"}, {"n": "聶长儒", "s": "未知"}, {"n": "聶长武", "s": "未知"}, {"n": "聶长魁", "s": "未知"}, {"n": "聶长金", "s": "未知"}, {"n": "聶门传氏", "s": ""}, {"n": "聶门闫氏", "s": ""}, {"n": "聶门李氏", "s": ""}, {"n": "聶门高、李氏", "s": ""}, {"n": "聶长清", "s": "高氏"}]}, {"g": "十一世", "m": [{"n": "聶德一", "s": ""}, {"n": "聶德红", "s": ""}, {"n": "聶德张", "s": ""}, {"n": "聶德勤", "s": "魏氏"}, {"n": "聶德春", "s": "孙氏"}, {"n": "聶德清", "s": "郑氏"}, {"n": "聶德政", "s": "王氏"}, {"n": "聶德惠", "s": ""}, {"n": "聶德恩", "s": "范氏"}, {"n": "聶德俊", "s": ""}, {"n": "聶德彬", "s": ""}, {"n": "聶德申", "s": "何氏"}, {"n": "聶德贤", "s": "张氏"}, {"n": "聶德周", "s": "王氏"}, {"n": "聶德金", "s": ""}, {"n": "聶德珍", "s": ""}, {"n": "聶德兴", "s": ""}, {"n": "聶德貞", "s": ""}, {"n": "聶德宝", "s": ""}, {"n": "聶德久", "s": ""}, {"n": "聶德禄", "s": "寇氏"}, {"n": "聶德廣", "s": ""}, {"n": "聶德久", "s": "高氏"}, {"n": "聶德禄", "s": "李氏"}, {"n": "聶德岩", "s": ""}, {"n": "聶德春", "s": ""}, {"n": "聶德荣", "s": ""}, {"n": "聶德忠", "s": ""}, {"n": "聶德令", "s": ""}, {"n": "聶德文", "s": ""}, {"n": "聶德元", "s": ""}, {"n": "聶德祥", "s": "王氏"}, {"n": "聶德义", "s": ""}, {"n": "聶德厚", "s": ""}, {"n": "聶德印", "s": "顾氏"}, {"n": "聶德魁", "s": "谢氏"}, {"n": "聶德昌", "s": "支氏"}, {"n": "聶德金", "s": "李氏"}, {"n": "聶德富", "s": "郭氏"}, {"n": "聶德库", "s": ""}, {"n": "聶德潤", "s": ""}, {"n": "聶德存", "s": ""}, {"n": "聶德为", "s": ""}, {"n": "聶德本", "s": ""}, {"n": "聶德玉", "s": "高氏"}, {"n": "聶德山", "s": ""}, {"n": "聶德林", "s": "宋氏"}, {"n": "聶德升", "s": ""}, {"n": "聶德新", "s": "顾氏"}, {"n": "聶德民", "s": ""}, {"n": "聶德满", "s": "宋氏｜春蘭", "d": "2025-08-08"}]}, {"g": "十二世", "m": [{"n": "聶廣州", "s": ""}, {"n": "聶廣春", "s": ""}, {"n": "聶廣杰", "s": ""}, {"n": "聶廣付", "s": "顾氏"}, {"n": "聶廣海", "s": ""}, {"n": "聶廣庆", "s": ""}, {"n": "聶廣慧", "s": "寇氏"}, {"n": "聶廣武", "s": "陈氏"}, {"n": "聶廣文", "s": ""}, {"n": "聶廣彬", "s": ""}, {"n": "聶廣凤", "s": ""}, {"n": "聶廣达", "s": ""}, {"n": "聶廣仁", "s": ""}, {"n": "聶廣記", "s": ""}, {"n": "聶廣红", "s": ""}, {"n": "聶廣田", "s": ""}, {"n": "聶廣玉", "s": "张氏"}, {"n": "聶廣顺", "s": "温氏"}, {"n": "聶廣俊", "s": "张氏"}, {"n": "聶廣于", "s": "吴氏"}, {"n": "聶廣成", "s": "高氏"}, {"n": "聶廣吉", "s": ""}, {"n": "聶廣有", "s": ""}, {"n": "聶爱军", "s": ""}, {"n": "聶爱民", "s": ""}, {"n": "聶爱国", "s": ""}, {"n": "聶廣闊", "s": ""}, {"n": "聶爱文", "s": ""}]}, {"g": "十三世", "m": [{"n": "聶成凡", "s": ""}, {"n": "聶成祥", "s": ""}, {"n": "聶成勤", "s": ""}, {"n": "聶成儉", "s": ""}, {"n": "聶成海", "s": ""}, {"n": "聶成和", "s": ""}, {"n": "聶成全", "s": ""}, {"n": "聶成玉", "s": ""}, {"n": "聶 日", "s": ""}, {"n": "聶 强", "s": ""}, {"n": "聶承财", "s": ""}, {"n": "聶成龙", "s": ""}]}, {"g": "十四世", "m": [{"n": "聶先明", "s": ""}, {"n": "聶先财", "s": ""}, {"n": "聶先福", "s": ""}]}, {"g": "十五世", "m": [{"n": "聶印红", "s": ""}, {"n": "聶印昊", "s": ""}]}]};
+var C=[
+  {p:'聶清库',c:'聶长久'},
+  {p:'聶长久',c:'聶德满'},
+  {p:'聶德满',c:'聶爱军'},
+  {p:'聶德满',c:'聶爱国'},
+  {p:'聶德满',c:'聶爱民'},
+  {p:'聶爱军',c:'聶 强'},
+  {p:'聶爱国',c:'聶成龙'},
+  {p:'聶爱民',c:'聶承财'}
+];
+
+function rB(){
+  var t=document.getElementById('bfT');
+  if(!t)return;
+  D.beifen.forEach(function(b,bi){
+    var d=document.createElement('div');
+    d.className='bf-item';
+    d.innerHTML='<div class=bf-g>'+b.gen+'</div><span class=bf-c>'+(b.char||'—')+'</span>';
+    d.onclick=function(){
+      var rs=document.querySelectorAll('.g-row');
+      if(rs[bi]){rs[bi].scrollIntoView({behavior:'smooth',block:'start'});
+      var bs=document.querySelectorAll('.g-btn');
+      bs.forEach(function(x){x.classList.remove('on');});
+      if(bs[bi])bs[bi].classList.add('on');}
+    };
+    t.appendChild(d);
+  });
+}
+
+function rT(f){
+  var e=document.getElementById('trC');
+  var j=document.getElementById('gJ');
+  if(!e||!j)return;
+  e.innerHTML='';j.innerHTML='';
+  f=(f||'').trim().toLowerCase();
+  D.zupu.forEach(function(g,gi){
+    var ms=f?g.m.filter(function(x){return x.n.indexOf(f)>=0;}):g.m;
+    if(f&&!ms.length)return;
+    var r=document.createElement('div');
+    r.className='g-row';
+    var ch=(D.beifen[gi]||{}).char||'';
+    var ih='<div class=g-h><h3>'+g.g+'</h3><div class=g-i>'+(ch?'字辈「'+ch+'」·':'')+g.m.length+'人</div><div class=g-l></div></div><div class=g-m id=m-'+gi+'></div>'+(gi<D.zupu.length-1?'<div class=g-c></div>':'');
+    r.innerHTML=ih;
+    e.appendChild(r);
+    var el=r.querySelector('.g-m');
+    var dm=f?ms:g.m;
+    dm.forEach(function(x){
+      var w=document.createElement('div');
+      w.className='cg';
+      var c=document.createElement('div');
+      c.className='pc';
+      var fn=nm(x.n,gi);
+      c.innerHTML='<span class=pn>'+fn.split('').join('<br>')+'</span>';
+      c.onclick=function(){if(!window.UL&&nm(x.n,gi)!==x.n){cP();}else{oM(x.n,gi,ch,x.s);}};
+      w.appendChild(c);
+      
+      el.appendChild(w);
+    });
+    // Gen jump btn
+    var b=document.createElement('button');
+    b.className='g-btn';
+    b.textContent=g.g;
+    b.onclick=function(){
+      r.scrollIntoView({behavior:'smooth',block:'start'});
+      document.querySelectorAll('.g-btn').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+    };
+    j.appendChild(b);
+  });
+  setTimeout(function(){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('v');});
+    },{threshold:0.1});
+    document.querySelectorAll('.g-row').forEach(function(e){obs.observe(e);});
+  },100);
+}
+
+function nm(n,gi){
+  if(window.UL)return n;
+  if(gi>=11)return n.slice(0,-1)+'_';
+  return n;
+}
+
+function oM(n,gi,ch,s){
+  var hs=s&&s!=''&&s!='未知';
+  var mc=document.getElementById('mC');
+  var md=null;
+  for(var i=0;i<D.zupu[gi].m.length;i++){if(D.zupu[gi].m[i].n===n){md=D.zupu[gi].m[i];break;}}
+  var b=md&&md.b?md.b:'';
+  var d=md&&md.d?md.d:'';
+  mc.innerHTML='<div class=mf><span class=ml>姓名：</span><span class=mv>'+n+'</span></div>'
+    +'<div class=mf><span class=ml>輩分：</span><span class=mv>'+(ch?'字輩「'+ch+'」':'')+' · '+D.zupu[gi].g+'</span></div>'
+    +'<div class=mf><span class=ml>配偶：</span><span class=mv>'+(hs?s:'')+'</span></div>'
+    +'<div class=mf><span class=ml>出生日期：</span><span class=mv>'+b+'</span></div>'
+    +'<div class=mf><span class=ml>過世日期：</span><span class=mv>'+d+'</span></div>'
+    +'<div class=mf><span class=ml>簡介：</span><span class=mv></span></div>'
+    +'<div style=text-align:center;margin-top:16px;><button onclick=sFF() class=fb>📝 反饋</button></div>';document.getElementById('mO').classList.add('open');}lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>聂氏族谱</title>
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:#FAF8F5;color:#1A1A1A;font-family:"Source Han Serif SC","Noto Serif CJK SC","PingFang SC",serif;line-height:1.6}
+
+/* Nav */
+#nv{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nl{font-family:"PingFang SC",sans-serif;display:flex;gap:32px}
+.nl a{color:#5A5A5A;text-decoration:none;font-size:14px;transition:color .2s}
+.nl a:hover{color:#8B6914}
+#nT{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:#333}
+
+/* Hero */
+.hero{position:relative;min-height:66vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 60px;overflow:hidden;text-align:center}
+.hb{position:absolute;inset:0;background:linear-gradient(135deg,#FAF8F5 0%,#F0E8D8 50%,#E8DCC8 100%);z-index:0}
+#hF{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fc{position:absolute;color:#8B6914;opacity:0.12;animation:fUp 12s ease-in-out infinite;user-select:none;pointer-events:none;font-family:"KaiTi","楷体","STKaiti",serif}
+@keyframes fUp{0%{transform:translateY(80vh);opacity:0}10%{opacity:0.08}50%{opacity:0.06}90%{opacity:0.08}100%{transform:translateY(-20vh);opacity:0}}
+.hc{position:relative;z-index:1;max-width:700px}
+.hc h1{font-size:clamp(36px,6vw,60px);font-weight:900;letter-spacing:8px;margin-bottom:16px}
+.hs{font-size:clamp(14px,2.5vw,18px);color:#8B6914;letter-spacing:4px;margin-bottom:8px}
+.hd{font-size:15px;color:#888;max-width:480px;margin:0 auto 40px}
+.hst{display:flex;justify-content:center;gap:40px}
+.st .sn{font-size:32px;font-weight:700;display:block}
+.st .sl{font-size:12px;color:#999;letter-spacing:2px;display:block;margin-top:4px}
+
+/* Sections */
+.sec{padding:70px 24px}
+.sec h2{font-size:clamp(24px,3.5vw,36px);font-weight:700;margin-bottom:12px}
+.sl{font-size:11px;letter-spacing:3px;color:#aaa;margin-bottom:8px}
+.sd{font-size:15px;color:#888;margin-bottom:40px}
+
+/* Beifen */
+#bf{background:#fff;text-align:center}
+#bf h2,#bf .sd{text-align:center}
+.bf-sc{overflow-x:auto;padding-bottom:12px;text-align:center}
+.bf-tr{display:inline-flex}
+.bf-item{flex-shrink:0;padding:0 20px;text-align:center;cursor:pointer;transition:transform .2s;position:relative}
+.bf-item:hover{transform:scale(1.2)}
+.bf-item:hover .bf-c{color:#8B6914}
+.bf-item::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:#E0D8CC}
+.bf-item:last-child::after{display:none}
+.bf-g{font-size:12px;color:#aaa;margin-bottom:4px;letter-spacing:1px}
+.bf-c{font-size:32px;font-weight:700;display:block;transition:color .2s}
+
+/* Tree */
+#tr{background:#FAF8F5}
+.tc{display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.tc input{padding:14px 20px;border:2px solid #E0D8CC;border-radius:10px;font-size:28px;width:360px;background:#fff;outline:none;font-family:inherit}
+.tc input:focus{border-color:#8B6914}
+.g-j{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.g-btn{padding:12px 20px;border:1px solid #E0D8CC;border-radius:10px;background:#fff;font-size:24px;color:#666;cursor:pointer;font-family:inherit}
+.g-btn:hover{border-color:#8B6914;color:#8B6914}
+.g-btn.on{background:#8B6914;color:#fff;border-color:#8B6914}
+
+#trC{max-width:1200px;margin:0 auto}
+.g-row{opacity:1;transform:translateY(0);transition:opacity .6s,transform .6s;margin-bottom:32px;display:flex;flex-direction:column;align-items:center}
+.g-h{text-align:center;margin-bottom:16px}
+.g-h h3{font-size:28px}.g-row:nth-child(odd) .g-h h3{font-weight:700}.g-row:nth-child(even) .g-h h3{font-weight:400}
+.g-i{font-size:26px;color:#999;margin-top:8px}
+.g-l{width:40px;height:2px;background:#D4C5A9;margin:10px auto 0;border-radius:1px}
+.g-m{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;width:100%}
+.g-c{width:2px;height:20px;background:linear-gradient(to bottom,#D4C5A9,transparent);margin:0 auto}
+
+.cg{display:flex;flex-direction:column;align-items:center}
+.pc{background:#fff;border:1px solid #EDE8E0;border-radius:10px;padding:12px 4px;cursor:pointer;transition:all .25s;width:56px;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.pc:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.06);border-color:#D4C5A9}
+.pn{font-size:28px;font-weight:600;line-height:1.3;display:block}
+
+/* History */
+#hi{background:#fff}
+.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:800px;margin:0 auto}
+.hc2{background:#FAF8F5;border:1px solid #EDE8E0;border-radius:12px;padding:28px;transition:all .25s}
+.hc2:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.04)}
+.hc2 h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.hc2 p{font-size:14px;color:#666}
+.hd2{color:#8B6914!important;margin-top:6px;font-weight:500}
+
+/* Footer */
+.ft{background:#1A1A1A;color:#fff;padding:50px 24px;text-align:center}
+.ft p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:4px}
+.ft .fe{font-size:13px;color:rgba(255,255,255,0.5);margin-top:8px}
+
+/* Modal */
+#mO{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+#mO.on{display:flex}
+.modal{background:#fff;border-radius:16px;padding:32px;max-width:400px;width:90%;position:relative}
+#mX{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;color:#999;cursor:pointer;width:28px;height:28px;border-radius:50%}
+#mX:hover{background:#f0f0f0;color:#333}
+#mC{text-align:left}
+.mf{display:flex;padding:8px 0;border-bottom:1px solid #f0f0f0;align-items:flex-start}
+.mf:last-child{border-bottom:none}
+.ml{font-size:14px;color:#888;min-width:40px;flex-shrink:0}
+.mv{font-size:14px;color:#1A1A1A;flex:1}
+.fb{background:none;border:1px solid #D4C5A9;border-radius:6px;padding:6px 16px;font-size:13px;color:#8B6914;cursor:pointer;font-family:inherit}
+.fb:hover{background:#8B6914;color:#fff}
+
+/* #pwBtn */
+#pB{padding:12px 20px;border:2px solid #8B6914;border-radius:10px;background:#fff;font-size:24px;color:#8B6914;cursor:pointer;font-family:inherit}
+#pB:hover{background:#8B6914;color:#fff!important}
+
+/* Responsive */
+@media(max-width:768px){
+  .nl{display:none}
+  #nT{display:block}
+  .nl.on{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:rgba(250,248,245,0.98);backdrop-filter:blur(12px);padding:16px 24px;gap:16px;border-bottom:1px solid rgba(0,0,0,0.06)}
+  .hst{gap:20px}
+  .st .sn{font-size:24px}
+  .bf-item{padding:0 14px}
+  .bf-c{font-size:24px}
+  .pc{width:70px;min-height:70px}
+  .pn{font-size:13px}
+  .sec{padding:50px 16px}
+}
+
+
+
+
+
+
+/* ===== Mobile Responsive Enhancements ===== */
+
+/* Small phones */
+@media(max-width:480px){
+  .hero{padding:80px 12px 40px;min-height:50vh}
+  .hero h1{font-size:clamp(28px,8vw,36px)!important;letter-spacing:4px}
+  .hs{font-size:12px!important}
+  .hd{font-size:13px!important;margin-bottom:24px}
+  .hst{gap:16px}
+  .st .sn{font-size:20px}
+  .st .sl{font-size:11px}
+  .fc{display:none!important}
+  
+  .sec{padding:30px 12px!important}
+  .sec h2{font-size:clamp(20px,5vw,24px)!important}
+  .sd{font-size:13px!important;margin-bottom:20px!important}
+  
+  .bf-item{padding:0 8px}
+  .bf-g{font-size:10px}
+  .bf-c{font-size:20px!important}
+  
+  .g-h h3{font-size:20px!important}
+  .g-i{font-size:14px!important}
+  .g-row{margin-bottom:20px!important}
+  .g-m{gap:6px!important}
+  
+  .pc{width:44px!important;min-height:56px!important;padding:8px 2px!important;border-radius:6px!important}
+  .pn{font-size:14px!important;line-height:1.2!important}
+  .cl{width:44px!important}
+  
+  
+  .g-btn{padding:6px 10px!important;font-size:13px!important;border-radius:6px!important}
+  .tc{gap:6px!important;margin-bottom:20px!important}
+  #pB{padding:8px 14px!important;font-size:13px!important}
+  
+  .sl{font-size:10px!important}
+  
+  .hc2{padding:16px!important}
+  .hc2 h3{font-size:15px!important}
+  .hc2 p{font-size:12px!important}
+  
+  .modal{padding:20px!important;width:95%!important;border-radius:12px!important}
+  .ml{font-size:13px!important;min-width:70px!important}
+  .mv{font-size:13px!important}
+  .mf{padding:6px 0!important}
+  
+  .ft{padding:30px 16px!important}
+  .ft p{font-size:12px!important}
+  
+  .intro-section p{font-size:14px!important}
+  
+  #toggleSC{font-size:11px!important;padding:2px 6px!important}
+  
+  /* History images 2x2 -> 1 column */
+  .hg{grid-template-columns:1fr!important}
+  
+  .intro-section{font-size:clamp(14px,3vw,18px)!important}
+}
+
+/* Tablets */
+@media(min-width:481px) and (max-width:768px){
+  .hero{padding:90px 16px 50px;min-height:55vh}
+  .hero h1{font-size:clamp(32px,6vw,40px)!important}
+  
+  .g-h h3{font-size:24px!important}
+  .pc{width:50px!important;min-height:60px!important}
+  .pn{font-size:14px!important}
+  .cl{width:50px!important}
+  
+  .g-btn{padding:8px 12px!important;font-size:14px!important}
+  #pB{padding:8px 16px!important;font-size:14px!important}
+  
+  .sec{padding:40px 16px!important}
+  
+  /* History images 2x2 */
+  .hg{grid-template-columns:repeat(2,1fr)!important}
+}
+
+/* Touch optimization for all mobile */
+@media(hover:none) and (pointer:coarse){
+  .g-btn,#pB,#toggleSC,.pc,.bf-item,.fb,#mX,
+  .pc{min-height:56px!important}
+  .g-btn,#pB{padding-top:10px!important;padding-bottom:10px!important}
+}
+
+/* Landscape phones */
+@media(max-height:500px) and (orientation:landscape){
+  .hero{padding:70px 12px 30px!important;min-height:80vh!important}
+  .hero h1{font-size:28px!important}
+  .hd{font-size:12px!important;margin-bottom:16px!important}
+  .hst{gap:12px!important}
+  .st .sn{font-size:18px!important}
+  
+  .sec{padding:20px 12px!important}
+  .g-row{margin-bottom:12px!important}
+  
+  .fc{display:none!important}
+}
+
+</style>
+</head>
+<body>
+<nav id="nv"><div class="ni"><span style="width:34px;height:34px;background:#8B6914;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;font-family:serif;">聶</span><div class="nl"><a href="#tr">世系图</a><a href="#bf">辈分表</a><a href="#hi">歷史</a></div><button id="toggleSC" style="background:none;border:1px solid #ccc;border-radius:4px;padding:2px 8px;font-size:13px;cursor:pointer;font-family:inherit;color:#666;white-space:nowrap;">简｜繁</button><button id="nT">☰</button></div></nav>
+<section class="hero"><div class="hb"></div><div id="hF"></div><div class="hc"><h1>聂氏族谱</h1><p class="hs">义县砖城子 · 聶氏家族世系傳承</p><p class="hd">始祖聶天榮（兄：天龍），至今一脈傳承十四世，家族繁衍，根脈綿延，祖籍山西「傳說」</p><div class="hst"><div class="st"><span class="sn" id="gC">0</span><span class="sl">世代</span></div><div class="st"><span class="sn" id="tC">0</span><span class="sl">族人</span></div><div class="st"><span class="sn" id="sY">辽宁</span><span class="sl">籍贯</span></div></div></div></section>
+
+
+
+<section class="sec" id="intro" style="background:#fff;padding-top:40px;padding-bottom:40px;">
+  <div class="sl" style="text-align:center;margin-bottom:4px;">ABOUT</div>
+  <h2 style="text-align:center;margin-bottom:24px;">家族源流</h2>
+      <div style="max-width:1600px;margin:0 auto;font-size:clamp(16px,2.33vw,24px);line-height:1.9;color:#333;padding:0 20px;letter-spacing:0.05em;">
+    <p style="text-indent:2em;margin-bottom:16px;">吾义县西砖城子聂氏，尊聂天荣为本支开基始祖。据族中世代口传：始祖聂天荣与胞弟聂天龙，清初随公主出关，隶属「七十二匠人」之列，以铁匠技艺立身。兄弟二人出关拓荒，后分居立业，聂天龙定居东关，另立支脉。原系同胞三兄弟联袂闯关东，其中一支途中失联，其血脉据传尚存于关外异地。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">明末清初，辽西战乱频仍，民生凋敝。崇祯十七年（1644年）清军入关，大量中原汉人编入汉军旗籍。先祖于顺治至康熙初年（约1644–1680年）随清军驻防迁徙，编入汉军正白旗，落籍义州（今义县）。自此辟土扎根、耕读传家，世代繁衍至今。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">初迁关外时，居无定所，宗族规制未备，故前两代暂沿古制单名，未立固定辈分。至第六世「从」字辈，家族基业稳固；第七世仍用单名，为迁徙初创与定居兴盛之过渡。自第七世后，宗族规制完备，悉以双名配固定辈分，世代遵行。先祖预排二十代字辈，章法井然，寓意深远，实为北方宗族传世典范。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">字辈体系承袭山西明清宗族古训，融关外乡土之风，谨遵儒家正道，藏祖训家风于字里行间。三世递进，教化绵长：</p>
+    <p style="text-indent:2em;margin-bottom:16px;">一、立业安身——以「进、登、国、从」寄寓出关拓土、落地安家、奉公守礼之初心；</p>
+    <p style="text-indent:2em;margin-bottom:16px;">二、修身立德——以「文、清、长、德、广、成」训导崇文尚礼、品性清正、积德广业；</p>
+    <p style="text-indent:2em;margin-bottom:16px;">三、传世兴宗——以吉语收尾，祈愿族脉永续、门祚绵长、福禄恒存。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">五世先祖聂国恒（约生于1740年），隶属汉军正白旗行伍。其妻阎氏守节持家、淑德昭彰，于乾隆三十一年（1766年）获朝廷旌表节孝，事迹载入《义县志》《钦定盛京通志》。正史与世系相互印证，足证吾支聂氏于清初迁入义县，至乾隆中期已安居乐业，成为辽西聂氏重要宗支。另有稍户营子聂氏，系辽中转迁支脉，立「守、成、合、文、学」独立字辈，与吾西砖城子聂氏源流各异，不可混同。</p>
+    <p style="text-indent:2em;margin-bottom:16px;">惜十年浩劫之际，祖祠损毁、旧谱几近失传。幸赖先辈暗中手抄誊录，保全谱系文脉，后经网络整理，方使后世得以溯源知根、明脉知祖。望后世子孙，永念先祖迁徙之艰、拓业之苦、立德之贤，修身立德、振业兴家，光耀聂氏门庭，不负先祖垂泽。</p>
+    <p style="text-indent:2em;margin-bottom:16px;"></p>
+  </div></div><h2 style="text-align:center;">辈分字派</h2><p class="sd" style="text-align:center;">聶氏家族二十世字辈，代代相传</p><div class="bf-sc"><div class="bf-tr" id="bfT"></div></div></section>
+<section class="sec" id="tr"><div class="sl" style="text-align:center;">FAMILY TREE</div><h2 style="text-align:center;">家族世系</h2><p class="sd" style="text-align:center;">点击姓名查看详情</p><div class="tc"><div class="g-j" id="gJ"></div><button id="pB">输入密码查看更多后人</button></div><div id="trC"></div></section>
+<section class="sec" id="hi">
+  <div class="sl" style="text-align:center;">HISTORICAL CONTEXT</div>
+  <h2 style="text-align:center;">历史背景</h2>
+  <p class="sd" style="text-align:center;">點擊圖片查看文獻原檔</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto;">
+    <a href="http://read.nlc.cn/OutOpenBook/OpenTwoObjectBook?aid=403&bid=67566.0&cid=87509" target="_blank" style="text-decoration:none;display:block;">
+      <div style="background:#fff;border:1px solid #EDE8E0;border-radius:12px;overflow:hidden;transition:all .3s;height:100%;">
+        <div style="padding:14px;background:linear-gradient(135deg,#FAF8F5,#F0E8D8);">
+          <div style="font-size:13px;font-weight:600;color:#8B6914;">義縣志</div>
+          <div style="font-size:12px;color:#888;margin-top:2px;">第十四册 · 人物志</div>
+        </div>
+        <img src="義縣志 · 第十四册 人物志_01.png" style="width:100%;display:block;">
+      </div>
+    </a>
+    <a href="http://read.nlc.cn/OutOpenBook/OpenTwoObjectBook?aid=403&bid=67566.0&cid=87509" target="_blank" style="text-decoration:none;display:block;">
+      <div style="background:#fff;border:1px solid #EDE8E0;border-radius:12px;overflow:hidden;transition:all .3s;height:100%;">
+        <div style="padding:14px;background:linear-gradient(135deg,#FAF8F5,#F0E8D8);">
+          <div style="font-size:13px;font-weight:600;color:#8B6914;">義縣志</div>
+          <div style="font-size:12px;color:#888;margin-top:2px;">第十四册 · 人物志</div>
+        </div>
+        <img src="義縣志 · 第十四册 人物志_02.png" style="width:100%;display:block;">
+      </div>
+    </a>
+    <a href="http://read.nlc.cn/OutOpenBook/OpenObjectBook?aid=403&bid=10623.0" target="_blank" style="text-decoration:none;display:block;">
+      <div style="background:#fff;border:1px solid #EDE8E0;border-radius:12px;overflow:hidden;transition:all .3s;height:100%;">
+        <div style="padding:14px;background:linear-gradient(135deg,#FAF8F5,#F0E8D8);">
+          <div style="font-size:13px;font-weight:600;color:#8B6914;">钦定盛京通志</div>
+          <div style="font-size:12px;color:#888;margin-top:2px;">卷九十四 · 三十一</div>
+        </div>
+        <img src="欽定盛京通志 · 卷九十四 三十一.png" style="width:100%;display:block;">
+      </div>
+    </a>
+  </div>
+</section>
+<div </section>
+<footer class="ft"><p>聂氏族谱 · 义县砖城子</p><p class="fe">📧 nieqiang0504@gmail.com · 微信：13386760401 · 欢迎同族联络</p></footer>
+<div id="mO"><div class="modal"><button id="mX">✕</button><div id="mC"></div></div></div>
+<script>
+var C=[
+  {p:'聶清库',c:'聶长久'},
+  {p:'聶长久',c:'聶德满'},
+  {p:'聶德满',c:'聶爱军'},
+  {p:'聶德满',c:'聶爱国'},
+  {p:'聶德满',c:'聶爱民'},
+  {p:'聶爱军',c:'聶 强'},
+  {p:'聶爱国',c:'聶成龙'},
+  {p:'聶爱民',c:'聶承财'}
+];
+
+function rB(){
+  var t=document.getElementById('bfT');
+  if(!t)return;
+  D.beifen.forEach(function(b,bi){
+    var d=document.createElement('div');
+    d.className='bf-item';
+    d.innerHTML='<div class=bf-g>'+b.gen+'</div><span class=bf-c>'+(b.char||'—')+'</span>';
+    d.onclick=function(){
+      var rs=document.querySelectorAll('.g-row');
+      if(rs[bi]){rs[bi].scrollIntoView({behavior:'smooth',block:'start'});
+      var bs=document.querySelectorAll('.g-btn');
+      bs.forEach(function(x){x.classList.remove('on');});
+      if(bs[bi])bs[bi].classList.add('on');}
+    };
+    t.appendChild(d);
+  });
+}
+
+function rT(f){
+  var e=document.getElementById('trC');
+  var j=document.getElementById('gJ');
+  if(!e||!j)return;
+  e.innerHTML='';j.innerHTML='';
+  f=(f||'').trim().toLowerCase();
+  D.zupu.forEach(function(g,gi){
+    var ms=f?g.m.filter(function(x){return x.n.indexOf(f)>=0;}):g.m;
+    if(f&&!ms.length)return;
+    var r=document.createElement('div');
+    r.className='g-row';
+    var ch=(D.beifen[gi]||{}).char||'';
+    var ih='<div class=g-h><h3>'+g.g+'</h3><div class=g-i>'+(ch?'字辈「'+ch+'」·':'')+g.m.length+'人</div><div class=g-l></div></div><div class=g-m id=m-'+gi+'></div>'+(gi<D.zupu.length-1?'<div class=g-c></div>':'');
+    r.innerHTML=ih;
+    e.appendChild(r);
+    var el=r.querySelector('.g-m');
+    var dm=f?ms:g.m;
+    dm.forEach(function(x){
+      var w=document.createElement('div');
+      w.className='cg';
+      var c=document.createElement('div');
+      c.className='pc';
+      var fn=nm(x.n,gi);
+      c.innerHTML='<span class=pn>'+fn.split('').join('<br>')+'</span>';
+      c.onclick=function(){if(!window.UL&&nm(x.n,gi)!==x.n){cP();}else{oM(x.n,gi,ch,x.s);}};
+      w.appendChild(c);
+      
+      el.appendChild(w);
+    });
+    // Gen jump btn
+    var b=document.createElement('button');
+    b.className='g-btn';
+    b.textContent=g.g;
+    b.onclick=function(){
+      r.scrollIntoView({behavior:'smooth',block:'start'});
+      document.querySelectorAll('.g-btn').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+    };
+    j.appendChild(b);
+  });
+  setTimeout(function(){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('v');});
+    },{threshold:0.1});
+    document.querySelectorAll('.g-row').forEach(function(e){obs.observe(e);});
+  },100);
+}
+
+function nm(n,gi){
+  if(window.UL)return n;
+  if(gi>=11)return n.slice(0,-1)+'_';
+  return n;
+}
+
+function oM(n,gi,ch,s){
+  var hs=s&&s!=''&&s!='未知';
+  var mc=document.getElementById('mC');
+  mc.innerHTML='<div class=mf><span class=ml>姓名：</span><span class=mv>'+n+'</span></div>'
+    +'<div class=mf><span class=ml>輩分：</span><span class=mv>'+(ch?'字輩「'+ch+'」':'')+' · '+D.zupu[gi].g+'</span></div>'
+    +'<div class=mf><span class=ml>配偶：</span><span class=mv>'+(hs?s:'')+'</span></div>'
+    +'<div class=mf><span class=ml>出生日期：</span><span class=mv></span></div>'
+    +'<div class=mf><span class=ml>過世日期：</span><span class=mv></span></div>'
+    +'<div class=mf><span class=ml>簡介：</span><span class=mv></span></div>'
+    +'<div style=text-align:center;margin-top:16px;><button onclick=sFF() class=fb>📝 反饋</button></div>';
+  document.getElementById('mO').classList.add('on');
+}
+
+function aC(){
+  var ge=document.getElementById('gC');
+  var te=document.getElementById('tC');
+  if(!ge||!te)return;
+  var tg=D.zupu.length,tt=0;
+  D.zupu.forEach(function(g){tt+=g.m.length;});
+  var cg=0,ct=0,st=50,du=1500,si=du/st,gs=tg/st,ts=tt/st;
+  var ti=setInterval(function(){
+    cg+=gs;ct+=ts;
+    if(cg>=tg){cg=tg;ct=tt;clearInterval(ti);ge.textContent=Math.floor(cg)+'+';te.textContent=Math.floor(ct)+'+';}else{
+    ge.textContent=Math.floor(cg);te.textContent=Math.floor(ct);}
+  },si);
+}
+
+function cP(){
+  var ov=document.getElementById('mO');
+  var mc=document.getElementById('mC');
+  mc.innerHTML='<div class=mf style=text-align:center;font-size:20px;font-weight:700;border:none;>输入密码查看更多后人</div>'
+    +'<div style=margin:16px 0;><input id=pwI type=password style=width:100%;padding:12px;border:1px solid #D4C5A9;border-radius:8px;font-size:18px;text-align:center;font-family:inherit;box-sizing:border-box;></div>'
+    +'<div style=text-align:center;><button id=pwGo style=background:#8B6914;color:#fff;border:none;border-radius:8px;padding:12px 40px;font-size:18px;cursor:pointer;font-family:inherit;>確認</button></div>';
+  ov.classList.add('on');
+  var pi=document.getElementById('pwI'),pb=document.getElementById('pwGo');
+  if(pi&&pb){
+    pi.focus();
+    function chk(){if(pi.value==='9999'){window.UL=true;rT();document.getElementById('mO').classList.remove('on');}else{alert('密码错误！');}}
+    pb.onclick=chk;
+    pi.onkeydown=function(e){if(e.key==='Enter')chk();};
+  }
+}
+
+function sFF(){
+  var mc=document.getElementById('mC');
+  mc.innerHTML='<div class=mf style=text-align:center;font-size:20px;font-weight:700;border:none;>反饋</div>'
+    +'<textarea id=fT maxlength=200 style=width:100%;height:120px;border:1px solid #D4C5A9;border-radius:8px;padding:12px;font-family:inherit;font-size:14px;resize:vertical;box-sizing:border-box;></textarea>'
+    +'<div style=text-align:right;font-size:12px;color:#999;margin:4px 0 12px;><span id=fC>0</span>/200</div>'
+    +'<div style=text-align:center;><button onclick=sf() style=background:#8B6914;color:#fff;border:none;border-radius:8px;padding:10px 32px;font-size:16px;cursor:pointer;font-family:inherit;>📧 发送反馈</button>'
+    +'<button onclick=document.getElementById("mO").classList.remove("on") style=background:#f0f0f0;color:#666;border:none;border-radius:8px;padding:10px 24px;font-size:14px;cursor:pointer;margin-left:8px;font-family:inherit;>取消</button></div>';
+  var ta=document.getElementById('fT');
+  if(ta)ta.addEventListener('input',function(){var c=document.getElementById('fC');if(c)c.textContent=this.value.length;});
+}
+
+function sf(){
+  var ta=document.getElementById('fT');
+  if(!ta||!ta.value.trim()){alert('请输入反馈内容');return;}
+  window.location.href='mailto:nieqiang0504@gmail.com?subject=聂氏族谱反饋&body='+encodeURIComponent(ta.value);
+}
+
+window.UL=false;
+
+
+
+window.onload=function(){
+  rB();rT();aC();
+  // Floating chars
+  var hf=document.getElementById('hF');
+  if(hf){
+    var cs='天榮進登國從文清長德廣成先印家吉永慶昌'.split('');
+    for(var i=0;i<20;i++){
+      var d=document.createElement('span');
+      d.className='fc';
+      d.textContent=cs[i%cs.length];
+      d.style.left=(2+Math.random()*96)+'%';
+      d.style.animationDelay=(Math.random()*8)+'s';
+      d.style.fontSize=(100+Math.random()*80)+'px';
+      d.style.animationDuration=(10+Math.random()*8)+'s';
+      hf.appendChild(d);
+    }
+  }
+  // Search
+
+  // Modal close
+  var mo=document.getElementById('mO');
+  document.getElementById('mX').onclick=function(){mo.classList.remove('on');};
+  mo.onclick=function(e){if(e.target===mo)mo.classList.remove('on');};
+  document.onkeydown=function(e){if(e.key==='Escape')mo.classList.remove('on');};
+  // Nav toggle
+  var nt=document.getElementById('nT');
+  if(nt)nt.onclick=function(){document.querySelector('.nl').classList.toggle('on');};
+  // PW button
+  var pb=document.getElementById('pB');
+  if(pb)pb.onclick=cP;
+};
+
+</script>
+
+<script>
+document.getElementById('toggleSC').addEventListener('click', function(){
+  var btn = this;
+  var isSimp = btn.textContent === '简｜繁';
+  btn.textContent = isSimp ? '繁｜简' : '简｜繁';
+  
+  var repl = {};
+  repl['聂氏族谱'] = '聶氏族譜'; repl['义县砖城子'] = '義縣磚城子';
+  repl['点击'] = '點擊'; repl['搜索'] = '搜尋'; repl['输入'] = '輸入';
+  repl['密码'] = '密碼'; repl['确认'] = '確認'; repl['反馈'] = '反饋';
+  repl['发送'] = '發送'; repl['取消'] = '取消'; repl['错误'] = '錯誤';
+  repl['历史背景'] = '歷史背景'; repl['欢迎'] = '歡迎'; repl['联络'] = '聯絡';
+  repl['兄弟四人闯关东'] = '兄弟四人闖關東'; repl['不可通婚一说'] = '不可通婚一說';
+  repl['钦定盛京通志'] = '欽定盛京通志'; repl['家族源流'] = '家族源流';
+  repl['辈分字派'] = '輩分字派'; repl['二十世字辈'] = '二十世字輩';
+  repl['代代相传'] = '代代相傳'; repl['查看详情'] = '查看詳情';
+  repl['族人姓名'] = '族人姓名'; repl['输入密码查看更多后人'] = '輸入密碼';
+  repl['发送反馈'] = '發送反饋'; repl['请输入反馈内容'] = '請輸入反饋內容';
+  repl['密码错误'] = '密碼錯誤'; repl['请输入密码查看更多后人'] = '請輸入密碼';
+  repl['同族联络'] = '同族聯絡';
+  
+  // Convert all text nodes in body
+  function convertNode(node){
+    if(node.nodeType === 3){
+      var text = node.textContent;
+      var changed = false;
+      for(var s in repl){
+        var t = repl[s];
+        if(isSimp && text.indexOf(t) >= 0){
+          text = text.split(t).join(s);
+          changed = true;
+        }else if(!isSimp && text.indexOf(s) >= 0){
+          text = text.split(s).join(t);
+          changed = true;
+        }
+      }
+      if(changed) node.textContent = text;
+    }else if(node.nodeType === 1 && node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE'){
+      node.childNodes.forEach(convertNode);
+    }
+  }
+  
+  // Also convert FAMILY_DATA names (聶↔聂)
+  if(FAMILY_DATA && FAMILY_DATA.zupu){
+    FAMILY_DATA.zupu.forEach(function(g){
+      g.m.forEach(function(m){
+        if(isSimp){
+          m.n = m.n.replace(/聶/g,'聂');
+        }else{
+          m.n = m.n.replace(/聂/g,'聶');
+        }
+      });
+    });
+    // Re-render
+    rT();
+  }
+  
+  convertNode(document.body);
+});
+</script>
+
+</body></html>

@@ -2,6 +2,8 @@
 
 let familyData = null;
 let namesUnlocked = false;
+let traditionalMode = false;
+let verticalMode = false;
 
 const $ = (selector) => document.querySelector(selector);
 
@@ -39,15 +41,24 @@ function closeModal() {
 }
 
 function personModal(person, generation, generationIndex) {
-  const char = familyData.beifen[generationIndex]?.char || '无固定字辈';
-  const spouse = person.s && person.s !== '未知' ? person.s : '暂无记录';
-  const biography = person.bio || person.i || '暂无简介';
+  const unknown = '不详';
+  const char = familyData.beifen[generationIndex]?.char || unknown;
+  const spouse = person.spouse || person.s;
+  const fields = [
+    ['字辈', char === '單字' ? '单名，无固定字辈' : char],
+    ['名', formatName(person.name || person.n || unknown)],
+    ['字', person.courtesyName || person.zi],
+    ['号', person.artName || person.hao],
+    ['生卒年月日', person.life || [person.birth, person.d].filter(Boolean).join('—')],
+    ['配偶', spouse && spouse !== '未知' ? spouse : unknown],
+    ['子女', person.children],
+    ['迁徙地', person.migration],
+    ['功名事迹', person.achievements || person.bio || person.i],
+    ['墓葬', person.burial]
+  ];
   openModal(`
-    <div class="modal-field"><span class="modal-label">姓名：</span><span class="modal-value" id="modalTitle">${formatName(person.n)}</span></div>
-    <div class="modal-field"><span class="modal-label">世系：</span><span class="modal-value">${generation}</span></div>
-    <div class="modal-field"><span class="modal-label">字辈：</span><span class="modal-value">${char}</span></div>
-    <div class="modal-field"><span class="modal-label">配偶：</span><span class="modal-value">${spouse}</span></div>
-    <div class="modal-field modal-biography"><span class="modal-label">简介：</span><span class="modal-value">${biography}</span></div>
+    <div class="person-sheet-heading"><span>${generation}</span><strong id="modalTitle">${formatName(person.n)}</strong></div>
+    ${fields.map(([label, value]) => `<div class="modal-field"><span class="modal-label">${label}</span><span class="modal-value">${value || unknown}</span></div>`).join('')}
   `);
 }
 
@@ -104,20 +115,26 @@ function renderTree(query = '') {
     matches += people.length;
 
     const row = document.createElement('div');
-    row.className = 'gen-row visible';
+    row.className = `gen-row visible${generationIndex === 0 ? ' direct-line' : ''}`;
     row.dataset.generation = generationIndex;
     const char = familyData.beifen[generationIndex]?.char || '';
     row.innerHTML = `
-      <div class="gen-header">
+      <button class="gen-header" type="button" aria-expanded="${generationIndex < 2 ? 'true' : 'false'}">
         <h3>${generation.g}</h3>
         <div class="gen-info">${char ? `字辈「${char}」 · ` : ''}${generation.m.length}人</div>
         <div class="gen-line"></div>
-      </div>
-      <div class="gen-members"></div>
+      </button>
+      <div class="gen-members${generationIndex < 2 ? '' : ' mobile-collapsed'}"></div>
       ${generationIndex < familyData.zupu.length - 1 ? '<div class="gen-connector"></div>' : ''}
     `;
 
     const members = row.querySelector('.gen-members');
+    const header = row.querySelector('.gen-header');
+    header.addEventListener('click', () => {
+      if (window.innerWidth > 700) return;
+      const collapsed = members.classList.toggle('mobile-collapsed');
+      header.setAttribute('aria-expanded', String(!collapsed));
+    });
     people.forEach((person) => {
       const card = document.createElement('button');
       card.className = 'person-card';
@@ -144,8 +161,39 @@ function renderTree(query = '') {
 }
 
 function renderStats() {
-  $('#genCount').textContent = '15+';
-  $('#totalCount').textContent = '390+';
+  $('#genCount').textContent = `${familyData.zupu.length}+`;
+  $('#totalCount').textContent = `${familyData.zupu.reduce((sum, generation) => sum + generation.m.length, 0)}+`;
+}
+
+const traditionalPairs = {聂:'聶',荣:'榮',进:'進',凤:'鳳',龙:'龍',国:'國',从:'從',广:'廣',长:'長',满:'滿',财:'財',宝:'寶',庆:'慶',爱:'愛',玺:'璽',润:'潤',义:'義',县:'縣',谱:'譜',迁:'遷',传:'傳',后:'後',里:'裏',云:'雲',学:'學',礼:'禮',开:'開',发:'發',乡:'鄉',旧:'舊',录:'錄',书:'書',门:'門'};
+const scriptOriginals = new WeakMap();
+
+function convertPageScript(toTraditional) {
+  document.querySelectorAll('h1,h2,h3,p,span,strong,small,a,button,label').forEach((node) => {
+    node.childNodes.forEach((textNode) => {
+      if (textNode.nodeType !== Node.TEXT_NODE || !textNode.nodeValue.trim()) return;
+      if (!scriptOriginals.has(textNode)) scriptOriginals.set(textNode, textNode.nodeValue);
+      const original = scriptOriginals.get(textNode);
+      textNode.nodeValue = toTraditional
+        ? [...original].map((char) => traditionalPairs[char] || char).join('')
+        : original;
+    });
+  });
+}
+
+function bindReadingTools() {
+  $('#scriptToggle').addEventListener('click', (event) => {
+    traditionalMode = !traditionalMode;
+    convertPageScript(traditionalMode);
+    event.currentTarget.textContent = traditionalMode ? '简' : '繁';
+    event.currentTarget.setAttribute('aria-pressed', String(traditionalMode));
+  });
+  $('#layoutToggle').addEventListener('click', (event) => {
+    verticalMode = !verticalMode;
+    document.body.classList.toggle('vertical-reading', verticalMode);
+    event.currentTarget.textContent = verticalMode ? '横排' : '竖排';
+    event.currentTarget.setAttribute('aria-pressed', String(verticalMode));
+  });
 }
 
 function renderFloatingCharacters() {
@@ -195,6 +243,7 @@ async function init() {
     renderGenerationalNames();
     renderTree();
     renderStats();
+    bindReadingTools();
     try {
       renderFloatingCharacters();
     } catch (animationError) {
