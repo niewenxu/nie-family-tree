@@ -273,6 +273,15 @@ section{padding:70px 24px}
 .reference-body small{overflow:hidden;color:#918777;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
 @media(max-width:768px){.beifen-track{grid-template-columns:repeat(auto-fit,minmax(60px,1fr))}.reference-grid{grid-template-columns:1fr;max-width:520px}.reference-card{display:grid;grid-template-columns:120px minmax(0,1fr)}.reference-card img{height:128px}.reference-body{justify-content:center}}
 
+/* Closing editorial note */
+.editor-note-section{background:#FFFDF9;padding:84px 24px 88px}
+.editor-note-inner{max-width:880px;margin:0 auto;text-align:center}
+.editor-note-inner h2{position:relative;margin-bottom:38px;font-family:"STKaiti","KaiTi","楷体",serif;font-weight:600;letter-spacing:.18em;padding-left:.18em}
+.editor-note-inner h2::after{content:"";display:block;width:48px;height:1px;margin:16px auto 0;background:#B8A276}
+.editor-note-inner p{padding:36px 44px;border-top:1px solid #D8CBAF;border-bottom:1px solid #D8CBAF;color:#40392F;font-family:"FangSong","STFangsong","仿宋",serif;font-size:17px;line-height:2.15;letter-spacing:.035em;text-align:justify;text-justify:inter-ideograph;text-indent:2em}
+.editor-contact{display:block;margin-top:20px;color:#765B1B;font-family:"Songti SC","STSong","SimSun","宋体",serif;font-size:15px;font-weight:600;letter-spacing:.06em;text-align:right;text-indent:0}
+@media(max-width:768px){.editor-note-section{padding:64px 18px 68px}.editor-note-inner h2{margin-bottom:30px}.editor-note-inner p{padding:28px 20px;font-size:15px;line-height:2}.editor-contact{font-size:14px;text-align:left}}
+
 /* Larger generation navigation below the family-tree heading. */
 .tree-controls .gen-jump{gap:4px}
 .tree-controls .gen-jump .gen-btn{padding:6px 10px;font-size:12px;border-radius:6px}
