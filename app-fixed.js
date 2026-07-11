@@ -48,7 +48,7 @@ function closeModal() {
 }
 
 function personModal(person, generation, generationIndex) {
-  const unknown = '不详';
+  const unknown = '待考证';
   const char = familyData.beifen[generationIndex]?.char || unknown;
   const spouse = person.spouse || person.s;
   const fields = [
@@ -98,9 +98,9 @@ function passwordModal() {
 
 function pendingPasswordModal() {
   openModal(`
-    <div class="modal-name" id="modalTitle">查看待确认人员</div>
+    <div class="modal-name" id="modalTitle">查看世系待考</div>
     <div class="modal-divider"></div>
-    <label for="pendingPasswordInput" class="modal-label">请输入待确认模块密码</label>
+    <label for="pendingPasswordInput" class="modal-label">请输入世系待考模块密码</label>
     <input id="pendingPasswordInput" type="password" class="modal-input" autocomplete="current-password">
     <p id="pendingPasswordError" class="form-error" role="alert"></p>
     <button id="pendingPasswordSubmit" class="modal-submit">确认</button>
@@ -205,7 +205,7 @@ function renderPending(container, term = '') {
   section.className = 'gen-row pending-generation visible';
   section.innerHTML = `
     <div class="gen-header pending-header">
-      <h3>待确认</h3>
+      <h3>世系待考</h3>
       <div class="gen-info">世系待考 · ${pending.length}人</div>
       <div class="gen-line"></div>
     </div>
@@ -216,7 +216,7 @@ function renderPending(container, term = '') {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'gen-btn pending-unlock';
-    button.textContent = '输入密码查看待确认人员';
+    button.textContent = '输入密码查看待考证';
     button.addEventListener('click', pendingPasswordModal);
     content.appendChild(button);
     container.appendChild(section);
@@ -231,7 +231,7 @@ function renderPending(container, term = '') {
       if (!person.birth) card.classList.add('unknown-birth');
       card.type = 'button';
       card.innerHTML = `<span class="p-name">${renderVerticalName(person.n)}</span>`;
-      card.addEventListener('click', () => personModal(person, '待确认', -1));
+      card.addEventListener('click', () => personModal(person, '世系待考', -1));
       members.appendChild(card);
     });
     content.appendChild(members);

@@ -24,22 +24,22 @@ ws.append(headers)
 serial = 1
 for generation_index, generation in enumerate(DATA["zupu"], start=1):
     generation_name = generation["g"]
-    generation_char = DATA["beifen"][generation_index - 1].get("char") or "不详"
+    generation_char = DATA["beifen"][generation_index - 1].get("char") or "待考证"
     for person in generation["m"]:
         full_name = str(person.get("n") or "").replace("聶", "聂").replace("璽", "玺").replace("廣", "广").replace("潤", "润").replace(" ", "")
         given_name = full_name[1:] if full_name.startswith("聂") else full_name
         spouse = person.get("s")
         if not spouse or spouse == "未知":
-            spouse = "不详"
-        death = person.get("d") or "不详"
-        bio = person.get("bio") or person.get("i") or "不详"
+            spouse = "待考证"
+        death = person.get("d") or "待考证"
+        bio = person.get("bio") or person.get("i") or "待考证"
         ws.append([
             serial, generation_index, generation_name, generation_char, "聂", given_name,
-            person.get("zi") or "不详", person.get("hao") or "不详",
-            person.get("birth") or "不详", death, spouse,
-            person.get("children") or "不详", person.get("migration") or "不详",
-            person.get("achievements") or bio, person.get("burial") or "不详",
-            bio, person.get("source") or "不详", person.get("note") or "不详"
+            person.get("zi") or "待考证", person.get("hao") or "待考证",
+            person.get("birth") or "待考证", death, spouse,
+            person.get("children") or "待考证", person.get("migration") or "待考证",
+            person.get("achievements") or bio, person.get("burial") or "待考证",
+            bio, person.get("source") or "待考证", person.get("note") or "待考证"
         ])
         serial += 1
 
@@ -48,15 +48,15 @@ for person in DATA.get("pending", []):
     given_name = full_name[1:] if full_name.startswith("聂") else full_name
     spouse = person.get("s")
     if not spouse or spouse == "未知":
-        spouse = "不详"
+        spouse = "待考证"
     ws.append([
-        serial, "", "待确认", "不详", "聂", given_name,
-        person.get("zi") or "不详", person.get("hao") or "不详",
-        person.get("birth") or "不详", person.get("d") or "不详", spouse,
-        person.get("children") or "不详", person.get("migration") or "不详",
-        person.get("achievements") or "不详", person.get("burial") or "不详",
-        person.get("bio") or person.get("i") or "不详",
-        person.get("source") or "不详", person.get("note") or "不详"
+        serial, "", "世系待考", "待考证", "聂", given_name,
+        person.get("zi") or "待考证", person.get("hao") or "待考证",
+        person.get("birth") or "待考证", person.get("d") or "待考证", spouse,
+        person.get("children") or "待考证", person.get("migration") or "待考证",
+        person.get("achievements") or "待考证", person.get("burial") or "待考证",
+        person.get("bio") or person.get("i") or "待考证",
+        person.get("source") or "待考证", person.get("note") or "待考证"
     ])
     serial += 1
 
@@ -100,7 +100,7 @@ guide_rows = [
     ("聂氏宗谱维护数据库", "用于维护族人姓名、世系与人物资料"),
     ("新增族人", "在“族人数据库”表格末行继续输入；序号会随表格扩展自动填充。"),
     ("世系数字", "填写阿拉伯数字 1—20；页面按此字段自动归入对应世系。"),
-    ("缺失信息", "统一填写“不详”，不要留空或使用“未知”“暂无”。"),
+    ("缺失信息", "统一填写“待考证”，不要留空或使用“未知”“暂无”。"),
     ("姓名规则", "姓、名分列填写；名中无需重复填写“聂”。"),
     ("日期规则", "能确认具体日期时使用 YYYY-MM-DD；仅知年份可填写年份并在备注说明。"),
     ("人物字段", "字辈、名、字、号、生卒年月日、配偶、子女、迁徙地、功名事迹、墓葬、简介均可直接维护。"),

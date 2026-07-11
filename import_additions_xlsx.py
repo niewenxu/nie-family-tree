@@ -69,6 +69,11 @@ for generation_index in range(11, len(data['zupu'])):
     dated = sorted((person for person in people if person.get('birth')), key=lambda person: person['birth'])
     data['zupu'][generation_index]['m'] = unknown + dated
 
+pending_people = data.get('pending', [])
+pending_dated = sorted((person for person in pending_people if person.get('birth')), key=lambda person: person['birth'])
+pending_unknown = [person for person in pending_people if not person.get('birth')]
+data['pending'] = pending_dated + pending_unknown
+
 DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(json.dumps({
     'added_generations': added_generations,
