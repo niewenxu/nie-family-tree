@@ -56,6 +56,7 @@ function personModal(person, generation, generationIndex) {
   const contact = rawContact
     ? (normalizedName === '聶强' && namesUnlocked ? rawContact : `${rawContact.slice(0, -4)}****`)
     : unknown;
+  const isFounder = generationIndex === 0;
   const fields = [
     ['字辈', char === '單字' ? '单名，无固定字辈' : char],
     ['名', formatName(person.name || person.n || unknown)],
@@ -69,7 +70,11 @@ function personModal(person, generation, generationIndex) {
     ['功名事迹', person.achievements],
     ['墓葬', person.burial],
     ['简介', person.bio || person.i]
-  ];
+  ].filter(([label]) => {
+    if (isFounder && ['字辈', '子女', '联系方式'].includes(label)) return false;
+    if (generationIndex >= 0 && generationIndex <= 10 && label === '联系方式') return false;
+    return true;
+  });
   openModal(`
     <div class="person-sheet-heading"><span>${generation}</span><strong id="modalTitle">${formatName(person.n)}</strong></div>
     ${fields.map(([label, value]) => `<div class="modal-field"><span class="modal-label">${label}</span><span class="modal-value">${value || unknown}</span></div>`).join('')}

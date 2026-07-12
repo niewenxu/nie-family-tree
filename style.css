@@ -367,3 +367,27 @@ section{padding:82px 24px}section h2{font:500 clamp(30px,3.6vw,42px)/1.3 "STKait
 .pending-content{display:flex;justify-content:center;width:100%;padding:18px 0 8px}
 .pending-unlock{padding:11px 22px;color:var(--ochre)}
 .pending-person{border-style:dashed}
+
+/* Integrated regional evidence within historical references */
+.tree-guidance{margin-bottom:8px;text-align:center}
+.tree-caveat{margin:0 0 40px;text-align:center;color:#765b1b;font-size:14px;letter-spacing:.02em}
+.regional-evidence{max-width:1000px;margin:42px auto 48px;padding-top:34px;border-top:1px solid var(--rule);text-align:left}
+.regional-evidence>h3{margin:0 0 24px;font:500 24px "STKaiti","KaiTi","FangSong",serif;letter-spacing:.1em;color:#40372b}
+.regional-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}
+.regional-evidence figure{margin:0;min-width:0;background:rgba(255,255,255,.42);border:1px solid #d8ccb3}
+.regional-evidence img{display:block;width:100%;height:270px;object-fit:contain;background:#e9deca}
+.regional-evidence figcaption{padding:14px 16px 16px;color:#554d41;font-family:"FangSong","STFangsong","STSong",serif;font-size:14px;line-height:1.8;text-align:justify}
+.regional-evidence figcaption b{display:inline-block;margin-right:.35em;color:#8d392e;font-family:"Songti SC","STSong",serif}
+.network-group-title+.reference-grid{gap:12px}
+.network-group-title+.reference-grid .reference-card{display:block;border-radius:2px;background:rgba(255,255,255,.58)}
+.network-group-title+.reference-grid .reference-body{padding:18px 20px}
+@media(max-width:700px){
+  .tree-guidance{max-width:330px;margin-left:auto;margin-right:auto;line-height:1.8}
+  .tree-caveat{max-width:330px;margin:0 auto 30px;font-size:13px;line-height:1.7}
+  .regional-evidence{margin-top:32px;padding-top:28px}
+  .regional-evidence>h3{font-size:21px;line-height:1.5;text-align:center}
+  .regional-evidence-grid{grid-template-columns:1fr;gap:18px}
+  .regional-evidence img{height:auto;max-height:360px}
+  .regional-evidence figcaption{font-size:13px;line-height:1.75}
+  .network-group-title+.reference-grid .reference-card{display:block;grid-template-columns:none}
+}
