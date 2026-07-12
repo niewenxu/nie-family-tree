@@ -391,3 +391,113 @@ section{padding:82px 24px}section h2{font:500 clamp(30px,3.6vw,42px)/1.3 "STKait
   .regional-evidence figcaption{font-size:13px;line-height:1.75}
   .network-group-title+.reference-grid .reference-card{display:block;grid-template-columns:none}
 }
+
+/* Historical sources — unified archival plate layout (2 + 3 + 3). */
+.references-section .merged-document-grid{
+  gap:16px;
+  margin-bottom:30px;
+  padding:0;
+  background:transparent;
+}
+.references-section .document-card{
+  display:flex;
+  min-height:0;
+  flex-direction:column-reverse;
+  border:1px solid #cfc1a6;
+  border-radius:0;
+  background:rgba(255,253,248,.62);
+  box-shadow:none;
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+.references-section .document-card:hover{
+  transform:translateY(-3px);
+  border-color:#a98d56;
+  box-shadow:0 10px 24px rgba(69,52,27,.08);
+}
+.references-section .document-card img{
+  width:100%;
+  height:210px;
+  aspect-ratio:auto;
+  object-fit:cover;
+  object-position:center 24%;
+  background:#cfba91;
+  filter:sepia(.12) saturate(.9) contrast(1.03);
+  transition:transform .5s ease,filter .4s ease;
+}
+.references-section .document-card:hover img{transform:scale(1.045);filter:sepia(0) saturate(1) contrast(1.06)}
+.references-section .document-meta{
+  min-height:66px;
+  box-sizing:border-box;
+  justify-content:center;
+  padding:12px 15px;
+  border-top:1px solid #d8cbb3;
+  background:rgba(255,253,248,.92);
+}
+.references-section .document-meta strong{color:#493e30;font:500 17px "STKaiti","KaiTi","FangSong",serif}
+.references-section .document-meta span{color:#887b67;font-size:11px;letter-spacing:.04em}
+.references-section .reference-feature{
+  grid-template-columns:minmax(0,1.32fr) minmax(320px,.68fr);
+  min-height:330px;
+  border:1px solid #cfc1a6;
+  border-radius:0;
+  background:rgba(255,253,248,.65);
+  box-shadow:none;
+}
+.references-section .reference-feature>img{
+  height:330px;
+  min-height:330px;
+  object-fit:cover;
+  object-position:center;
+  background:#cfba91;
+  filter:sepia(.1) saturate(.92) contrast(1.04);
+  transition:transform .55s ease,filter .4s ease;
+}
+.references-section .reference-feature:hover>img{transform:scale(1.035);filter:sepia(0) saturate(1) contrast(1.07)}
+.references-section .reference-feature-copy{padding:26px 28px;border-left:1px solid #d8cbb3}
+.regional-evidence{max-width:1000px;margin-top:48px;padding-top:38px}
+.regional-evidence-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.regional-evidence figure,
+.regional-evidence figure:nth-child(3n),
+.regional-evidence figure:nth-child(3n+1):not(:first-child){
+  display:grid;
+  grid-column:span 2;
+  grid-template-rows:218px minmax(92px,auto);
+  border:1px solid #cfc1a6;
+  border-radius:0;
+  background:rgba(255,253,248,.62);
+  box-shadow:none;
+}
+.origin-grid figure:nth-child(-n+2){
+  grid-column:span 3;
+  grid-template-rows:255px minmax(88px,auto);
+}
+.regional-image{height:auto;min-height:0;background:#cfba91}
+.regional-evidence img{transform:none;object-position:center;filter:sepia(.1) saturate(.92) contrast(1.04)}
+.regional-evidence figure:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(69,52,27,.08)}
+.regional-evidence figure:hover img{transform:scale(1.055);filter:sepia(0) saturate(1) contrast(1.07)}
+.regional-evidence figcaption{
+  display:flex;
+  min-height:0;
+  box-sizing:border-box;
+  flex-direction:column;
+  justify-content:center;
+  padding:14px 16px;
+  border-top:1px solid #d8cbb3;
+  background:rgba(255,253,248,.94);
+  font-size:13px;
+  line-height:1.65;
+}
+.regional-evidence figcaption strong{font-size:16px}
+.regional-source{margin-bottom:20px}.map-source{margin-top:16px}.extension-heading{margin-top:46px}
+@media(max-width:700px){
+  .references-section .merged-document-grid{gap:14px}
+  .references-section .document-card{display:grid;grid-template-columns:42% 58%;grid-template-areas:"image meta"}
+  .references-section .document-card img{grid-area:image;height:128px}
+  .references-section .document-meta{grid-area:meta;min-height:128px;border-top:0;border-left:1px solid #d8cbb3}
+  .references-section .reference-feature{grid-template-columns:1fr;min-height:0}
+  .references-section .reference-feature>img{height:220px;min-height:220px}
+  .references-section .reference-feature-copy{padding:22px 20px;border-top:1px solid #d8cbb3;border-left:0}
+  .regional-evidence-grid{grid-template-columns:1fr;gap:15px}
+  .regional-evidence figure,.regional-evidence figure:nth-child(3n),.regional-evidence figure:nth-child(3n+1):not(:first-child),.origin-grid figure:nth-child(-n+2){grid-column:auto;grid-template-rows:210px auto}
+  .regional-evidence figcaption{min-height:84px}
+}
