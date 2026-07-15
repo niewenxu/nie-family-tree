@@ -7,6 +7,7 @@ let traditionalMode = false;
 let verticalMode = false;
 
 const $ = (selector) => document.querySelector(selector);
+const inferencePattern = /推测|猜测|口传|据传/;
 
 function normalizeChinese(value) {
   const pairs = {
@@ -77,7 +78,7 @@ function personModal(person, generation, generationIndex) {
   });
   openModal(`
     <div class="person-sheet-heading"><span>${generation}</span><strong id="modalTitle">${formatName(person.n)}</strong></div>
-    ${fields.map(([label, value]) => `<div class="modal-field"><span class="modal-label">${label}</span><span class="modal-value">${value || unknown}</span></div>`).join('')}
+    ${fields.map(([label, value]) => `<div class="modal-field"><span class="modal-label">${label}</span><span class="modal-value${inferencePattern.test(String(value || '')) ? ' inference-text' : ''}">${value || unknown}</span></div>`).join('')}
   `);
 }
 
