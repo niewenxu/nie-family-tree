@@ -1,13 +1,22 @@
 import json
 import re
+import argparse
 from collections import Counter
 from pathlib import Path
 
 from openpyxl import load_workbook
 
 ROOT = Path(__file__).parent
-SOURCE = Path('/Users/niewenxu/Desktop/新增.xlsx')
 DATA_PATH = ROOT / 'data.json'
+
+parser = argparse.ArgumentParser(description='将新增族人 Excel 合并到 data.json')
+parser.add_argument('source', type=Path, help='待导入的 Excel 文件路径')
+parser.add_argument('--dry-run', action='store_true', help='只显示导入结果，不写入 data.json')
+args = parser.parse_args()
+SOURCE = args.source.expanduser().resolve()
+
+if not SOURCE.is_file():
+    parser.error(f'找不到 Excel 文件：{SOURCE}')
 
 data = json.loads(DATA_PATH.read_text(encoding='utf-8'))
 rows = list(load_workbook(SOURCE, read_only=True, data_only=True).active.iter_rows(min_row=2, values_only=True))
@@ -19,14 +28,14 @@ existing = {normalize(person['n']) for generation in data['zupu'] for person in 
 pending_existing = {normalize(person['n']) for person in data.get('pending', [])}
 
 known_special = {
-    '聶爱忠': 11,
-    '聶爱华': 11,
-    '聶伏雨': 12,
-    '聶东升': 13,
-    '聶磊': 13,
+    '聶爱忠': 12,
+    '聶爱华': 12,
+    '聶伏雨': 13,
+    '聶东升': 14,
+    '聶磊': 14,
 }
 alias_only = {'聶文旭'}
-generation_prefixes = {'德': 10, '广': 11, '成': 12, '先': 13, '印': 14}
+generation_prefixes = {'德': 11, '广': 12, '成': 13, '先': 14, '印': 15}
 
 added_generations = []
 added_pending = []
@@ -53,16 +62,19 @@ for raw_name, raw_birth in rows:
     if birth:
         record['birth'] = birth
 
-    if generation_index is not None and generation_index >= 10:
-        data['zupu'][generation_index]['m'].append(record)
+    if generation_index is not None and 1 <= generation_index <= len(data['zupu']):
+        # generation_index is a human-facing, one-based generation number.
+        generation = data['zupu'][generation_index - 1]
+        generation['m'].append(record)
         existing.add(name)
-        added_generations.append((raw_name, data['zupu'][generation_index]['g'], birth))
+        added_generations.append((raw_name, generation['g'], birth))
     else:
         data.setdefault('pending', []).append(record)
         pending_existing.add(name)
         added_pending.append((raw_name, birth))
 
-# From 广 generation onward: undated records first in stable order, then dated oldest-to-youngest.
+# From the 广 generation (12th generation) onward: undated records first in
+# stable order, then dated records from oldest to youngest.
 for generation_index in range(11, len(data['zupu'])):
     people = data['zupu'][generation_index]['m']
     unknown = [person for person in people if not person.get('birth')]
@@ -74,8 +86,10 @@ pending_dated = sorted((person for person in pending_people if person.get('birth
 pending_unknown = [person for person in pending_people if not person.get('birth')]
 data['pending'] = pending_dated + pending_unknown
 
-DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+if not args.dry_run:
+    DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(json.dumps({
+    'dry_run': args.dry_run,
     'added_generations': added_generations,
     'added_pending': added_pending,
     'skipped_existing_count': len(skipped_existing),
