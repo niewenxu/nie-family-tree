@@ -351,8 +351,6 @@ section{padding:82px 24px}section h2{font:500 clamp(30px,3.6vw,42px)/1.3 "STKait
 .editor-contact-line a{color:var(--ochre);text-decoration:none;border-bottom:1px solid rgba(154,118,39,.45)}
 @media(max-width:700px){.ancestor-seal{width:28px;height:28px;margin-left:4px}.editor-note-copy{font-size:18px}.editor-contact-line{text-align:left}}
 
-/* Clearly distinguish oral-history and inferred statements from sourced facts. */
-.inference-text{padding:0 .08em;color:#6f5727;background:linear-gradient(transparent 72%,rgba(154,118,39,.14) 72%);text-decoration:underline;text-decoration-color:rgba(126,92,29,.42);text-decoration-style:dotted;text-underline-offset:.22em}
 .source-note-ref{position:relative;top:-.35em;margin-left:.12em;color:#8b6914;font-family:"Songti SC","STSong",serif;font-size:.58em;font-weight:600;line-height:0;vertical-align:super}
 .editor-footnote{max-width:880px;margin:18px auto 0;color:#786f62;font-family:"FangSong","STFangsong","Songti SC",serif;font-size:10.2px;line-height:1.9;letter-spacing:.015em;text-align:justify}
 .editor-footnote>span{margin-right:.35em;color:#8b6914;font-weight:700}.editor-footnote strong{color:#66501f;font-weight:700}
@@ -397,6 +395,32 @@ section{padding:82px 24px}section h2{font:500 clamp(30px,3.6vw,42px)/1.3 "STKait
   .regional-image{height:210px}
   .regional-evidence figcaption{font-size:13px;line-height:1.75}
   .network-group-title+.reference-grid .reference-card{display:block;grid-template-columns:none}
+}
+
+/* Secure access dialog: restrained, readable and touch-friendly. */
+body.modal-open{overflow:hidden}
+.modal-close{top:12px;right:12px;width:44px;height:44px;color:#6f6a61}
+.password-panel{max-width:400px;margin:0 auto;padding-top:6px;text-align:left}
+.password-panel .modal-name{text-align:center;font:500 25px "STKaiti","KaiTi",serif;letter-spacing:.08em}
+.password-help{margin:0 0 20px;color:#766e61;font-size:14px;line-height:1.7;text-align:center}
+.password-label{display:block;margin-bottom:8px;color:#4b463f;font-size:14px}
+.password-input-row{display:grid;grid-template-columns:minmax(0,1fr) 64px;gap:8px;align-items:stretch}
+.password-input-row .modal-input{width:100%;min-height:46px;margin:0;padding:11px 12px;border-color:#b9aa8c;border-radius:2px;background:#fffdf8;text-align:left}
+.password-visibility{min-height:46px;border:1px solid #b9aa8c;border-radius:2px;background:#f3eee3;color:#49443d;font:inherit;cursor:pointer}
+.modal-submit{width:100%;min-height:46px;margin-top:18px;padding:10px 28px}
+.modal-submit:disabled,.password-visibility:disabled{cursor:wait;opacity:.55}
+.form-error{min-height:22px;margin:8px 0 0;color:#9b3028;font-size:13px;line-height:1.6}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid rgba(139,105,20,.38);outline-offset:3px}
+@media(max-width:480px){
+  .modal-overlay{align-items:flex-end}
+  .modal{width:100%;max-height:88vh;margin:0;border-width:1px 0 0;padding:28px 18px 22px}
+  .password-input-row{grid-template-columns:minmax(0,1fr) 60px}
+  .person-sheet-heading{padding-right:36px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .hero-floating{display:none}
 }
 
 /* Historical sources — unified archival plate layout (2 + 3 + 3). */

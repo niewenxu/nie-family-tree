@@ -1,13 +1,53 @@
 'use strict';
 
 let familyData = null;
+let protectedData = null;
 let namesUnlocked = false;
 let pendingUnlocked = false;
 let traditionalMode = false;
 let verticalMode = false;
+let modalReturnFocus = null;
+const failedAttempts = { main: 0, pending: 0 };
+const lockedUntil = { main: 0, pending: 0 };
 
 const $ = (selector) => document.querySelector(selector);
-const inferencePattern = /推测|猜测|口传|据传/;
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (character) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[character]);
+}
+
+function fromBase64(value) {
+  return Uint8Array.from(atob(value), (character) => character.charCodeAt(0));
+}
+
+async function decryptEnvelope(envelope, password) {
+  if (!envelope || envelope.algorithm !== 'AES-256-GCM' || envelope.kdf !== 'PBKDF2-SHA-256') {
+    throw new Error('加密数据格式无效');
+  }
+  const keyMaterial = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(password),
+    'PBKDF2',
+    false,
+    ['deriveKey']
+  );
+  const key = await crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt: fromBase64(envelope.salt), iterations: envelope.iterations, hash: 'SHA-256' },
+    keyMaterial,
+    { name: 'AES-GCM', length: 256 },
+    false,
+    ['decrypt']
+  );
+  const packed = fromBase64(envelope.ciphertext);
+  const plaintext = await crypto.subtle.decrypt(
+    { name: 'AES-GCM', iv: fromBase64(envelope.iv), tagLength: 128 },
+    key,
+    packed
+  );
+  return JSON.parse(new TextDecoder().decode(plaintext));
+}
 
 function normalizeChinese(value) {
   const pairs = {
@@ -25,27 +65,33 @@ function formatName(name) {
   return String(name).replace(/璽/g, '玺').replace(/廣/g, '广').replace(/潤/g, '润');
 }
 
-function displayName(name, generationIndex) {
-  if (namesUnlocked || generationIndex < 11) return name;
-  return `${name.slice(0, -1)}＿`;
+function displayName(person) {
+  return person.n;
 }
 
 function renderVerticalName(name) {
   const characters = [...formatName(name).replace(/\s/g, '')];
-  if (characters.length === 2) characters.splice(1, 0, '<span class="name-spacer" aria-hidden="true">　</span>');
-  return characters.map((character) => character.startsWith('<span') ? character : `<span>${character}</span>`).join('');
+  if (characters.length === 2) characters.splice(1, 0, null);
+  return characters.map((character) => character === null
+    ? '<span class="name-spacer" aria-hidden="true">　</span>'
+    : `<span>${escapeHTML(character)}</span>`).join('');
 }
 
 function openModal(html) {
+  modalReturnFocus = document.activeElement;
   $('#modalContent').innerHTML = html;
   $('#modalOverlay').classList.add('open');
   $('#modalOverlay').setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
   $('#modalClose').focus();
 }
 
 function closeModal() {
   $('#modalOverlay').classList.remove('open');
   $('#modalOverlay').setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+  if (modalReturnFocus instanceof HTMLElement) modalReturnFocus.focus();
+  modalReturnFocus = null;
 }
 
 function personModal(person, generation, generationIndex) {
@@ -77,71 +123,112 @@ function personModal(person, generation, generationIndex) {
     return true;
   });
   openModal(`
-    <div class="person-sheet-heading"><span>${generation}</span><strong id="modalTitle">${formatName(person.n)}</strong></div>
-    ${fields.map(([label, value]) => `<div class="modal-field"><span class="modal-label">${label}</span><span class="modal-value${inferencePattern.test(String(value || '')) ? ' inference-text' : ''}">${value || unknown}</span></div>`).join('')}
+    <div class="person-sheet-heading"><span>${escapeHTML(generation)}</span><strong id="modalTitle">${escapeHTML(formatName(person.n))}</strong></div>
+    ${fields.map(([label, value]) => `<div class="modal-field"><span class="modal-label">${escapeHTML(label)}</span><span class="modal-value">${escapeHTML(value || unknown)}</span></div>`).join('')}
   `);
 }
 
-function passwordModal() {
+function mergeMainRecords(records) {
+  familyData.zupu.forEach((generation) => {
+    generation.m = generation.m.map((person) => person.recordKey && records[person.recordKey]
+      ? records[person.recordKey]
+      : person);
+  });
+}
+
+function passwordModal(kind = 'main') {
+  const isPending = kind === 'pending';
+  const title = isPending ? '验证后查看世系待考' : '验证后查看族人资料';
+  const inputId = `${kind}PasswordInput`;
+  const errorId = `${kind}PasswordError`;
   openModal(`
-    <div class="modal-name" id="modalTitle">查看更多后人</div>
+    <div class="password-panel">
+    <div class="modal-name" id="modalTitle">${title}</div>
     <div class="modal-divider"></div>
-    <label for="passwordInput" class="modal-label">请输入密码</label>
-    <input id="passwordInput" type="password" class="modal-input" autocomplete="current-password">
-    <p id="passwordError" class="form-error" role="alert"></p>
-    <button id="passwordSubmit" class="modal-submit">确认</button>
+    <p class="password-help">资料仅在本次页面停留期间解锁；刷新或关闭页面后需重新验证。</p>
+    <label for="${inputId}" class="password-label">${isPending ? '世系待考密码' : '族人资料密码'}</label>
+    <div class="password-input-row">
+      <input id="${inputId}" type="password" class="modal-input" autocomplete="off" autocapitalize="none" spellcheck="false" ${isPending ? '' : 'inputmode="numeric"'} aria-describedby="${errorId}">
+      <button type="button" class="password-visibility" aria-label="显示密码" aria-pressed="false">显示</button>
+    </div>
+    <p id="${errorId}" class="form-error" role="alert" aria-live="polite"></p>
+    <button type="button" class="modal-submit">验证并查看</button>
+    </div>
   `);
-  const input = $('#passwordInput');
-  const submit = $('#passwordSubmit');
-  const verify = () => {
-    if (input.value !== '9999') {
-      $('#passwordError').textContent = '密码错误，请重新输入。';
+  const input = $(`#${inputId}`);
+  const submit = $('.modal-submit');
+  const error = $(`#${errorId}`);
+  const visibility = $('.password-visibility');
+  const verify = async () => {
+    const remainingLock = Math.ceil((lockedUntil[kind] - Date.now()) / 1000);
+    if (remainingLock > 0) {
+      error.textContent = `尝试次数过多，请 ${remainingLock} 秒后再试。`;
+      return;
+    }
+    if (!input.value) {
+      error.textContent = '请输入密码。';
       input.focus();
       return;
     }
-    namesUnlocked = true;
-    renderTree($('#searchInput').value);
-    closeModal();
+    submit.disabled = true;
+    input.disabled = true;
+    visibility.disabled = true;
+    submit.textContent = '验证中…';
+    try {
+      const payload = await decryptEnvelope(protectedData[kind], input.value);
+      failedAttempts[kind] = 0;
+      if (isPending) {
+        familyData.pending = Array.isArray(payload.people) ? payload.people : [];
+        pendingUnlocked = true;
+      } else {
+        mergeMainRecords(payload.records || {});
+        namesUnlocked = true;
+      }
+      renderTree($('#searchInput').value);
+      closeModal();
+    } catch {
+      failedAttempts[kind] += 1;
+      const attemptsLeft = 5 - failedAttempts[kind];
+      if (attemptsLeft <= 0) {
+        failedAttempts[kind] = 0;
+        lockedUntil[kind] = Date.now() + 30_000;
+        error.textContent = '尝试次数过多，请 30 秒后再试。';
+      } else {
+        error.textContent = `密码错误，还可尝试 ${attemptsLeft} 次。`;
+      }
+      input.value = '';
+      input.disabled = false;
+      visibility.disabled = false;
+      submit.disabled = false;
+      submit.textContent = '验证并查看';
+      input.focus();
+    }
   };
   submit.addEventListener('click', verify);
-  input.addEventListener('keydown', (event) => event.key === 'Enter' && verify());
+  visibility.addEventListener('click', () => {
+    const visible = input.type === 'text';
+    input.type = visible ? 'password' : 'text';
+    visibility.textContent = visible ? '显示' : '隐藏';
+    visibility.setAttribute('aria-label', visible ? '显示密码' : '隐藏密码');
+    visibility.setAttribute('aria-pressed', String(!visible));
+    input.focus();
+  });
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') verify();
+  });
   input.focus();
 }
 
-function pendingPasswordModal() {
-  openModal(`
-    <div class="modal-name" id="modalTitle">查看世系待考</div>
-    <div class="modal-divider"></div>
-    <label for="pendingPasswordInput" class="modal-label">请输入世系待考模块密码</label>
-    <input id="pendingPasswordInput" type="password" class="modal-input" autocomplete="current-password">
-    <p id="pendingPasswordError" class="form-error" role="alert"></p>
-    <button id="pendingPasswordSubmit" class="modal-submit">确认</button>
-  `);
-  const input = $('#pendingPasswordInput');
-  const submit = $('#pendingPasswordSubmit');
-  const verify = () => {
-    if (input.value !== '122754aA#') {
-      $('#pendingPasswordError').textContent = '密码错误，请重新输入。';
-      input.focus();
-      return;
-    }
-    pendingUnlocked = true;
-    renderTree($('#searchInput').value);
-    closeModal();
-  };
-  submit.addEventListener('click', verify);
-  input.addEventListener('keydown', (event) => event.key === 'Enter' && verify());
-  input.focus();
-}
+const pendingPasswordModal = () => passwordModal('pending');
 
 function renderGenerationalNames() {
   const track = $('#beifenTrack');
-  track.innerHTML = '';
+  track.replaceChildren();
   familyData.beifen.forEach((item, index) => {
     const button = document.createElement('button');
     button.className = 'beifen-item';
     button.type = 'button';
-    button.innerHTML = `<span class="beifen-gen">${item.gen}</span><span class="beifen-char">${item.char || '—'}</span>`;
+    button.innerHTML = `<span class="beifen-gen">${escapeHTML(item.gen)}</span><span class="beifen-char">${escapeHTML(item.char || '—')}</span>`;
     button.addEventListener('click', () => document.querySelector(`[data-generation="${index}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
     track.appendChild(button);
   });
@@ -151,8 +238,8 @@ function renderTree(query = '') {
   const container = $('#treeContainer');
   const jump = $('#genJump');
   const term = normalizeChinese(query);
-  container.innerHTML = '';
-  jump.innerHTML = '';
+  container.replaceChildren();
+  jump.replaceChildren();
   let matches = 0;
 
   familyData.zupu.forEach((generation, generationIndex) => {
@@ -166,8 +253,8 @@ function renderTree(query = '') {
     const char = familyData.beifen[generationIndex]?.char || '';
     row.innerHTML = `
       <button class="gen-header" type="button" aria-expanded="${generationIndex < 2 ? 'true' : 'false'}">
-        <h3>${generation.g}</h3>
-        <div class="gen-info">${char ? `字辈「${char}」 · ` : ''}${generation.m.length}人</div>
+        <h3>${escapeHTML(generation.g)}</h3>
+        <div class="gen-info">${char ? `字辈「${escapeHTML(char)}」 · ` : ''}${generation.m.length}人</div>
         <div class="gen-line"></div>
       </button>
       <div class="gen-members${generationIndex < 2 ? '' : ' mobile-collapsed'}"></div>
@@ -185,11 +272,11 @@ function renderTree(query = '') {
       const card = document.createElement('button');
       card.className = 'person-card';
       if (/^聶门/.test(person.n.replace(/\s/g, ''))) card.classList.add('in-law-name');
-      if (!person.birth) card.classList.add('unknown-birth');
+      if (!person.birth && !person.birthKnown) card.classList.add('unknown-birth');
       card.type = 'button';
-      card.innerHTML = `<span class="p-name">${renderVerticalName(displayName(person.n, generationIndex))}</span>`;
+      card.innerHTML = `<span class="p-name">${renderVerticalName(displayName(person))}</span>`;
       card.addEventListener('click', () => {
-        if (!namesUnlocked && (generationIndex >= 11 || Boolean(person.birth))) passwordModal();
+        if (person.protected && !namesUnlocked) passwordModal();
         else personModal(person, generation.g, generationIndex);
       });
       members.appendChild(card);
@@ -207,18 +294,19 @@ function renderTree(query = '') {
   matches += renderPending(container, term);
 
   $('#searchStatus').textContent = term ? `找到 ${matches} 位族人` : '';
-  if (!matches) container.innerHTML = '<p class="empty-state">未找到匹配的族人，请尝试其他姓名。</p>';
+  if (!matches && (!familyData.pendingCount || term)) container.innerHTML = '<p class="empty-state">未找到匹配的族人，请尝试其他姓名。</p>';
 }
 
 function renderPending(container, term = '') {
   const pending = Array.isArray(familyData.pending) ? familyData.pending : [];
-  if (!pending.length) return 0;
+  const pendingCount = pendingUnlocked ? pending.length : Number(familyData.pendingCount || 0);
+  if (!pendingCount) return 0;
   const section = document.createElement('div');
   section.className = 'gen-row pending-generation visible';
   section.innerHTML = `
     <div class="gen-header pending-header">
       <h3>世系待考</h3>
-      <div class="gen-info">世系待考 · ${pending.length}人</div>
+      <div class="gen-info">世系待考 · ${pendingCount}人</div>
       <div class="gen-line"></div>
     </div>
     <div class="pending-content"></div>
@@ -313,25 +401,16 @@ function renderFloatingCharacters() {
 
 async function init() {
   try {
-    const sources = [
-      'data.json?v=20260711-6',
-      './data.json?v=20260711-6',
-      'https://raw.githubusercontent.com/niewenxu/nie-family-tree/main/data.json?v=20260711-6'
-    ];
-    let lastError = null;
-    for (const source of sources) {
-      try {
-        const response = await fetch(source, { cache: 'no-store' });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const candidate = await response.json();
-        if (!Array.isArray(candidate?.beifen) || !Array.isArray(candidate?.zupu)) throw new Error('族谱数据结构不完整');
-        familyData = candidate;
-        break;
-      } catch (error) {
-        lastError = error;
-      }
+    const [publicResponse, protectedResponse] = await Promise.all([
+      fetch('data.json?v=20260725-1', { cache: 'no-store' }),
+      fetch('protected-data.json?v=20260725-1', { cache: 'no-store' })
+    ]);
+    if (!publicResponse.ok || !protectedResponse.ok) throw new Error('族谱数据无法载入');
+    familyData = await publicResponse.json();
+    protectedData = await protectedResponse.json();
+    if (!Array.isArray(familyData?.beifen) || !Array.isArray(familyData?.zupu) || !protectedData?.main || !protectedData?.pending) {
+      throw new Error('族谱数据结构不完整');
     }
-    if (!familyData) throw lastError || new Error('族谱数据无法载入');
     renderGenerationalNames();
     renderTree();
     renderStats();
@@ -348,10 +427,29 @@ async function init() {
   }
 
   $('#searchInput').addEventListener('input', (event) => renderTree(event.target.value));
-  $('#pwBtn').addEventListener('click', passwordModal);
+  $('#pwBtn').addEventListener('click', () => passwordModal('main'));
   $('#modalClose').addEventListener('click', closeModal);
   $('#modalOverlay').addEventListener('click', (event) => event.target === $('#modalOverlay') && closeModal());
-  document.addEventListener('keydown', (event) => event.key === 'Escape' && closeModal());
+  document.addEventListener('keydown', (event) => {
+    const overlay = $('#modalOverlay');
+    if (!overlay.classList.contains('open')) return;
+    if (event.key === 'Escape') {
+      closeModal();
+      return;
+    }
+    if (event.key !== 'Tab') return;
+    const focusable = [...overlay.querySelectorAll('button:not([disabled]), input:not([disabled]), [href]')];
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
 
   $('#navToggle').addEventListener('click', (event) => {
     const links = $('.nav-links');
