@@ -2044,6 +2044,12 @@
           "protected": true,
           "birthKnown": true,
           "recordKey": "12:30"
+        },
+        {
+          "n": "聶炜＿",
+          "protected": true,
+          "birthKnown": true,
+          "recordKey": "12:31"
         }
       ]
     },
@@ -2148,5 +2154,5 @@
       ]
     }
   ],
-  "pendingCount": 25
+  "pendingCount": 24
 }

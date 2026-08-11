@@ -252,22 +252,16 @@ function renderTree(query = '') {
     row.dataset.generation = generationIndex;
     const char = familyData.beifen[generationIndex]?.char || '';
     row.innerHTML = `
-      <button class="gen-header" type="button" aria-expanded="${generationIndex < 2 ? 'true' : 'false'}">
+      <div class="gen-header">
         <h3>${escapeHTML(generation.g)}</h3>
         <div class="gen-info">${char ? `字辈「${escapeHTML(char)}」 · ` : ''}${generation.m.length}人</div>
         <div class="gen-line"></div>
-      </button>
-      <div class="gen-members${generationIndex < 2 ? '' : ' mobile-collapsed'}"></div>
+      </div>
+      <div class="gen-members"></div>
       ${generationIndex < familyData.zupu.length - 1 ? '<div class="gen-connector"></div>' : ''}
     `;
 
     const members = row.querySelector('.gen-members');
-    const header = row.querySelector('.gen-header');
-    header.addEventListener('click', () => {
-      if (window.innerWidth > 700) return;
-      const collapsed = members.classList.toggle('mobile-collapsed');
-      header.setAttribute('aria-expanded', String(!collapsed));
-    });
     people.forEach((person) => {
       const card = document.createElement('button');
       card.className = 'person-card';
@@ -402,8 +396,8 @@ function renderFloatingCharacters() {
 async function init() {
   try {
     const [publicResponse, protectedResponse] = await Promise.all([
-      fetch('data.json?v=20260725-1', { cache: 'no-store' }),
-      fetch('protected-data.json?v=20260725-1', { cache: 'no-store' })
+      fetch('data.json?v=20260811-4', { cache: 'no-store' }),
+      fetch('protected-data.json?v=20260811-4', { cache: 'no-store' })
     ]);
     if (!publicResponse.ok || !protectedResponse.ok) throw new Error('族谱数据无法载入');
     familyData = await publicResponse.json();
